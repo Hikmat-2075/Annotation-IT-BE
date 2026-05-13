@@ -1,0 +1,29 @@
+[
+  {
+    "_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "name": "Hikmat Arif Nugraha",
+    "email": "hikmat@example.com",
+    "password": "$2b$10$7QJ8mJfK8H8KJ7w2s9FJ6u9K4Yq4xY4oQvJm1l9uM4jJQ3jY2xH1G",
+    "completed_tasks": ["trx_98765"],
+    "total_annotated": 1,
+    "last_login": "2026-05-01T14:00:00Z"
+  },
+  {
+    "_id": "b2c3d4e5-f6a7-8901-bcde-f23456789012",
+    "name": "Siti Nurhaliza",
+    "email": "siti.nurhaliza@example.com",
+    "password": "$2b$10$7QJ8mJfK8H8KJ7w2s9FJ6u9K4Yq4xY4oQvJm1l9uM4jJQ3jY2xH1G",
+    "completed_tasks": ["trx_12345", "trx_67890"],
+    "total_annotated": 2,
+    "last_login": "2026-05-10T09:30:00Z"
+  },
+  {
+    "_id": "c3d4e5f6-a7b8-9012-cdef-345678901234",
+    "name": "Budi Santoso",
+    "email": "budi.santoso@example.com",
+    "password": "$2b$10$7QJ8mJfK8H8KJ7w2s9FJ6u9K4Yq4xY4oQvJm1l9uM4jJQ3jY2xH1G",
+    "completed_tasks": [],
+    "total_annotated": 0,
+    "last_login": null
+  }
+]

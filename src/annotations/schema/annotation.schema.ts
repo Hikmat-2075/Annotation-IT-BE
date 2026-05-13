@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
+import { RelationType } from '../enums/relation-type.enum';
 
 export type AnnotationsDocument = HydratedDocument<Annotations>;
 
@@ -11,8 +12,12 @@ class Bundle {
   @Prop({ type: [String], required: true })
   items: string[];
 
-  @Prop({ required: true })
-  relation_type: string;
+  @Prop({
+    type: String,
+    enum: RelationType,
+    required: true,
+  })
+  relation_type: RelationType;
 
   @Prop()
   context: string;

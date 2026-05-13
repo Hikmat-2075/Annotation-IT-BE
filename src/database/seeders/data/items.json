@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "550e8400-e29b-41d4-a716-446655440000",
+    "attributes": {
+      "name": "Kopi Arabika Toraja 250g",
+      "brand": "Excelso",
+      "category": "Food & Beverage",
+      "price": 50000,
+      "image_url": "/images/kopi-arabika.jpg",
+      "description": "Kopi Arabika premium dengan cita rasa khas Toraja.",
+      "origin": "Toraja"
+    }
+  },
+  {
+    "_id": "550e8400-e29b-41d4-a716-446655440001",
+    "attributes": {
+      "name": "Samsung Galaxy S24 Ultra",
+      "brand": "Samsung",
+      "category": "Smartphone",
+      "price": 17999000,
+      "image_url": "/images/s24-ultra.jpg",
+      "description": "Smartphone flagship Samsung dengan kamera 200MP.",
+      "origin": "Korea Selatan"
+    }
+  },
+  {
+    "_id": "550e8400-e29b-41d4-a716-446655440002",
+    "attributes": {
+      "name": "Nike Air Force 1",
+      "brand": "Nike",
+      "category": "Fashion",
+      "price": 1599000,
+      "image_url": "/images/air-force-1.jpg",
+      "description": "Sepatu sneakers klasik dengan desain timeless.",
+      "origin": "Vietnam"
+    }
+  },
+  {
+    "_id": "550e8400-e29b-41d4-a716-446655440003",
+    "attributes": {
+      "name": "Indomie Goreng Jumbo",
+      "brand": "Indomie",
+      "category": "Food & Beverage",
+      "price": 4500,
+      "image_url": "/images/indomie-goreng.jpg",
+      "description": "Mie instan goreng favorit dengan porsi jumbo.",
+      "origin": "Indonesia"
+    }
+  },
+  {
+    "_id": "550e8400-e29b-41d4-a716-446655440004",
+    "attributes": {
+      "name": "Logitech G Pro X",
+      "brand": "Logitech",
+      "category": "Electronics",
+      "price": 1899000,
+      "image_url": "/images/logitech-gprox.jpg",
+      "description": "Headset gaming profesional dengan kualitas audio premium.",
+      "origin": "China"
+    }
+  }
+]

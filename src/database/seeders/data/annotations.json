@@ -1,0 +1,15 @@
+[
+  {
+    "transaction_id": "trx_98765",
+    "annotator_id": "staff_id_001",
+    "bundles": [
+      {
+        "bundle_id": "B001",
+        "items": ["item_kopi_001", "item_susu_002"],
+        "relation_type": "complementary",
+        "context": "Breakfast Combo",
+        "reasoning": "User membeli kopi dan susu dalam waktu dekat untuk sarapan."
+      }
+    ]
+  }
+]

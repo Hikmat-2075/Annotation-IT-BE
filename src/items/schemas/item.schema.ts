@@ -20,33 +20,11 @@ class ItemAttributes {
   price: number;
 
   @Prop()
-  original_price?: number;
-
-  @Prop()
-  discount_amount?: number;
-
-  @Prop({ default: 0 })
-  rating: number;
-
-  @Prop({ default: 0 })
-  review_count: number;
-
-  @Prop({ default: 0 })
-  sold_count: number;
-
-  @Prop()
   image_url?: string;
 
   @Prop()
   description: string;
 
-  @Prop({ type: Object })
-  specifications: Record<string, any>;
-
-  @Prop({ type: [String], default: [] })
-  tags: string[];
-
-  // Field tambahan seperti di requirement (origin)
   @Prop()
   origin?: string;
 }
