@@ -17,7 +17,7 @@ async function bootstrap() {
 
   await AnnotationModel.deleteMany({});
 
-  const filePath = path.join(__dirname, 'data', 'annotators.json');
+  const filePath = path.join(__dirname, 'data', 'annotations.json');
 
   const jsonData = fs.readFileSync(filePath, 'utf-8');
 

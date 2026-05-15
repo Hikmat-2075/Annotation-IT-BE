@@ -23,7 +23,9 @@ export const InteractionItemSchema =
 
 @Schema({ timestamps: true, versionKey: false })
 export class Transactions {
-  @Prop({ required: true })
+  @Prop({
+    required: true,
+  })
   _id: string; // trx_98765
 
   @Prop({ required: true })

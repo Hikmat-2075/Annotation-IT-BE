@@ -1,6 +1,6 @@
 export enum RelationType {
   COMPLEMENTARY = 'complementary',
-  SIMILARITY = 'substitute',
-  CONTEXTUAL = 'accessory',
+  SIMILARITY = 'similarity',
+  CONTEXTUAL = 'contextual',
   EVENT = 'event',
 }

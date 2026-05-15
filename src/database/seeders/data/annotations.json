@@ -1,14 +1,69 @@
 [
   {
     "transaction_id": "trx_98765",
-    "annotator_id": "staff_id_001",
+    "annotator_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
     "bundles": [
       {
         "bundle_id": "B001",
-        "items": ["item_kopi_001", "item_susu_002"],
+        "items": [
+          "item_kopi_001",
+          "item_susu_002"
+        ],
         "relation_type": "complementary",
         "context": "Breakfast Combo",
-        "reasoning": "User membeli kopi dan susu dalam waktu dekat untuk sarapan."
+        "reasoning": "Kopi dan susu sering dikonsumsi bersama saat sarapan."
+      },
+      {
+        "bundle_id": "B002",
+        "items": [
+          "item_roti_003",
+          "item_selai_004"
+        ],
+        "relation_type": "complementary",
+        "context": "Morning Meal",
+        "reasoning": "Roti dan selai merupakan kombinasi umum untuk sarapan."
+      }
+    ]
+  },
+  {
+    "transaction_id": "trx_98766",
+    "annotator_id": "b2c3d4e5-f6a7-8901-bcde-f23456789012",
+    "bundles": [
+      {
+        "bundle_id": "B003",
+        "items": [
+          "item_teh_004",
+          "item_kopi_001"
+        ],
+        "relation_type": "similarity",
+        "context": "Hot Beverage",
+        "reasoning": "Teh dan kopi merupakan minuman panas dengan fungsi serupa."
+      }
+    ]
+  },
+  {
+    "transaction_id": "trx_98767",
+    "annotator_id": "c3d4e5f6-a7b8-9012-cdef-345678901234",
+    "bundles": [
+      {
+        "bundle_id": "B004",
+        "items": [
+          "item_laptop_005",
+          "item_mouse_006"
+        ],
+        "relation_type": "contextual",
+        "context": "Office Setup",
+        "reasoning": "Mouse digunakan untuk mendukung penggunaan laptop."
+      },
+      {
+        "bundle_id": "B005",
+        "items": [
+          "item_kembang_api_007",
+          "item_topi_pesta_008"
+        ],
+        "relation_type": "event",
+        "context": "New Year Celebration",
+        "reasoning": "Kedua item umum digunakan dalam acara tahun baru."
       }
     ]
   }

@@ -14,9 +14,69 @@
       "item_susu_002": {
         "order_number": 2,
         "timestamp": 1714546810,
-        "rating": null,
+        "rating": 4,
         "attributes": {
           "quantity": 2
+        }
+      },
+      "item_roti_003": {
+        "order_number": 3,
+        "timestamp": 1714546825,
+        "rating": 5,
+        "attributes": {
+          "bundle": "breakfast_combo"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_98766",
+    "user_id": "user_family_10",
+    "list_of_interaction_items": {
+      "item_teh_004": {
+        "order_number": 1,
+        "timestamp": 1714546900,
+        "rating": 4,
+        "attributes": {
+          "temperature": "hot"
+        }
+      },
+      "item_gula_005": {
+        "order_number": 2,
+        "timestamp": 1714546912,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_98767",
+    "user_id": "user_gamer_77",
+    "list_of_interaction_items": {
+      "item_keyboard_006": {
+        "order_number": 1,
+        "timestamp": 1714547000,
+        "rating": 5,
+        "attributes": {
+          "switch_type": "red_switch"
+        }
+      },
+      "item_mouse_007": {
+        "order_number": 2,
+        "timestamp": 1714547010,
+        "rating": 5,
+        "attributes": {
+          "dpi": 16000
+        }
+      },
+      "item_headset_008": {
+        "order_number": 3,
+        "timestamp": 1714547025,
+        "rating": 4,
+        "attributes": {
+          "wireless": true
         }
       }
     }

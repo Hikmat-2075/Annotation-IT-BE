@@ -5,28 +5,26 @@ import { ItemsModule } from './items/items.module';
 import { TransactionsModule } from './transactions/transactions.module';
 import { AnnotatorsModule } from './annotators/annotators.module';
 import { AnnotationsModule } from './annotations/annotations.module';
+import { AuthModule } from './auth/auth.module';
 import { MongooseModule } from '@nestjs/mongoose';
-
 import databaseConfig from './config/database.config';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [databaseConfig],
+      envFilePath: '.env',
+    }),
+    MongooseModule.forRoot(
+      process.env.MONGODB_URI || 'mongodb://localhost:27017/annotation_db',
+    ),
     ItemsModule,
     TransactionsModule,
     AnnotatorsModule,
     AnnotationsModule,
-    ConfigModule.forRoot({
-      isGlobal: true,
-      load: [databaseConfig],
-    }),
-
-    MongooseModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
-        uri: configService.get<string>('database.uri'),
-      }),
-    }),
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
