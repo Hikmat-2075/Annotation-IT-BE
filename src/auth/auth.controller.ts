@@ -5,9 +5,14 @@ import {
   Body,
   UseGuards,
   Request,
+  HttpCode,
+  HttpStatus,
 } from '@nestjs/common';
+
 import { AuthService } from './auth.service';
+
 import { RegisterDto, LoginDto } from './dto';
+
 import { JwtGuard } from './guards';
 
 @Controller('auth')
@@ -20,6 +25,7 @@ export class AuthController {
   }
 
   @Post('login')
+  @HttpCode(HttpStatus.OK)
   async login(@Body() loginDto: LoginDto) {
     return await this.authService.login(loginDto);
   }

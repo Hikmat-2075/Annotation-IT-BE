@@ -90,7 +90,6 @@ export class AuthService {
     });
 
     return {
-      success: true,
       message: 'Login successful',
       data: {
         id: annotator._id,
