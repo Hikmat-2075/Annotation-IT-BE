@@ -6,20 +6,26 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 
-import { Request, Response } from 'express';
+import { Response } from 'express';
+
+import { statusCodes } from '../common/status-codes';
+
+interface ExceptionResponse {
+  message?: string | string[];
+
+  error?: string;
+}
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
-  catch(exception: unknown, host: ArgumentsHost) {
+  catch(exception: unknown, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();
 
     const response = ctx.getResponse<Response>();
 
-    const request = ctx.getRequest<Request>();
-
     let status = HttpStatus.INTERNAL_SERVER_ERROR;
 
-    let error = 'Internal Server Error';
+    let error = 'INTERNAL_SERVER_ERROR';
 
     let message: string | string[] = 'Internal server error';
 
@@ -30,23 +36,35 @@ export class AllExceptionsFilter implements ExceptionFilter {
 
       if (typeof exceptionResponse === 'string') {
         message = exceptionResponse;
-      } else if (typeof exceptionResponse === 'object') {
-        const responseObj = exceptionResponse as Record<string, any>;
+      } else {
+        const responseObj = exceptionResponse as ExceptionResponse;
 
         message = responseObj.message || message;
 
-        error = responseObj.error || error;
+        if (responseObj.error) {
+          error = responseObj.error.toUpperCase().replace(/ /g, '_');
+        }
       }
     } else if (exception instanceof Error) {
       message = exception.message;
     }
 
+    const statusLabel =
+      Object.values(statusCodes).find((item) => item.code === status)
+        ?.message || error;
+
     response.status(status).json({
-      statusCode: status,
-      error,
+      code: status,
+
+      status: statusLabel,
+
       message,
-      timestamp: new Date().toISOString(),
-      path: request.url,
+
+      pagination: null,
+
+      data: null,
+
+      errors: message,
     });
   }
 }
