@@ -19,7 +19,15 @@ export class RegisterDto {
 
   @IsString()
   @IsNotEmpty()
-  @MinLength(6)
+  @MinLength(6, {
+    message: 'Password must be at least 6 characters',
+  })
   @MaxLength(100)
   password: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @MinLength(6)
+  @MaxLength(100)
+  confirm_password: string;
 }

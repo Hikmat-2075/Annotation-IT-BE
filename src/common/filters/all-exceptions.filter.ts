@@ -7,27 +7,24 @@ import {
 } from '@nestjs/common';
 
 import { Response } from 'express';
-
 import { statusCodes } from '../common/status-codes';
 
 interface ExceptionResponse {
   message?: string | string[];
-
   error?: string;
+  errors?: unknown;
 }
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
   catch(exception: unknown, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();
-
     const response = ctx.getResponse<Response>();
 
     let status = HttpStatus.INTERNAL_SERVER_ERROR;
-
     let error = 'INTERNAL_SERVER_ERROR';
-
     let message: string | string[] = 'Internal server error';
+    let errors: unknown = null;
 
     if (exception instanceof HttpException) {
       status = exception.getStatus();
@@ -40,6 +37,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
         const responseObj = exceptionResponse as ExceptionResponse;
 
         message = responseObj.message || message;
+        errors = responseObj.errors || null;
 
         if (responseObj.error) {
           error = responseObj.error.toUpperCase().replace(/ /g, '_');
@@ -55,16 +53,11 @@ export class AllExceptionsFilter implements ExceptionFilter {
 
     response.status(status).json({
       code: status,
-
       status: statusLabel,
-
       message,
-
       pagination: null,
-
       data: null,
-
-      errors: message,
+      errors,
     });
   }
 }
