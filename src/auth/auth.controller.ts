@@ -7,9 +7,6 @@ import {
   Request,
   HttpCode,
   HttpStatus,
-<<<<<<< HEAD
-} from '@nestjs/common';
-=======
   Patch,
   UseInterceptors,
   UploadedFile,
@@ -17,7 +14,6 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import type { Multer } from 'multer';
->>>>>>> sprint-2-2.2-Auth-Annotator-API
 
 import { AuthService } from './auth.service';
 
