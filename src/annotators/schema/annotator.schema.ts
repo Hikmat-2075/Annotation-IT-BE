@@ -40,6 +40,12 @@ export class Annotators {
 
   @Prop()
   last_login?: Date;
+
+  @Prop({
+    default:
+      'https://res.cloudinary.com/dn1jfqgda/image/upload/v1778919425/avatar-default-svgrepo-com_mcbd6b.svg',
+  })
+  profile_uri: string;
 }
 
 export const AnnotatorsSchema = SchemaFactory.createForClass(Annotators);

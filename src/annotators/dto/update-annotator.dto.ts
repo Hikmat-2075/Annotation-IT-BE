@@ -4,11 +4,13 @@ import {
   IsOptional,
   IsArray,
   IsNumber,
+  MaxLength,
 } from 'class-validator';
 
 export class UpdateAnnotatorDto {
   @IsOptional()
   @IsString()
+  @MaxLength(100)
   name?: string;
 
   @IsOptional()

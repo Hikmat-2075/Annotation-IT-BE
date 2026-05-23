@@ -4,34 +4,33 @@ import {
   BadRequestException,
   ConflictException,
 } from '@nestjs/common';
-
 import { InjectModel } from '@nestjs/mongoose';
-
 import { Model } from 'mongoose';
-
 import * as bcrypt from 'bcrypt';
-
 import { Annotators } from './schema/annotator.schema';
-
-import {
-  CreateAnnotatorDto,
-  UpdateAnnotatorDto,
-  AnnotatorResponseDto,
-} from './dto';
+import { CreateAnnotatorDto, UpdateAnnotatorDto } from './dto';
+import { CloudinaryService } from '../cloudinary/cloudinary.service';
 
 @Injectable()
 export class AnnotatorsService {
   constructor(
     @InjectModel(Annotators.name)
     private readonly annotatorModel: Model<Annotators>,
+    private readonly cloudinaryService: CloudinaryService,
   ) {}
 
-  async create(createAnnotatorDto: CreateAnnotatorDto) {
-    const { name, email, password } = createAnnotatorDto;
-
-    const existingAnnotator = await this.annotatorModel.findOne({
+  async create(createAnnotatorDto: CreateAnnotatorDto, fileBuffer?: Buffer) {
+    const {
+      name,
       email,
-    });
+      password,
+      completed_tasks,
+      total_annotated,
+      last_login,
+      profile_uri,
+    } = createAnnotatorDto;
+
+    const existingAnnotator = await this.annotatorModel.findOne({ email });
 
     if (existingAnnotator) {
       throw new ConflictException('Email already registered');
@@ -39,15 +38,36 @@ export class AnnotatorsService {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    let uploadedProfileUri = profile_uri;
+
+    // Upload profile image if file provided
+    if (fileBuffer) {
+      const fileName = `${email}-${Date.now()}`;
+      uploadedProfileUri = await this.cloudinaryService.uploadImage(
+        fileBuffer,
+        fileName,
+        'annotators/profiles',
+      );
+    }
+
     const newAnnotator = new this.annotatorModel({
       name,
       email,
       password: hashedPassword,
+      completed_tasks: completed_tasks ?? [],
+      total_annotated: total_annotated ?? 0,
+      last_login: last_login ?? null,
+      profile_uri: uploadedProfileUri,
     });
 
     const annotator = await newAnnotator.save();
 
-    return annotator;
+    const { password: _, ...result } = annotator.toObject();
+
+    return {
+      message: 'Annotator created successfully',
+      data: result,
+    };
   }
 
   async findAll() {
@@ -59,7 +79,7 @@ export class AnnotatorsService {
 
   async findOne(id: string) {
     const annotator = await this.annotatorModel
-      .findById(id)
+      .findOne({ _id: id })
       .select('-password');
 
     if (!annotator) {
@@ -75,9 +95,18 @@ export class AnnotatorsService {
     });
   }
 
-  async update(id: string, updateAnnotatorDto: UpdateAnnotatorDto) {
+  async update(
+    id: string,
+    updateAnnotatorDto: UpdateAnnotatorDto,
+    fileBuffer?: Buffer,
+  ) {
     const { email } = updateAnnotatorDto;
-    const updateData = { ...updateAnnotatorDto };
+
+    const updateData: Partial<UpdateAnnotatorDto> & {
+      profile_uri?: string;
+    } = {
+      ...updateAnnotatorDto,
+    };
 
     if (email) {
       const existingAnnotator = await this.annotatorModel.findOne({
@@ -90,6 +119,16 @@ export class AnnotatorsService {
       }
     }
 
+    if (fileBuffer) {
+      const fileName = `${id}-${Date.now()}`;
+
+      updateData.profile_uri = await this.cloudinaryService.uploadImage(
+        fileBuffer,
+        fileName,
+        'annotators/profiles',
+      );
+    }
+
     const annotator = await this.annotatorModel
       .findByIdAndUpdate(id, updateData, {
         new: true,
@@ -100,19 +139,23 @@ export class AnnotatorsService {
       throw new NotFoundException('Annotator not found');
     }
 
-    return annotator;
+    return {
+      message: 'Annotator updated successfully',
+      data: annotator,
+    };
   }
 
   async remove(id: string) {
-    const annotator = await this.annotatorModel
-      .findByIdAndDelete(id)
-      .select('-password');
+    const annotator = await this.annotatorModel.findByIdAndDelete(id);
 
     if (!annotator) {
       throw new NotFoundException('Annotator not found');
     }
 
-    return annotator;
+    return {
+      message: 'Annotator deleted successfully',
+      data: null,
+    };
   }
 
   async addCompletedTask(annotatorId: string, taskId: string) {
@@ -190,5 +233,30 @@ export class AnnotatorsService {
         maxAnnotations: 0,
       }
     );
+  }
+
+  async uploadProfileImage(
+    annotatorId: string,
+    fileBuffer: Buffer,
+  ): Promise<any> {
+    const annotator = await this.annotatorModel.findById(annotatorId);
+
+    if (!annotator) {
+      throw new NotFoundException('Annotator not found');
+    }
+
+    const fileName = `${annotatorId}-${Date.now()}`;
+
+    const secureUrl = await this.cloudinaryService.uploadImage(
+      fileBuffer,
+      fileName,
+      'annotators/update',
+    );
+
+    const updatedAnnotator = await this.annotatorModel
+      .findByIdAndUpdate(annotatorId, { profile_uri: secureUrl }, { new: true })
+      .select('-password');
+
+    return updatedAnnotator;
   }
 }

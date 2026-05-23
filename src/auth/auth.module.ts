@@ -6,6 +6,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { JwtStrategy } from './strategies';
+import { CloudinaryModule } from '../cloudinary/cloudinary.module';
 import {
   Annotators,
   AnnotatorsSchema,
@@ -24,6 +25,7 @@ import {
     MongooseModule.forFeature([
       { name: Annotators.name, schema: AnnotatorsSchema },
     ]),
+    CloudinaryModule,
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy],

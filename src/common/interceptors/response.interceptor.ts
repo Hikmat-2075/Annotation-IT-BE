@@ -4,33 +4,78 @@ import {
   ExecutionContext,
   CallHandler,
 } from '@nestjs/common';
+
 import { Observable } from 'rxjs';
+
 import { map } from 'rxjs/operators';
 
-export interface Response<T> {
-  success: boolean;
+import { Response } from 'express';
+
+import { statusCodes } from '../common/status-codes';
+
+interface ApiResponse<T> {
+  code: number;
+
+  status: string;
+
   message: string;
-  data?: T;
+
+  pagination: null;
+
+  data: T;
+
+  errors: null;
 }
 
 @Injectable()
-export class ResponseInterceptor<T> implements NestInterceptor<T, Response<T>> {
+export class ResponseInterceptor<T> implements NestInterceptor<
+  T,
+  ApiResponse<T>
+> {
   intercept(
     context: ExecutionContext,
     next: CallHandler,
-  ): Observable<Response<T>> {
+  ): Observable<ApiResponse<T>> {
+    const httpContext = context.switchToHttp();
+
+    const response = httpContext.getResponse<Response>();
+
     return next.handle().pipe(
       map((data) => {
-        // If the data already has success and message fields, return as is
-        if (data && data.success !== undefined && data.message) {
-          return data;
+        let message = 'Success';
+
+        let responseData = data;
+
+        if (
+          data &&
+          typeof data === 'object' &&
+          'message' in data &&
+          'data' in data
+        ) {
+          const responseBody = data as Record<string, unknown>;
+
+          message = String(responseBody.message);
+
+          responseData = responseBody.data as T;
         }
 
-        // Otherwise wrap it with our response format
+        const statusLabel =
+          Object.values(statusCodes).find(
+            (item) => item.code === response.statusCode,
+          )?.message ?? 'OK';
+
         return {
-          success: true,
-          message: 'Success',
-          data: data,
+          code: response.statusCode,
+
+          status: statusLabel,
+
+          message,
+
+          pagination: null,
+
+          data: responseData,
+
+          errors: null,
         };
       }),
     );
