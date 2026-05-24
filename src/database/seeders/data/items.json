@@ -68,5 +68,245 @@
       "rating": 4.9,
       "description": "Gula pasir putih premium"
     }
+  },
+  {
+    "_id": "item_teh_007",
+    "attributes": {
+      "name": "Teh Celup Melati",
+      "brand": "SariWangi",
+      "category": "Beverage",
+      "price": 12000
+    }
+  },
+  {
+    "_id": "item_biskuit_006",
+    "attributes": {
+      "name": "Biskuit Marie",
+      "brand": "Roma",
+      "category": "Snack",
+      "price": 15000
+    }
+  },
+  {
+    "_id": "item_mie_009",
+    "attributes": {
+      "name": "Indomie Goreng",
+      "brand": "Indomie",
+      "category": "Instant Food",
+      "price": 3500
+    }
+  },
+  {
+    "_id": "item_telur_008",
+    "attributes": {
+      "name": "Telur Ayam 1 Kg",
+      "brand": "Farm Fresh",
+      "category": "Fresh Food",
+      "price": 32000
+    }
+  },
+  {
+    "_id": "item_minyak_011",
+    "attributes": {
+      "name": "Minyak Goreng 1L",
+      "brand": "Bimoli",
+      "category": "Grocery",
+      "price": 22000
+    }
+  },
+  {
+    "_id": "item_beras_012",
+    "attributes": {
+      "name": "Beras Premium 5kg",
+      "brand": "Ramos",
+      "category": "Staple Food",
+      "price": 78000
+    }
+  },
+  {
+    "_id": "item_sabun_011",
+    "attributes": {
+      "name": "Sabun Mandi",
+      "brand": "Lifebuoy",
+      "category": "Personal Care",
+      "price": 8000
+    }
+  },
+  {
+    "_id": "item_shampoo_014",
+    "attributes": {
+      "name": "Shampoo Anti Ketombe",
+      "brand": "Clear",
+      "category": "Personal Care",
+      "price": 28000
+    }
+  },
+  {
+    "_id": "item_pasta_015",
+    "attributes": {
+      "name": "Pasta Gigi",
+      "brand": "Pepsodent",
+      "category": "Personal Care",
+      "price": 14000
+    }
+  },
+  {
+    "_id": "item_air_016",
+    "attributes": {
+      "name": "Air Mineral 600ml",
+      "brand": "Aqua",
+      "category": "Beverage",
+      "price": 4000
+    }
+  },
+  {
+    "_id": "item_teh_006",
+    "attributes": {
+      "name": "Teh Celup Melati",
+      "brand": "SariWangi",
+      "category": "Beverage",
+      "price": 12000,
+      "original_price": 14000,
+      "discount_amount": 2000,
+      "rating": 4.6,
+      "review_count": 85,
+      "sold_count": 210,
+      "image_url": "https://example.com/teh.jpg",
+      "description": "Teh celup melati dengan aroma khas."
+    }
+  },
+  {
+    "_id": "item_biskuit_007",
+    "attributes": {
+      "name": "Biskuit Marie",
+      "brand": "Roma",
+      "category": "Snack",
+      "price": 15000,
+      "original_price": 17000,
+      "discount_amount": 2000,
+      "rating": 4.5,
+      "review_count": 110,
+      "sold_count": 320,
+      "image_url": "https://example.com/biskuit.jpg",
+      "description": "Biskuit Marie renyah untuk teman minum teh."
+    }
+  },
+  {
+    "_id": "item_mie_008",
+    "attributes": {
+      "name": "Indomie Goreng",
+      "brand": "Indomie",
+      "category": "Instant Food",
+      "price": 3500,
+      "original_price": 4000,
+      "discount_amount": 500,
+      "rating": 4.9,
+      "review_count": 540,
+      "sold_count": 2500,
+      "image_url": "https://example.com/indomie.jpg",
+      "description": "Mi instan goreng favorit masyarakat Indonesia."
+    }
+  },
+  {
+    "_id": "item_telur_009",
+    "attributes": {
+      "name": "Telur Ayam 1 Kg",
+      "brand": "Farm Fresh",
+      "category": "Fresh Food",
+      "price": 32000,
+      "rating": 4.8,
+      "review_count": 90,
+      "sold_count": 180,
+      "image_url": "https://example.com/telur.jpg",
+      "description": "Telur ayam segar kualitas premium."
+    }
+  },
+  {
+    "_id": "item_minyak_010",
+    "attributes": {
+      "name": "Minyak Goreng 1 Liter",
+      "brand": "Bimoli",
+      "category": "Grocery",
+      "price": 22000,
+      "original_price": 25000,
+      "discount_amount": 3000,
+      "rating": 4.7,
+      "review_count": 150,
+      "sold_count": 500,
+      "image_url": "https://example.com/minyak.jpg",
+      "description": "Minyak goreng berkualitas untuk kebutuhan dapur."
+    }
+  },
+  {
+    "_id": "item_beras_011",
+    "attributes": {
+      "name": "Beras Premium 5 Kg",
+      "brand": "Ramos",
+      "category": "Staple Food",
+      "price": 78000,
+      "rating": 4.8,
+      "review_count": 130,
+      "sold_count": 260,
+      "image_url": "https://example.com/beras.jpg",
+      "description": "Beras premium pulen dan harum."
+    }
+  },
+  {
+    "_id": "item_sabun_012",
+    "attributes": {
+      "name": "Sabun Mandi",
+      "brand": "Lifebuoy",
+      "category": "Personal Care",
+      "price": 8000,
+      "rating": 4.7,
+      "review_count": 140,
+      "sold_count": 420,
+      "image_url": "https://example.com/sabun.jpg",
+      "description": "Sabun mandi antibakteri untuk keluarga."
+    }
+  },
+  {
+    "_id": "item_shampoo_013",
+    "attributes": {
+      "name": "Shampoo Anti Ketombe",
+      "brand": "Clear",
+      "category": "Personal Care",
+      "price": 28000,
+      "original_price": 32000,
+      "discount_amount": 4000,
+      "rating": 4.6,
+      "review_count": 125,
+      "sold_count": 310,
+      "image_url": "https://example.com/shampoo.jpg",
+      "description": "Shampoo anti ketombe dengan sensasi dingin."
+    }
+  },
+  {
+    "_id": "item_pasta_014",
+    "attributes": {
+      "name": "Pasta Gigi",
+      "brand": "Pepsodent",
+      "category": "Personal Care",
+      "price": 14000,
+      "rating": 4.7,
+      "review_count": 175,
+      "sold_count": 650,
+      "image_url": "https://example.com/pasta-gigi.jpg",
+      "description": "Pasta gigi untuk perlindungan gigi dan gusi."
+    }
+  },
+  {
+    "_id": "item_air_015",
+    "attributes": {
+      "name": "Air Mineral 600ml",
+      "brand": "Aqua",
+      "category": "Beverage",
+      "price": 4000,
+      "rating": 4.9,
+      "review_count": 300,
+      "sold_count": 1200,
+      "image_url": "https://example.com/aqua.jpg",
+      "description": "Air mineral dalam kemasan 600ml."
+    }
   }
 ]

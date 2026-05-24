@@ -62,5 +62,201 @@
         }
       }
     }
+  },
+  {
+    "_id": "trx_10001",
+    "user_id": "user_001",
+    "list_of_interaction_items": {
+      "item_kopi_001": { "order_number": 1, "timestamp": 1714546800, "rating": 5 },
+      "item_susu_002": { "order_number": 2, "timestamp": 1714546810, "rating": null }
+    }
+  },
+  {
+    "_id": "trx_10002",
+    "user_id": "user_002",
+    "list_of_interaction_items": {
+      "item_roti_003": { "order_number": 1, "timestamp": 1714547800, "rating": 4 },
+      "item_selai_004": { "order_number": 2, "timestamp": 1714547810, "rating": null },
+      "item_teh_006": { "order_number": 3, "timestamp": 1714547820, "rating": 5 }
+    }
+  },
+  {
+    "_id": "trx_10003",
+    "user_id": "user_003",
+    "list_of_interaction_items": {
+      "item_mie_008": { "order_number": 1, "timestamp": 1714548800, "rating": 5 },
+      "item_telur_009": { "order_number": 2, "timestamp": 1714548810, "rating": null },
+      "item_minyak_010": { "order_number": 3, "timestamp": 1714548820, "rating": null },
+      "item_gula_005": { "order_number": 4, "timestamp": 1714548830, "rating": 4 }
+    }
+  },
+  {
+    "_id": "trx_10004",
+    "user_id": "user_004",
+    "list_of_interaction_items": {
+      "item_sabun_012": { "order_number": 1, "timestamp": 1714549800, "rating": 5 },
+      "item_shampoo_013": { "order_number": 2, "timestamp": 1714549810, "rating": 5 },
+      "item_pasta_014": { "order_number": 3, "timestamp": 1714549820, "rating": null }
+    }
+  },
+  {
+    "_id": "trx_10005",
+    "user_id": "user_005",
+    "list_of_interaction_items": {
+      "item_air_015": { "order_number": 1, "timestamp": 1714550800, "rating": null },
+      "item_biskuit_007": { "order_number": 2, "timestamp": 1714550810, "rating": 4 }
+    }
+  },
+  {
+    "_id": "trx_10006",
+    "user_id": "user_006",
+    "list_of_interaction_items": {
+      "item_kopi_001": { "order_number": 1, "timestamp": 1714551800, "rating": 5 },
+      "item_susu_002": { "order_number": 2, "timestamp": 1714551810, "rating": 4 },
+      "item_gula_005": { "order_number": 3, "timestamp": 1714551820, "rating": null }
+    }
+  },
+  {
+    "_id": "trx_10007",
+    "user_id": "user_007",
+    "list_of_interaction_items": {
+      "item_beras_011": { "order_number": 1, "timestamp": 1714552800, "rating": 5 },
+      "item_minyak_010": { "order_number": 2, "timestamp": 1714552810, "rating": null },
+      "item_gula_005": { "order_number": 3, "timestamp": 1714552820, "rating": null },
+      "item_telur_009": { "order_number": 4, "timestamp": 1714552830, "rating": 4 }
+    }
+  },
+  {
+    "_id": "trx_10008",
+    "user_id": "user_008",
+    "list_of_interaction_items": {
+      "item_roti_003": { "order_number": 1, "timestamp": 1714553800, "rating": null },
+      "item_selai_004": { "order_number": 2, "timestamp": 1714553810, "rating": 5 },
+      "item_susu_002": { "order_number": 3, "timestamp": 1714553820, "rating": 5 },
+      "item_teh_006": { "order_number": 4, "timestamp": 1714553830, "rating": null }
+    }
+  },
+  {
+    "_id": "trx_10009",
+    "user_id": "user_009",
+    "list_of_interaction_items": {
+      "item_mie_008": { "order_number": 1, "timestamp": 1714554800, "rating": 5 },
+      "item_telur_009": { "order_number": 2, "timestamp": 1714554810, "rating": null }
+    }
+  },
+  {
+    "_id": "trx_10010",
+    "user_id": "user_010",
+    "list_of_interaction_items": {
+      "item_air_015": { "order_number": 1, "timestamp": 1714555800, "rating": null },
+      "item_biskuit_007": { "order_number": 2, "timestamp": 1714555810, "rating": 4 },
+      "item_kopi_001": { "order_number": 3, "timestamp": 1714555820, "rating": 5 }
+    }
+  },
+  {
+    "_id": "trx_10011",
+    "user_id": "user_011",
+    "list_of_interaction_items": {
+      "item_sabun_012": { "order_number": 1, "timestamp": 1714556800, "rating": 5 },
+      "item_shampoo_013": { "order_number": 2, "timestamp": 1714556810, "rating": null },
+      "item_pasta_014": { "order_number": 3, "timestamp": 1714556820, "rating": null },
+      "item_air_015": { "order_number": 4, "timestamp": 1714556830, "rating": 4 }
+    }
+  },
+  {
+    "_id": "trx_10012",
+    "user_id": "user_012",
+    "list_of_interaction_items": {
+      "item_beras_011": { "order_number": 1, "timestamp": 1714557800, "rating": 5 },
+      "item_minyak_010": { "order_number": 2, "timestamp": 1714557810, "rating": null },
+      "item_gula_005": { "order_number": 3, "timestamp": 1714557820, "rating": null },
+      "item_kopi_001": { "order_number": 4, "timestamp": 1714557830, "rating": 5 },
+      "item_susu_002": { "order_number": 5, "timestamp": 1714557840, "rating": 4 }
+    }
+  },
+  {
+    "_id": "trx_10013",
+    "user_id": "user_013",
+    "list_of_interaction_items": {
+      "item_teh_006": { "order_number": 1, "timestamp": 1714558800, "rating": 5 },
+      "item_biskuit_007": { "order_number": 2, "timestamp": 1714558810, "rating": 4 }
+    }
+  },
+  {
+    "_id": "trx_10014",
+    "user_id": "user_014",
+    "list_of_interaction_items": {
+      "item_roti_003": { "order_number": 1, "timestamp": 1714559800, "rating": 5 },
+      "item_selai_004": { "order_number": 2, "timestamp": 1714559810, "rating": 5 },
+      "item_susu_002": { "order_number": 3, "timestamp": 1714559820, "rating": null },
+      "item_kopi_001": { "order_number": 4, "timestamp": 1714559830, "rating": 5 }
+    }
+  },
+  {
+    "_id": "trx_10015",
+    "user_id": "user_015",
+    "list_of_interaction_items": {
+      "item_mie_008": { "order_number": 1, "timestamp": 1714560800, "rating": 4 },
+      "item_telur_009": { "order_number": 2, "timestamp": 1714560810, "rating": 5 },
+      "item_minyak_010": { "order_number": 3, "timestamp": 1714560820, "rating": null }
+    }
+  },
+  {
+    "_id": "trx_10016",
+    "user_id": "user_016",
+    "list_of_interaction_items": {
+      "item_air_015": { "order_number": 1, "timestamp": 1714561800, "rating": null },
+      "item_kopi_001": { "order_number": 2, "timestamp": 1714561810, "rating": 5 },
+      "item_biskuit_007": { "order_number": 3, "timestamp": 1714561820, "rating": 4 },
+      "item_teh_006": { "order_number": 4, "timestamp": 1714561830, "rating": 5 }
+    }
+  },
+  {
+    "_id": "trx_10017",
+    "user_id": "user_017",
+    "list_of_interaction_items": {
+      "item_sabun_012": { "order_number": 1, "timestamp": 1714562800, "rating": 5 },
+      "item_shampoo_013": { "order_number": 2, "timestamp": 1714562810, "rating": 4 },
+      "item_pasta_014": { "order_number": 3, "timestamp": 1714562820, "rating": null },
+      "item_air_015": { "order_number": 4, "timestamp": 1714562830, "rating": null }
+    }
+  },
+  {
+    "_id": "trx_10018",
+    "user_id": "user_018",
+    "list_of_interaction_items": {
+      "item_beras_011": { "order_number": 1, "timestamp": 1714563800, "rating": 5 },
+      "item_gula_005": { "order_number": 2, "timestamp": 1714563810, "rating": null },
+      "item_minyak_010": { "order_number": 3, "timestamp": 1714563820, "rating": null },
+      "item_telur_009": { "order_number": 4, "timestamp": 1714563830, "rating": 4 },
+      "item_mie_008": { "order_number": 5, "timestamp": 1714563840, "rating": 5 }
+    }
+  },
+  {
+    "_id": "trx_10019",
+    "user_id": "user_019",
+    "list_of_interaction_items": {
+      "item_kopi_001": { "order_number": 1, "timestamp": 1714564800, "rating": 5 },
+      "item_susu_002": { "order_number": 2, "timestamp": 1714564810, "rating": 4 },
+      "item_roti_003": { "order_number": 3, "timestamp": 1714564820, "rating": 5 },
+      "item_selai_004": { "order_number": 4, "timestamp": 1714564830, "rating": null }
+    }
+  },
+  {
+    "_id": "trx_10020",
+    "user_id": "user_020",
+    "list_of_interaction_items": {
+      "item_beras_011": { "order_number": 1, "timestamp": 1714565800, "rating": 5 },
+      "item_minyak_010": { "order_number": 2, "timestamp": 1714565810, "rating": null },
+      "item_gula_005": { "order_number": 3, "timestamp": 1714565820, "rating": null },
+      "item_kopi_001": { "order_number": 4, "timestamp": 1714565830, "rating": 5 },
+      "item_susu_002": { "order_number": 5, "timestamp": 1714565840, "rating": 4 },
+      "item_roti_003": { "order_number": 6, "timestamp": 1714565850, "rating": 5 },
+      "item_selai_004": { "order_number": 7, "timestamp": 1714565860, "rating": null },
+      "item_teh_006": { "order_number": 8, "timestamp": 1714565870, "rating": 5 },
+      "item_biskuit_007": { "order_number": 9, "timestamp": 1714565880, "rating": 4 },
+      "item_air_015": { "order_number": 10, "timestamp": 1714565890, "rating": null }
+    }
   }
+
 ]

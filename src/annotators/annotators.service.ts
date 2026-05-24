@@ -214,15 +214,24 @@ export class AnnotatorsService {
       throw new NotFoundException('Annotator not found');
     }
 
-    const queue = await this.transactionModel
-      .find({
-        _id: {
-          $nin: annotator.completed_tasks ?? [],
-        },
-      })
-      .limit(2);
+    const completedTasks = annotator.completed_tasks ?? [];
 
-    return queue;
+    const tasks = await this.transactionModel.aggregate([
+      {
+        $match: {
+          _id: {
+            $nin: completedTasks,
+          },
+        },
+      },
+      {
+        $sample: {
+          size: 10,
+        },
+      },
+    ]);
+
+    return tasks;
   }
 
   async getStatistics() {
