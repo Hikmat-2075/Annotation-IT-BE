@@ -8,6 +8,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 import { Annotators } from './schema/annotator.schema';
+import { Transactions } from '../transactions/schemas/transaction.schema';
 import { CreateAnnotatorDto, UpdateAnnotatorDto } from './dto';
 import { CloudinaryService } from '../cloudinary/cloudinary.service';
 
@@ -16,6 +17,8 @@ export class AnnotatorsService {
   constructor(
     @InjectModel(Annotators.name)
     private readonly annotatorModel: Model<Annotators>,
+    @InjectModel(Transactions.name)
+    private readonly transactionModel: Model<Transactions>,
     private readonly cloudinaryService: CloudinaryService,
   ) {}
 
@@ -202,6 +205,24 @@ export class AnnotatorsService {
 
   async getProfile(id: string) {
     return this.findOne(id);
+  }
+
+  async getTaskQueue(annotatorId: string) {
+    const annotator = await this.annotatorModel.findById(annotatorId);
+
+    if (!annotator) {
+      throw new NotFoundException('Annotator not found');
+    }
+
+    const queue = await this.transactionModel
+      .find({
+        _id: {
+          $nin: annotator.completed_tasks ?? [],
+        },
+      })
+      .limit(2);
+
+    return queue;
   }
 
   async getStatistics() {

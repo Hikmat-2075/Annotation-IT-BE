@@ -15,7 +15,7 @@ import type { Multer } from 'multer';
 import { AnnotatorsService } from './annotators.service';
 import { CreateAnnotatorDto, UpdateAnnotatorDto } from './dto';
 import { ImageUploadInterceptor } from '../common/interceptors';
-import { JwtGuard } from 'src/auth/guards';
+import { JwtGuard } from '../auth/guards/jwt.guard';
 
 @Controller('annotators')
 export class AnnotatorsController {
@@ -57,6 +57,17 @@ export class AnnotatorsController {
       success: true,
       message: 'Statistics retrieved successfully',
       data: stats,
+    };
+  }
+
+  @Get(':id/tasks')
+  @UseGuards(JwtGuard)
+  async getTaskQueue(@Param('id') id: string) {
+    const tasks = await this.annotatorsService.getTaskQueue(id);
+    return {
+      success: true,
+      message: 'Annotator task queue retrieved successfully',
+      data: tasks,
     };
   }
 

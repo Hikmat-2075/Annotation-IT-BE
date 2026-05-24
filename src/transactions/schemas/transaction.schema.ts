@@ -11,8 +11,8 @@ class InteractionItem {
   @Prop({ required: true })
   timestamp: number;
 
-  @Prop({ default: 0 })
-  rating: number;
+  @Prop({ type: Number, default: null })
+  rating: number | null;
 
   @Prop({ type: Object, default: {} })
   attributes: Record<string, any>;
@@ -21,18 +21,23 @@ class InteractionItem {
 export const InteractionItemSchema =
   SchemaFactory.createForClass(InteractionItem);
 
-@Schema({ timestamps: true, versionKey: false })
+@Schema({
+  collection: 'transactions',
+  timestamps: true,
+  versionKey: false,
+})
 export class Transactions {
-  @Prop({
-    required: true,
-  })
-  _id: string; // trx_98765
+  @Prop({ required: true })
+  _id: string;
 
   @Prop({ required: true })
   user_id: string;
 
-  // key dynamic item_id → value interaction detail
-  @Prop({ type: Map, of: InteractionItemSchema, required: true })
+  @Prop({
+    type: Map,
+    of: InteractionItemSchema,
+    required: true,
+  })
   list_of_interaction_items: Map<string, InteractionItem>;
 }
 

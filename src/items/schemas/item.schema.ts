@@ -1,44 +1,64 @@
-import { v4 as uuidv4 } from 'uuid';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
 export type ItemsDocument = HydratedDocument<Items>;
 
-// 1. Definisikan isi attributes sebagai sub-schema
-@Schema({ _id: false }) // _id: false agar sub-objek ini tidak punya ID sendiri
+@Schema({ _id: false, strict: false })
 class ItemAttributes {
-  @Prop({ required: true })
-  name: string;
+  @Prop()
+  name?: string;
 
-  @Prop({ required: true })
-  brand: string;
+  @Prop()
+  brand?: string;
 
-  @Prop({ required: true })
-  category: string;
+  @Prop()
+  category?: string;
 
-  @Prop({ required: true })
-  price: number;
+  @Prop()
+  price?: number;
+
+  @Prop()
+  original_price?: number;
+
+  @Prop()
+  discount_amount?: number;
+
+  @Prop()
+  rating?: number;
+
+  @Prop()
+  review_count?: number;
+
+  @Prop()
+  sold_count?: number;
 
   @Prop()
   image_url?: string;
 
   @Prop()
-  description: string;
+  description?: string;
+
+  @Prop({ type: Object, default: {} })
+  specifications?: Record<string, any>;
+
+  @Prop({ type: [String], default: [] })
+  tags?: string[];
 
   @Prop()
   origin?: string;
 }
 
-// Buat skema untuk ItemAttributes agar bisa dipakai sebagai tipe data @Prop
 const ItemAttributesSchema = SchemaFactory.createForClass(ItemAttributes);
 
-// 2. Schema Utama
-@Schema({ timestamps: true, versionKey: false })
+@Schema({
+  timestamps: true,
+  versionKey: false,
+  collection: 'items',
+})
 export class Items {
-  @Prop({ required: true, default: uuidv4 })
+  @Prop({ type: String, required: true })
   _id: string;
 
-  // Gunakan schema yang sudah dibuat di atas
   @Prop({ type: ItemAttributesSchema, required: true })
   attributes: ItemAttributes;
 }

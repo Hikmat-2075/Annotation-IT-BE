@@ -14,69 +14,51 @@
       "item_susu_002": {
         "order_number": 2,
         "timestamp": 1714546810,
-        "rating": 4,
+        "rating": null,
         "attributes": {
           "quantity": 2
-        }
-      },
-      "item_roti_003": {
-        "order_number": 3,
-        "timestamp": 1714546825,
-        "rating": 5,
-        "attributes": {
-          "bundle": "breakfast_combo"
         }
       }
     }
   },
   {
     "_id": "trx_98766",
-    "user_id": "user_family_10",
+    "user_id": "user_pro_23",
     "list_of_interaction_items": {
-      "item_teh_004": {
+      "item_roti_003": {
         "order_number": 1,
-        "timestamp": 1714546900,
+        "timestamp": 1714547800,
         "rating": 4,
         "attributes": {
-          "temperature": "hot"
+          "quantity": 1
         }
       },
-      "item_gula_005": {
+      "item_selai_004": {
         "order_number": 2,
-        "timestamp": 1714546912,
-        "rating": 5,
+        "timestamp": 1714547815,
+        "rating": null,
         "attributes": {
-          "quantity": 1
+          "promo": "bundle_discount"
         }
       }
     }
   },
   {
     "_id": "trx_98767",
-    "user_id": "user_gamer_77",
+    "user_id": "user_pro_24",
     "list_of_interaction_items": {
-      "item_keyboard_006": {
+      "item_kopi_001": {
         "order_number": 1,
-        "timestamp": 1714547000,
+        "timestamp": 1714548800,
         "rating": 5,
-        "attributes": {
-          "switch_type": "red_switch"
-        }
+        "attributes": {}
       },
-      "item_mouse_007": {
+      "item_gula_005": {
         "order_number": 2,
-        "timestamp": 1714547010,
-        "rating": 5,
+        "timestamp": 1714548812,
+        "rating": null,
         "attributes": {
-          "dpi": 16000
-        }
-      },
-      "item_headset_008": {
-        "order_number": 3,
-        "timestamp": 1714547025,
-        "rating": 4,
-        "attributes": {
-          "wireless": true
+          "quantity": 1
         }
       }
     }

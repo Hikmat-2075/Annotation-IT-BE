@@ -1,62 +1,72 @@
 [
   {
-    "_id": "550e8400-e29b-41d4-a716-446655440000",
+    "_id": "item_kopi_001",
     "attributes": {
-      "name": "Kopi Arabika Toraja 250g",
+      "name": "Kopi Arabika 250g",
       "brand": "Excelso",
       "category": "Food & Beverage",
       "price": 50000,
-      "image_url": "/images/kopi-arabika.jpg",
-      "description": "Kopi Arabika premium dengan cita rasa khas Toraja.",
+      "original_price": 60000,
+      "discount_amount": 10000,
+      "rating": 4.7,
+      "review_count": 120,
+      "sold_count": 300,
+      "image_url": "https://example.com/kopi.jpg",
+      "description": "Kopi Arabika premium dari Toraja.",
+      "specifications": {
+        "weight": "250g",
+        "roast_level": "medium"
+      },
+      "tags": ["coffee", "arabica", "toraja"],
       "origin": "Toraja"
     }
   },
   {
-    "_id": "550e8400-e29b-41d4-a716-446655440001",
+    "_id": "item_susu_002",
     "attributes": {
-      "name": "Samsung Galaxy S24 Ultra",
-      "brand": "Samsung",
-      "category": "Smartphone",
-      "price": 17999000,
-      "image_url": "/images/s24-ultra.jpg",
-      "description": "Smartphone flagship Samsung dengan kamera 200MP.",
-      "origin": "Korea Selatan"
+      "name": "Susu UHT Full Cream",
+      "brand": "Ultra Milk",
+      "category": "Beverage",
+      "price": 18000,
+      "original_price": 20000,
+      "discount_amount": 2000,
+      "rating": 4.8,
+      "review_count": 95,
+      "sold_count": 250,
+      "description": "Susu UHT Full Cream 1 Liter"
     }
   },
   {
-    "_id": "550e8400-e29b-41d4-a716-446655440002",
+    "_id": "item_roti_003",
     "attributes": {
-      "name": "Nike Air Force 1",
-      "brand": "Nike",
-      "category": "Fashion",
-      "price": 1599000,
-      "image_url": "/images/air-force-1.jpg",
-      "description": "Sepatu sneakers klasik dengan desain timeless.",
-      "origin": "Vietnam"
+      "name": "Roti Tawar",
+      "brand": "Sari Roti",
+      "category": "Bakery",
+      "price": 16000,
+      "rating": 4.5,
+      "description": "Roti tawar lembut"
     }
   },
   {
-    "_id": "550e8400-e29b-41d4-a716-446655440003",
+    "_id": "item_selai_004",
     "attributes": {
-      "name": "Indomie Goreng Jumbo",
-      "brand": "Indomie",
-      "category": "Food & Beverage",
-      "price": 4500,
-      "image_url": "/images/indomie-goreng.jpg",
-      "description": "Mie instan goreng favorit dengan porsi jumbo.",
-      "origin": "Indonesia"
+      "name": "Selai Strawberry",
+      "brand": "Morin",
+      "category": "Spread",
+      "price": 25000,
+      "rating": 4.6,
+      "description": "Selai strawberry premium"
     }
   },
   {
-    "_id": "550e8400-e29b-41d4-a716-446655440004",
+    "_id": "item_gula_005",
     "attributes": {
-      "name": "Logitech G Pro X",
-      "brand": "Logitech",
-      "category": "Electronics",
-      "price": 1899000,
-      "image_url": "/images/logitech-gprox.jpg",
-      "description": "Headset gaming profesional dengan kualitas audio premium.",
-      "origin": "China"
+      "name": "Gula Pasir 1kg",
+      "brand": "Gulaku",
+      "category": "Grocery",
+      "price": 17000,
+      "rating": 4.9,
+      "description": "Gula pasir putih premium"
     }
   }
 ]
