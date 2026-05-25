@@ -8,9 +8,9 @@ import { AuthController } from './auth.controller';
 import { JwtStrategy } from './strategies';
 import { CloudinaryModule } from '../cloudinary/cloudinary.module';
 import {
-  Annotators,
-  AnnotatorsSchema,
-} from '../annotators/schema/annotator.schema';
+  Annotator,
+  AnnotatorSchema,
+} from '../annotators/schema/annotators.schema';
 
 @Module({
   imports: [
@@ -23,7 +23,7 @@ import {
       }),
     }),
     MongooseModule.forFeature([
-      { name: Annotators.name, schema: AnnotatorsSchema },
+      { name: Annotator.name, schema: AnnotatorSchema },
     ]),
     CloudinaryModule,
   ],

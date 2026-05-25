@@ -9,39 +9,43 @@ import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 import { RegisterDto, LoginDto } from './dto';
 import { v4 as uuidv4 } from 'uuid';
-import { Annotators } from '../annotators/schema/annotator.schema';
+import {
+  Annotator,
+  AnnotatorDocument,
+} from '../annotators/schema/annotators.schema';
 import { CloudinaryService } from '../cloudinary/cloudinary.service';
 
 @Injectable()
 export class AuthService {
   constructor(
-    @InjectModel(Annotators.name)
-    private annotatorModel: Model<Annotators>,
+    @InjectModel(Annotator.name)
+    private annotatorModel: Model<AnnotatorDocument>,
     private jwtService: JwtService,
     private readonly cloudinaryService: CloudinaryService,
   ) {}
 
   async register(registerDto: RegisterDto) {
-    const { name, email, password, confirm_password } = registerDto;
+    const { name, email, gender, age, password, confirm_password } =
+      registerDto;
 
     if (password !== confirm_password) {
       throw new BadRequestException('Passwords do not match');
     }
 
-    // Check if annotator already exists
     const existingAnnotator = await this.annotatorModel.findOne({ email });
+
     if (existingAnnotator) {
       throw new BadRequestException('Email already registered');
     }
 
-    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create new annotator
     const newAnnotator = new this.annotatorModel({
       _id: uuidv4(),
       name,
       email,
+      gender,
+      age,
       password: hashedPassword,
       completed_tasks: [],
       total_annotated: 0,
@@ -56,6 +60,12 @@ export class AuthService {
         id: annotator._id,
         name: annotator.name,
         email: annotator.email,
+        gender: annotator.gender,
+        age: annotator.age,
+        completed_tasks: annotator.completed_tasks,
+        total_annotated: annotator.total_annotated,
+        last_login: annotator.last_login,
+        profile_uri: annotator.profile_uri,
       },
     };
   }
@@ -63,12 +73,16 @@ export class AuthService {
   async login(loginDto: LoginDto) {
     const { email, password } = loginDto;
 
-    const annotator = await this.annotatorModel.findOne({ email });
+    const annotator = await this.annotatorModel
+      .findOne({ email })
+      .select('+password');
+
     if (!annotator) {
       throw new UnauthorizedException('Invalid email or password');
     }
 
     const isPasswordValid = await bcrypt.compare(password, annotator.password);
+
     if (!isPasswordValid) {
       throw new UnauthorizedException('Invalid email or password');
     }
@@ -117,7 +131,7 @@ export class AuthService {
     };
   }
 
-  private async getTokens(annotator: Annotators) {
+  private async getTokens(annotator: AnnotatorDocument) {
     const accessPayload = {
       sub: annotator._id,
       email: annotator.email,

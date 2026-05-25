@@ -7,31 +7,21 @@ import {
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
-import { Annotators } from './schema/annotator.schema';
-import { Transactions } from '../transactions/schemas/transaction.schema';
+import { Annotator, AnnotatorDocument } from './schema/annotators.schema';
 import { CreateAnnotatorDto, UpdateAnnotatorDto } from './dto';
 import { CloudinaryService } from '../cloudinary/cloudinary.service';
 
 @Injectable()
 export class AnnotatorsService {
   constructor(
-    @InjectModel(Annotators.name)
-    private readonly annotatorModel: Model<Annotators>,
-    @InjectModel(Transactions.name)
-    private readonly transactionModel: Model<Transactions>,
+    @InjectModel(Annotator.name)
+    private readonly annotatorModel: Model<AnnotatorDocument>,
     private readonly cloudinaryService: CloudinaryService,
   ) {}
 
   async create(createAnnotatorDto: CreateAnnotatorDto, fileBuffer?: Buffer) {
-    const {
-      name,
-      email,
-      password,
-      completed_tasks,
-      total_annotated,
-      last_login,
-      profile_uri,
-    } = createAnnotatorDto;
+    const { name, email, password, gender, age, profile_uri } =
+      createAnnotatorDto;
 
     const existingAnnotator = await this.annotatorModel.findOne({ email });
 
@@ -41,9 +31,8 @@ export class AnnotatorsService {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    let uploadedProfileUri = profile_uri;
+    let uploadedProfileUri: string | undefined = profile_uri;
 
-    // Upload profile image if file provided
     if (fileBuffer) {
       const fileName = `${email}-${Date.now()}`;
       uploadedProfileUri = await this.cloudinaryService.uploadImage(
@@ -53,19 +42,25 @@ export class AnnotatorsService {
       );
     }
 
-    const newAnnotator = new this.annotatorModel({
+    const createData: Partial<Annotator> = {
       name,
       email,
+      gender,
+      age,
       password: hashedPassword,
-      completed_tasks: completed_tasks ?? [],
-      total_annotated: total_annotated ?? 0,
-      last_login: last_login ?? null,
-      profile_uri: uploadedProfileUri,
-    });
+    };
+
+    if (uploadedProfileUri) {
+      createData.profile_uri = uploadedProfileUri;
+    }
+
+    const newAnnotator = new this.annotatorModel(createData);
 
     const annotator = await newAnnotator.save();
-
-    const { password: _, ...result } = annotator.toObject();
+    const { password: _, ...result } = annotator.toObject() as Record<
+      string,
+      any
+    >;
 
     return {
       message: 'Annotator created successfully',
@@ -205,33 +200,6 @@ export class AnnotatorsService {
 
   async getProfile(id: string) {
     return this.findOne(id);
-  }
-
-  async getTaskQueue(annotatorId: string) {
-    const annotator = await this.annotatorModel.findById(annotatorId);
-
-    if (!annotator) {
-      throw new NotFoundException('Annotator not found');
-    }
-
-    const completedTasks = annotator.completed_tasks ?? [];
-
-    const tasks = await this.transactionModel.aggregate([
-      {
-        $match: {
-          _id: {
-            $nin: completedTasks,
-          },
-        },
-      },
-      {
-        $sample: {
-          size: 10,
-        },
-      },
-    ]);
-
-    return tasks;
   }
 
   async getStatistics() {

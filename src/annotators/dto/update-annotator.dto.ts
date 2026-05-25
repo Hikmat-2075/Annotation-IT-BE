@@ -1,28 +1,4 @@
-import {
-  IsString,
-  IsEmail,
-  IsOptional,
-  IsArray,
-  IsNumber,
-  MaxLength,
-} from 'class-validator';
+import { PartialType } from '@nestjs/mapped-types';
+import { CreateAnnotatorDto } from './create-annotator.dto';
 
-export class UpdateAnnotatorDto {
-  @IsOptional()
-  @IsString()
-  @MaxLength(100)
-  name?: string;
-
-  @IsOptional()
-  @IsEmail()
-  email?: string;
-
-  @IsOptional()
-  @IsArray()
-  @IsString({ each: true })
-  completed_tasks?: string[];
-
-  @IsOptional()
-  @IsNumber()
-  total_annotated?: number;
-}
+export class UpdateAnnotatorDto extends PartialType(CreateAnnotatorDto) {}

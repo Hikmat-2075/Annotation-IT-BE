@@ -4,7 +4,11 @@ import {
   MinLength,
   MaxLength,
   IsNotEmpty,
+  IsEnum,
+  IsInt,
+  Min,
 } from 'class-validator';
+import { Gender } from '../../annotators/schema/annotators.schema';
 
 export class RegisterDto {
   @IsString()
@@ -16,6 +20,13 @@ export class RegisterDto {
   @IsEmail()
   @IsNotEmpty()
   email: string;
+
+  @IsEnum(Gender)
+  gender: Gender;
+
+  @IsInt()
+  @Min(1)
+  age: number;
 
   @IsString()
   @IsNotEmpty()

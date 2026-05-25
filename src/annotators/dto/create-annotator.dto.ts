@@ -1,25 +1,40 @@
 import {
   IsString,
   IsEmail,
+  IsEnum,
+  IsInt,
+  IsNotEmpty,
+  MaxLength,
+  Min,
+  MinLength,
   IsOptional,
   IsArray,
   IsNumber,
-  MinLength,
-  MaxLength,
+  IsDateString,
   IsUrl,
 } from 'class-validator';
+import { Gender } from '../schema/annotators.schema';
 
 export class CreateAnnotatorDto {
   @IsString()
+  @IsNotEmpty()
   @MaxLength(100)
   name: string;
 
   @IsEmail()
+  @IsNotEmpty()
   email: string;
 
+  @IsEnum(Gender)
+  gender: Gender;
+
+  @IsInt()
+  @Min(1)
+  age: number;
+
   @IsString()
-  @MinLength(6)
-  @MaxLength(100)
+  @IsNotEmpty()
+  @MinLength(8)
   password: string;
 
   @IsOptional()
@@ -28,11 +43,17 @@ export class CreateAnnotatorDto {
   completed_tasks?: string[];
 
   @IsOptional()
+  @IsArray()
+  @IsString({ each: true })
+  current_batch?: string[];
+
+  @IsOptional()
   @IsNumber()
   total_annotated?: number;
 
   @IsOptional()
-  last_login?: Date;
+  @IsDateString()
+  last_login?: string;
 
   @IsOptional()
   @IsUrl()

@@ -3,6 +3,10 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Transactions } from './schemas/transaction.schema';
 import { Items } from '../items/schemas/item.schema';
+import {
+  Annotator,
+  AnnotatorDocument,
+} from '../annotators/schema/annotators.schema';
 
 @Injectable()
 export class TransactionsService {
@@ -11,7 +15,51 @@ export class TransactionsService {
     private readonly transactionModel: Model<Transactions>,
     @InjectModel(Items.name)
     private readonly itemsModel: Model<Items>,
+    @InjectModel(Annotator.name)
+    private readonly annotatorModel: Model<AnnotatorDocument>,
   ) {}
+
+  async createAssignment(annotatorId: string) {
+    const annotator = await this.annotatorModel
+      .findById(annotatorId)
+      .select('-password');
+
+    if (!annotator) {
+      throw new NotFoundException('Annotator not found');
+    }
+
+    const currentBatchIds = annotator.current_batch ?? [];
+
+    if (currentBatchIds.length > 0) {
+      return this.transactionModel
+        .find({ _id: { $in: currentBatchIds } })
+        .lean();
+    }
+
+    const completedTasks = annotator.completed_tasks ?? [];
+
+    const transactions = await this.transactionModel.aggregate([
+      {
+        $match: {
+          _id: {
+            $nin: completedTasks,
+          },
+        },
+      },
+      {
+        $sample: {
+          size: 10,
+        },
+      },
+    ]);
+
+    const selectedIds = transactions.map((trx) => trx._id);
+
+    annotator.current_batch = selectedIds;
+    await annotator.save();
+
+    return transactions;
+  }
 
   async getTransactionDetail(id: string) {
     const trx = await this.transactionModel.findOne({ _id: id }).lean();
