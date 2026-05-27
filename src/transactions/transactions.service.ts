@@ -99,4 +99,138 @@ export class TransactionsService {
       items: assembled,
     };
   }
+
+  async getAllTransactions() {
+    const trxs = await this.transactionModel.find().lean();
+
+    // collect all unique item ids across transactions
+    const allItemIds = new Set<string>();
+
+    const trxInteractionMaps: Record<string, Record<string, any>> = {};
+
+    for (const trx of trxs) {
+      let interactionObj: Record<string, any> = {};
+
+      if (!trx.list_of_interaction_items) {
+        interactionObj = {};
+      } else if (trx.list_of_interaction_items instanceof Map) {
+        trx.list_of_interaction_items.forEach((v: any, k: string) => {
+          interactionObj[k] = v;
+        });
+      } else {
+        interactionObj = trx.list_of_interaction_items as any;
+      }
+
+      trxInteractionMaps[trx._id] = interactionObj;
+
+      for (const key of Object.keys(interactionObj)) {
+        allItemIds.add(key);
+      }
+    }
+
+    const itemIdsArray = Array.from(allItemIds);
+
+    const items = itemIdsArray.length
+      ? await this.itemsModel.find({ _id: { $in: itemIdsArray } }).lean()
+      : [];
+
+    const itemsMap = new Map(items.map((it: any) => [String(it._id), it]));
+
+    const data = trxs.map((trx) => {
+      const interactionObj = trxInteractionMaps[trx._id] ?? {};
+      const itemIds = Object.keys(interactionObj);
+
+      const assembled = itemIds.map((itemId) => ({
+        item_id: itemId,
+        interaction: interactionObj[itemId],
+        metadata: itemsMap.get(itemId) ?? null,
+      }));
+
+      return {
+        _id: trx._id,
+        user_id: trx.user_id,
+        items: assembled,
+      };
+    });
+
+    const meta = {
+      total: trxs.length,
+    };
+
+    return { data, meta };
+  }
+
+  async getAssignedTransactions(annotatorId: string) {
+    const annotator = await this.annotatorModel
+      .findById(annotatorId)
+      .select('-password')
+      .lean();
+
+    if (!annotator) {
+      throw new NotFoundException('Annotator not found');
+    }
+
+    const currentBatchIds: string[] = annotator.current_batch ?? [];
+
+    if (!currentBatchIds.length) {
+      return { data: [], meta: { total: 0 } };
+    }
+
+    const trxs = await this.transactionModel
+      .find({ _id: { $in: currentBatchIds } })
+      .lean();
+
+    // collect item ids across these transactions
+    const allItemIds = new Set<string>();
+    const trxInteractionMaps: Record<string, Record<string, any>> = {};
+
+    for (const trx of trxs) {
+      let interactionObj: Record<string, any> = {};
+
+      if (!trx.list_of_interaction_items) {
+        interactionObj = {};
+      } else if (trx.list_of_interaction_items instanceof Map) {
+        trx.list_of_interaction_items.forEach((v: any, k: string) => {
+          interactionObj[k] = v;
+        });
+      } else {
+        interactionObj = trx.list_of_interaction_items as any;
+      }
+
+      trxInteractionMaps[trx._id] = interactionObj;
+
+      for (const key of Object.keys(interactionObj)) {
+        allItemIds.add(key);
+      }
+    }
+
+    const itemIdsArray = Array.from(allItemIds);
+
+    const items = itemIdsArray.length
+      ? await this.itemsModel.find({ _id: { $in: itemIdsArray } }).lean()
+      : [];
+
+    const itemsMap = new Map(items.map((it: any) => [String(it._id), it]));
+
+    const data = trxs.map((trx) => {
+      const interactionObj = trxInteractionMaps[trx._id] ?? {};
+      const itemIds = Object.keys(interactionObj);
+
+      const assembled = itemIds.map((itemId) => ({
+        item_id: itemId,
+        interaction: interactionObj[itemId],
+        metadata: itemsMap.get(itemId) ?? null,
+      }));
+
+      return {
+        _id: trx._id,
+        user_id: trx.user_id,
+        items: assembled,
+      };
+    });
+
+    const meta = { total: data.length };
+
+    return { data, meta };
+  }
 }

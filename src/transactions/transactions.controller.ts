@@ -36,4 +36,18 @@ export class TransactionsController {
       data: trx,
     };
   }
+
+  @Get()
+  @UseGuards(JwtGuard)
+  async findAll(@Req() req: AuthRequest) {
+    const annotatorId = req.user?.id;
+    const result =
+      await this.transactionsService.getAssignedTransactions(annotatorId);
+    return {
+      success: true,
+      message: 'Assigned transactions retrieved successfully',
+      data: result.data,
+      meta: result.meta,
+    };
+  }
 }
