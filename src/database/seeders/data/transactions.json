@@ -1,262 +1,6852 @@
 [
   {
-    "_id": "trx_98765",
-    "user_id": "user_pro_22",
+    "_id": "trx_00001",
+    "user_id": "user_004",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
     "list_of_interaction_items": {
-      "item_kopi_001": {
+      "item_0054": {
         "order_number": 1,
-        "timestamp": 1714546800,
-        "rating": 5,
+        "timestamp": 1714550400,
+        "rating": 2,
         "attributes": {
-          "promo": "flash_sale"
+          "quantity": 3,
+          "promo": "payday_sale"
         }
       },
-      "item_susu_002": {
+      "item_0184": {
         "order_number": 2,
-        "timestamp": 1714546810,
+        "timestamp": 1714550426,
         "rating": null,
         "attributes": {
-          "quantity": 2
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0111": {
+        "order_number": 3,
+        "timestamp": 1714550461,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
         }
       }
     }
   },
   {
-    "_id": "trx_98766",
-    "user_id": "user_pro_23",
+    "_id": "trx_00002",
+    "user_id": "user_007",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
     "list_of_interaction_items": {
-      "item_roti_003": {
+      "item_0210": {
         "order_number": 1,
-        "timestamp": 1714547800,
-        "rating": 4,
+        "timestamp": 1714554000,
+        "rating": 1,
         "attributes": {
-          "quantity": 1
+          "quantity": 3,
+          "promo": "flash_sale"
         }
       },
-      "item_selai_004": {
+      "item_0173": {
         "order_number": 2,
-        "timestamp": 1714547815,
+        "timestamp": 1714554116,
         "rating": null,
         "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0026": {
+        "order_number": 3,
+        "timestamp": 1714554193,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0248": {
+        "order_number": 4,
+        "timestamp": 1714554256,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0116": {
+        "order_number": 5,
+        "timestamp": 1714554289,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00003",
+    "user_id": "user_041",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0242": {
+        "order_number": 1,
+        "timestamp": 1714557600,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0127": {
+        "order_number": 2,
+        "timestamp": 1714557715,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0185": {
+        "order_number": 3,
+        "timestamp": 1714557746,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0137": {
+        "order_number": 4,
+        "timestamp": 1714557840,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0158": {
+        "order_number": 5,
+        "timestamp": 1714557850,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0148": {
+        "order_number": 6,
+        "timestamp": 1714557888,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0005": {
+        "order_number": 7,
+        "timestamp": 1714557956,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0059": {
+        "order_number": 8,
+        "timestamp": 1714558026,
+        "rating": 2,
+        "attributes": {
+          "quantity": 4,
           "promo": "bundle_discount"
         }
       }
     }
   },
   {
-    "_id": "trx_98767",
-    "user_id": "user_pro_24",
+    "_id": "trx_00004",
+    "user_id": "user_029",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
     "list_of_interaction_items": {
-      "item_kopi_001": {
+      "item_0091": {
         "order_number": 1,
-        "timestamp": 1714548800,
-        "rating": 5,
-        "attributes": {}
+        "timestamp": 1714561200,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
       },
-      "item_gula_005": {
+      "item_0023": {
         "order_number": 2,
-        "timestamp": 1714548812,
+        "timestamp": 1714561236,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0049": {
+        "order_number": 3,
+        "timestamp": 1714561326,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0033": {
+        "order_number": 4,
+        "timestamp": 1714561365,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0075": {
+        "order_number": 5,
+        "timestamp": 1714561467,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0119": {
+        "order_number": 6,
+        "timestamp": 1714561476,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0137": {
+        "order_number": 7,
+        "timestamp": 1714561575,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0205": {
+        "order_number": 8,
+        "timestamp": 1714561649,
         "rating": null,
         "attributes": {
-          "quantity": 1
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0005": {
+        "order_number": 9,
+        "timestamp": 1714561725,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0122": {
+        "order_number": 10,
+        "timestamp": 1714561830,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
         }
       }
     }
   },
   {
-    "_id": "trx_10001",
-    "user_id": "user_001",
-    "list_of_interaction_items": {
-      "item_kopi_001": { "order_number": 1, "timestamp": 1714546800, "rating": 5 },
-      "item_susu_002": { "order_number": 2, "timestamp": 1714546810, "rating": null }
-    }
-  },
-  {
-    "_id": "trx_10002",
-    "user_id": "user_002",
-    "list_of_interaction_items": {
-      "item_roti_003": { "order_number": 1, "timestamp": 1714547800, "rating": 4 },
-      "item_selai_004": { "order_number": 2, "timestamp": 1714547810, "rating": null },
-      "item_teh_006": { "order_number": 3, "timestamp": 1714547820, "rating": 5 }
-    }
-  },
-  {
-    "_id": "trx_10003",
-    "user_id": "user_003",
-    "list_of_interaction_items": {
-      "item_mie_008": { "order_number": 1, "timestamp": 1714548800, "rating": 5 },
-      "item_telur_009": { "order_number": 2, "timestamp": 1714548810, "rating": null },
-      "item_minyak_010": { "order_number": 3, "timestamp": 1714548820, "rating": null },
-      "item_gula_005": { "order_number": 4, "timestamp": 1714548830, "rating": 4 }
-    }
-  },
-  {
-    "_id": "trx_10004",
-    "user_id": "user_004",
-    "list_of_interaction_items": {
-      "item_sabun_012": { "order_number": 1, "timestamp": 1714549800, "rating": 5 },
-      "item_shampoo_013": { "order_number": 2, "timestamp": 1714549810, "rating": 5 },
-      "item_pasta_014": { "order_number": 3, "timestamp": 1714549820, "rating": null }
-    }
-  },
-  {
-    "_id": "trx_10005",
-    "user_id": "user_005",
-    "list_of_interaction_items": {
-      "item_air_015": { "order_number": 1, "timestamp": 1714550800, "rating": null },
-      "item_biskuit_007": { "order_number": 2, "timestamp": 1714550810, "rating": 4 }
-    }
-  },
-  {
-    "_id": "trx_10006",
-    "user_id": "user_006",
-    "list_of_interaction_items": {
-      "item_kopi_001": { "order_number": 1, "timestamp": 1714551800, "rating": 5 },
-      "item_susu_002": { "order_number": 2, "timestamp": 1714551810, "rating": 4 },
-      "item_gula_005": { "order_number": 3, "timestamp": 1714551820, "rating": null }
-    }
-  },
-  {
-    "_id": "trx_10007",
-    "user_id": "user_007",
-    "list_of_interaction_items": {
-      "item_beras_011": { "order_number": 1, "timestamp": 1714552800, "rating": 5 },
-      "item_minyak_010": { "order_number": 2, "timestamp": 1714552810, "rating": null },
-      "item_gula_005": { "order_number": 3, "timestamp": 1714552820, "rating": null },
-      "item_telur_009": { "order_number": 4, "timestamp": 1714552830, "rating": 4 }
-    }
-  },
-  {
-    "_id": "trx_10008",
-    "user_id": "user_008",
-    "list_of_interaction_items": {
-      "item_roti_003": { "order_number": 1, "timestamp": 1714553800, "rating": null },
-      "item_selai_004": { "order_number": 2, "timestamp": 1714553810, "rating": 5 },
-      "item_susu_002": { "order_number": 3, "timestamp": 1714553820, "rating": 5 },
-      "item_teh_006": { "order_number": 4, "timestamp": 1714553830, "rating": null }
-    }
-  },
-  {
-    "_id": "trx_10009",
-    "user_id": "user_009",
-    "list_of_interaction_items": {
-      "item_mie_008": { "order_number": 1, "timestamp": 1714554800, "rating": 5 },
-      "item_telur_009": { "order_number": 2, "timestamp": 1714554810, "rating": null }
-    }
-  },
-  {
-    "_id": "trx_10010",
-    "user_id": "user_010",
-    "list_of_interaction_items": {
-      "item_air_015": { "order_number": 1, "timestamp": 1714555800, "rating": null },
-      "item_biskuit_007": { "order_number": 2, "timestamp": 1714555810, "rating": 4 },
-      "item_kopi_001": { "order_number": 3, "timestamp": 1714555820, "rating": 5 }
-    }
-  },
-  {
-    "_id": "trx_10011",
-    "user_id": "user_011",
-    "list_of_interaction_items": {
-      "item_sabun_012": { "order_number": 1, "timestamp": 1714556800, "rating": 5 },
-      "item_shampoo_013": { "order_number": 2, "timestamp": 1714556810, "rating": null },
-      "item_pasta_014": { "order_number": 3, "timestamp": 1714556820, "rating": null },
-      "item_air_015": { "order_number": 4, "timestamp": 1714556830, "rating": 4 }
-    }
-  },
-  {
-    "_id": "trx_10012",
+    "_id": "trx_00005",
     "user_id": "user_012",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
     "list_of_interaction_items": {
-      "item_beras_011": { "order_number": 1, "timestamp": 1714557800, "rating": 5 },
-      "item_minyak_010": { "order_number": 2, "timestamp": 1714557810, "rating": null },
-      "item_gula_005": { "order_number": 3, "timestamp": 1714557820, "rating": null },
-      "item_kopi_001": { "order_number": 4, "timestamp": 1714557830, "rating": 5 },
-      "item_susu_002": { "order_number": 5, "timestamp": 1714557840, "rating": 4 }
+      "item_0026": {
+        "order_number": 1,
+        "timestamp": 1714564800,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0230": {
+        "order_number": 2,
+        "timestamp": 1714564833,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0002": {
+        "order_number": 3,
+        "timestamp": 1714564872,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      }
     }
   },
   {
-    "_id": "trx_10013",
-    "user_id": "user_013",
+    "_id": "trx_00006",
+    "user_id": "user_026",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
     "list_of_interaction_items": {
-      "item_teh_006": { "order_number": 1, "timestamp": 1714558800, "rating": 5 },
-      "item_biskuit_007": { "order_number": 2, "timestamp": 1714558810, "rating": 4 }
+      "item_0226": {
+        "order_number": 1,
+        "timestamp": 1714568400,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0021": {
+        "order_number": 2,
+        "timestamp": 1714568469,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0150": {
+        "order_number": 3,
+        "timestamp": 1714568585,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0195": {
+        "order_number": 4,
+        "timestamp": 1714568593,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0044": {
+        "order_number": 5,
+        "timestamp": 1714568699,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      }
     }
   },
   {
-    "_id": "trx_10014",
+    "_id": "trx_00007",
+    "user_id": "user_035",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0036": {
+        "order_number": 1,
+        "timestamp": 1714572000,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0091": {
+        "order_number": 2,
+        "timestamp": 1714572068,
+        "rating": 1,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0197": {
+        "order_number": 3,
+        "timestamp": 1714572143,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0225": {
+        "order_number": 4,
+        "timestamp": 1714572217,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0178": {
+        "order_number": 5,
+        "timestamp": 1714572288,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0173": {
+        "order_number": 6,
+        "timestamp": 1714572366,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0213": {
+        "order_number": 7,
+        "timestamp": 1714572462,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      },
+      "item_0030": {
+        "order_number": 8,
+        "timestamp": 1714572492,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00008",
+    "user_id": "user_025",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0126": {
+        "order_number": 1,
+        "timestamp": 1714575600,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0161": {
+        "order_number": 2,
+        "timestamp": 1714575641,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0120": {
+        "order_number": 3,
+        "timestamp": 1714575669,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0053": {
+        "order_number": 4,
+        "timestamp": 1714575756,
+        "rating": 2,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0164": {
+        "order_number": 5,
+        "timestamp": 1714575875,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0178": {
+        "order_number": 6,
+        "timestamp": 1714575910,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0228": {
+        "order_number": 7,
+        "timestamp": 1714575994,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0005": {
+        "order_number": 8,
+        "timestamp": 1714576109,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0107": {
+        "order_number": 9,
+        "timestamp": 1714576221,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0144": {
+        "order_number": 10,
+        "timestamp": 1714576331,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00009",
     "user_id": "user_014",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
     "list_of_interaction_items": {
-      "item_roti_003": { "order_number": 1, "timestamp": 1714559800, "rating": 5 },
-      "item_selai_004": { "order_number": 2, "timestamp": 1714559810, "rating": 5 },
-      "item_susu_002": { "order_number": 3, "timestamp": 1714559820, "rating": null },
-      "item_kopi_001": { "order_number": 4, "timestamp": 1714559830, "rating": 5 }
+      "item_0116": {
+        "order_number": 1,
+        "timestamp": 1714579200,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0242": {
+        "order_number": 2,
+        "timestamp": 1714579217,
+        "rating": 2,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0163": {
+        "order_number": 3,
+        "timestamp": 1714579225,
+        "rating": 2,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      }
     }
   },
   {
-    "_id": "trx_10015",
-    "user_id": "user_015",
-    "list_of_interaction_items": {
-      "item_mie_008": { "order_number": 1, "timestamp": 1714560800, "rating": 4 },
-      "item_telur_009": { "order_number": 2, "timestamp": 1714560810, "rating": 5 },
-      "item_minyak_010": { "order_number": 3, "timestamp": 1714560820, "rating": null }
-    }
-  },
-  {
-    "_id": "trx_10016",
-    "user_id": "user_016",
-    "list_of_interaction_items": {
-      "item_air_015": { "order_number": 1, "timestamp": 1714561800, "rating": null },
-      "item_kopi_001": { "order_number": 2, "timestamp": 1714561810, "rating": 5 },
-      "item_biskuit_007": { "order_number": 3, "timestamp": 1714561820, "rating": 4 },
-      "item_teh_006": { "order_number": 4, "timestamp": 1714561830, "rating": 5 }
-    }
-  },
-  {
-    "_id": "trx_10017",
+    "_id": "trx_00010",
     "user_id": "user_017",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
     "list_of_interaction_items": {
-      "item_sabun_012": { "order_number": 1, "timestamp": 1714562800, "rating": 5 },
-      "item_shampoo_013": { "order_number": 2, "timestamp": 1714562810, "rating": 4 },
-      "item_pasta_014": { "order_number": 3, "timestamp": 1714562820, "rating": null },
-      "item_air_015": { "order_number": 4, "timestamp": 1714562830, "rating": null }
+      "item_0134": {
+        "order_number": 1,
+        "timestamp": 1714582800,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0055": {
+        "order_number": 2,
+        "timestamp": 1714582843,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0165": {
+        "order_number": 3,
+        "timestamp": 1714582862,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0167": {
+        "order_number": 4,
+        "timestamp": 1714582891,
+        "rating": 1,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0159": {
+        "order_number": 5,
+        "timestamp": 1714582908,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      }
     }
   },
   {
-    "_id": "trx_10018",
+    "_id": "trx_00011",
+    "user_id": "user_026",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0064": {
+        "order_number": 1,
+        "timestamp": 1714586400,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0023": {
+        "order_number": 2,
+        "timestamp": 1714586445,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0020": {
+        "order_number": 3,
+        "timestamp": 1714586563,
+        "rating": 1,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0149": {
+        "order_number": 4,
+        "timestamp": 1714586652,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0104": {
+        "order_number": 5,
+        "timestamp": 1714586666,
+        "rating": 2,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0224": {
+        "order_number": 6,
+        "timestamp": 1714586699,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0232": {
+        "order_number": 7,
+        "timestamp": 1714586787,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0215": {
+        "order_number": 8,
+        "timestamp": 1714586818,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00012",
+    "user_id": "user_007",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0135": {
+        "order_number": 1,
+        "timestamp": 1714590000,
+        "rating": 2,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0241": {
+        "order_number": 2,
+        "timestamp": 1714590026,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0007": {
+        "order_number": 3,
+        "timestamp": 1714590094,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0066": {
+        "order_number": 4,
+        "timestamp": 1714590162,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0248": {
+        "order_number": 5,
+        "timestamp": 1714590273,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0138": {
+        "order_number": 6,
+        "timestamp": 1714590356,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0058": {
+        "order_number": 7,
+        "timestamp": 1714590445,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0125": {
+        "order_number": 8,
+        "timestamp": 1714590511,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0204": {
+        "order_number": 9,
+        "timestamp": 1714590542,
+        "rating": 2,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0093": {
+        "order_number": 10,
+        "timestamp": 1714590605,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00013",
+    "user_id": "user_024",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0174": {
+        "order_number": 1,
+        "timestamp": 1714593600,
+        "rating": 2,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0110": {
+        "order_number": 2,
+        "timestamp": 1714593617,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0006": {
+        "order_number": 3,
+        "timestamp": 1714593638,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00014",
+    "user_id": "user_016",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0104": {
+        "order_number": 1,
+        "timestamp": 1714597200,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0171": {
+        "order_number": 2,
+        "timestamp": 1714597209,
+        "rating": 2,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0095": {
+        "order_number": 3,
+        "timestamp": 1714597298,
+        "rating": 5,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      },
+      "item_0199": {
+        "order_number": 4,
+        "timestamp": 1714597400,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0208": {
+        "order_number": 5,
+        "timestamp": 1714597490,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00015",
+    "user_id": "user_023",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0095": {
+        "order_number": 1,
+        "timestamp": 1714600800,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0247": {
+        "order_number": 2,
+        "timestamp": 1714600898,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0157": {
+        "order_number": 3,
+        "timestamp": 1714600999,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0159": {
+        "order_number": 4,
+        "timestamp": 1714601066,
+        "rating": 2,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0180": {
+        "order_number": 5,
+        "timestamp": 1714601130,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0052": {
+        "order_number": 6,
+        "timestamp": 1714601222,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0073": {
+        "order_number": 7,
+        "timestamp": 1714601284,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0131": {
+        "order_number": 8,
+        "timestamp": 1714601336,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00016",
+    "user_id": "user_041",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0114": {
+        "order_number": 1,
+        "timestamp": 1714604400,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0091": {
+        "order_number": 2,
+        "timestamp": 1714604445,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0152": {
+        "order_number": 3,
+        "timestamp": 1714604471,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0125": {
+        "order_number": 4,
+        "timestamp": 1714604553,
+        "rating": 5,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0173": {
+        "order_number": 5,
+        "timestamp": 1714604572,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0134": {
+        "order_number": 6,
+        "timestamp": 1714604609,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0247": {
+        "order_number": 7,
+        "timestamp": 1714604684,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0013": {
+        "order_number": 8,
+        "timestamp": 1714604704,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0029": {
+        "order_number": 9,
+        "timestamp": 1714604726,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0144": {
+        "order_number": 10,
+        "timestamp": 1714604846,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00017",
+    "user_id": "user_048",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0116": {
+        "order_number": 1,
+        "timestamp": 1714608000,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0107": {
+        "order_number": 2,
+        "timestamp": 1714608099,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0244": {
+        "order_number": 3,
+        "timestamp": 1714608194,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00018",
     "user_id": "user_018",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
     "list_of_interaction_items": {
-      "item_beras_011": { "order_number": 1, "timestamp": 1714563800, "rating": 5 },
-      "item_gula_005": { "order_number": 2, "timestamp": 1714563810, "rating": null },
-      "item_minyak_010": { "order_number": 3, "timestamp": 1714563820, "rating": null },
-      "item_telur_009": { "order_number": 4, "timestamp": 1714563830, "rating": 4 },
-      "item_mie_008": { "order_number": 5, "timestamp": 1714563840, "rating": 5 }
+      "item_0069": {
+        "order_number": 1,
+        "timestamp": 1714611600,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      },
+      "item_0228": {
+        "order_number": 2,
+        "timestamp": 1714611640,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0111": {
+        "order_number": 3,
+        "timestamp": 1714611745,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0224": {
+        "order_number": 4,
+        "timestamp": 1714611862,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0249": {
+        "order_number": 5,
+        "timestamp": 1714611905,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      }
     }
   },
   {
-    "_id": "trx_10019",
+    "_id": "trx_00019",
+    "user_id": "user_023",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0063": {
+        "order_number": 1,
+        "timestamp": 1714615200,
+        "rating": 5,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      },
+      "item_0022": {
+        "order_number": 2,
+        "timestamp": 1714615242,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0126": {
+        "order_number": 3,
+        "timestamp": 1714615354,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0212": {
+        "order_number": 4,
+        "timestamp": 1714615378,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0046": {
+        "order_number": 5,
+        "timestamp": 1714615397,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0013": {
+        "order_number": 6,
+        "timestamp": 1714615436,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0167": {
+        "order_number": 7,
+        "timestamp": 1714615550,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0115": {
+        "order_number": 8,
+        "timestamp": 1714615658,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00020",
+    "user_id": "user_035",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0035": {
+        "order_number": 1,
+        "timestamp": 1714618800,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0249": {
+        "order_number": 2,
+        "timestamp": 1714618893,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0161": {
+        "order_number": 3,
+        "timestamp": 1714619001,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0205": {
+        "order_number": 4,
+        "timestamp": 1714619074,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0109": {
+        "order_number": 5,
+        "timestamp": 1714619114,
+        "rating": 1,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0018": {
+        "order_number": 6,
+        "timestamp": 1714619188,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0106": {
+        "order_number": 7,
+        "timestamp": 1714619200,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0068": {
+        "order_number": 8,
+        "timestamp": 1714619309,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0132": {
+        "order_number": 9,
+        "timestamp": 1714619381,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0080": {
+        "order_number": 10,
+        "timestamp": 1714619424,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00021",
+    "user_id": "user_033",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0174": {
+        "order_number": 1,
+        "timestamp": 1714622400,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0124": {
+        "order_number": 2,
+        "timestamp": 1714622474,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0101": {
+        "order_number": 3,
+        "timestamp": 1714622506,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00022",
+    "user_id": "user_038",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0094": {
+        "order_number": 1,
+        "timestamp": 1714626000,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0130": {
+        "order_number": 2,
+        "timestamp": 1714626053,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0022": {
+        "order_number": 3,
+        "timestamp": 1714626166,
+        "rating": 2,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0166": {
+        "order_number": 4,
+        "timestamp": 1714626184,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0248": {
+        "order_number": 5,
+        "timestamp": 1714626201,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00023",
+    "user_id": "user_045",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0096": {
+        "order_number": 1,
+        "timestamp": 1714629600,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0007": {
+        "order_number": 2,
+        "timestamp": 1714629635,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0218": {
+        "order_number": 3,
+        "timestamp": 1714629717,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0203": {
+        "order_number": 4,
+        "timestamp": 1714629790,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0088": {
+        "order_number": 5,
+        "timestamp": 1714629887,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0039": {
+        "order_number": 6,
+        "timestamp": 1714630000,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0074": {
+        "order_number": 7,
+        "timestamp": 1714630072,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0056": {
+        "order_number": 8,
+        "timestamp": 1714630078,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00024",
+    "user_id": "user_003",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0211": {
+        "order_number": 1,
+        "timestamp": 1714633200,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0142": {
+        "order_number": 2,
+        "timestamp": 1714633233,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0010": {
+        "order_number": 3,
+        "timestamp": 1714633286,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0143": {
+        "order_number": 4,
+        "timestamp": 1714633397,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0061": {
+        "order_number": 5,
+        "timestamp": 1714633508,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0223": {
+        "order_number": 6,
+        "timestamp": 1714633537,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0002": {
+        "order_number": 7,
+        "timestamp": 1714633575,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0074": {
+        "order_number": 8,
+        "timestamp": 1714633592,
+        "rating": 2,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0032": {
+        "order_number": 9,
+        "timestamp": 1714633645,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0162": {
+        "order_number": 10,
+        "timestamp": 1714633698,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00025",
+    "user_id": "user_010",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0034": {
+        "order_number": 1,
+        "timestamp": 1714636800,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      },
+      "item_0221": {
+        "order_number": 2,
+        "timestamp": 1714636826,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0218": {
+        "order_number": 3,
+        "timestamp": 1714636896,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00026",
+    "user_id": "user_013",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0247": {
+        "order_number": 1,
+        "timestamp": 1714640400,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0238": {
+        "order_number": 2,
+        "timestamp": 1714640492,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0066": {
+        "order_number": 3,
+        "timestamp": 1714640511,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0125": {
+        "order_number": 4,
+        "timestamp": 1714640579,
+        "rating": 5,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      },
+      "item_0053": {
+        "order_number": 5,
+        "timestamp": 1714640647,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00027",
+    "user_id": "user_014",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0111": {
+        "order_number": 1,
+        "timestamp": 1714644000,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0069": {
+        "order_number": 2,
+        "timestamp": 1714644007,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0075": {
+        "order_number": 3,
+        "timestamp": 1714644031,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0174": {
+        "order_number": 4,
+        "timestamp": 1714644103,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0248": {
+        "order_number": 5,
+        "timestamp": 1714644174,
+        "rating": 2,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0047": {
+        "order_number": 6,
+        "timestamp": 1714644251,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0148": {
+        "order_number": 7,
+        "timestamp": 1714644347,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0231": {
+        "order_number": 8,
+        "timestamp": 1714644373,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00028",
+    "user_id": "user_043",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0115": {
+        "order_number": 1,
+        "timestamp": 1714647600,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0068": {
+        "order_number": 2,
+        "timestamp": 1714647632,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0173": {
+        "order_number": 3,
+        "timestamp": 1714647708,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0233": {
+        "order_number": 4,
+        "timestamp": 1714647753,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0203": {
+        "order_number": 5,
+        "timestamp": 1714647830,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0189": {
+        "order_number": 6,
+        "timestamp": 1714647893,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0204": {
+        "order_number": 7,
+        "timestamp": 1714648005,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0248": {
+        "order_number": 8,
+        "timestamp": 1714648124,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0017": {
+        "order_number": 9,
+        "timestamp": 1714648170,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0247": {
+        "order_number": 10,
+        "timestamp": 1714648253,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00029",
+    "user_id": "user_006",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0204": {
+        "order_number": 1,
+        "timestamp": 1714651200,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0218": {
+        "order_number": 2,
+        "timestamp": 1714651231,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0086": {
+        "order_number": 3,
+        "timestamp": 1714651308,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00030",
+    "user_id": "user_026",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0161": {
+        "order_number": 1,
+        "timestamp": 1714654800,
+        "rating": 5,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0116": {
+        "order_number": 2,
+        "timestamp": 1714654897,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      },
+      "item_0220": {
+        "order_number": 3,
+        "timestamp": 1714654931,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0055": {
+        "order_number": 4,
+        "timestamp": 1714655002,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0079": {
+        "order_number": 5,
+        "timestamp": 1714655096,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00031",
+    "user_id": "user_006",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0083": {
+        "order_number": 1,
+        "timestamp": 1714658400,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0153": {
+        "order_number": 2,
+        "timestamp": 1714658483,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0077": {
+        "order_number": 3,
+        "timestamp": 1714658500,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0110": {
+        "order_number": 4,
+        "timestamp": 1714658602,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0168": {
+        "order_number": 5,
+        "timestamp": 1714658704,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0003": {
+        "order_number": 6,
+        "timestamp": 1714658759,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0194": {
+        "order_number": 7,
+        "timestamp": 1714658877,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0155": {
+        "order_number": 8,
+        "timestamp": 1714658985,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00032",
+    "user_id": "user_012",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0024": {
+        "order_number": 1,
+        "timestamp": 1714662000,
+        "rating": 2,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0165": {
+        "order_number": 2,
+        "timestamp": 1714662099,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0249": {
+        "order_number": 3,
+        "timestamp": 1714662150,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0250": {
+        "order_number": 4,
+        "timestamp": 1714662200,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0131": {
+        "order_number": 5,
+        "timestamp": 1714662312,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0141": {
+        "order_number": 6,
+        "timestamp": 1714662373,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0087": {
+        "order_number": 7,
+        "timestamp": 1714662425,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0176": {
+        "order_number": 8,
+        "timestamp": 1714662433,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0092": {
+        "order_number": 9,
+        "timestamp": 1714662468,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0084": {
+        "order_number": 10,
+        "timestamp": 1714662489,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00033",
+    "user_id": "user_023",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0166": {
+        "order_number": 1,
+        "timestamp": 1714665600,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0241": {
+        "order_number": 2,
+        "timestamp": 1714665613,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0151": {
+        "order_number": 3,
+        "timestamp": 1714665662,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00034",
+    "user_id": "user_028",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0125": {
+        "order_number": 1,
+        "timestamp": 1714669200,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0079": {
+        "order_number": 2,
+        "timestamp": 1714669243,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0035": {
+        "order_number": 3,
+        "timestamp": 1714669317,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0245": {
+        "order_number": 4,
+        "timestamp": 1714669415,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0190": {
+        "order_number": 5,
+        "timestamp": 1714669531,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00035",
+    "user_id": "user_041",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0233": {
+        "order_number": 1,
+        "timestamp": 1714672800,
+        "rating": 1,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0198": {
+        "order_number": 2,
+        "timestamp": 1714672836,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0133": {
+        "order_number": 3,
+        "timestamp": 1714672938,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0056": {
+        "order_number": 4,
+        "timestamp": 1714673015,
+        "rating": 2,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0068": {
+        "order_number": 5,
+        "timestamp": 1714673102,
+        "rating": 2,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0120": {
+        "order_number": 6,
+        "timestamp": 1714673144,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0212": {
+        "order_number": 7,
+        "timestamp": 1714673222,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0091": {
+        "order_number": 8,
+        "timestamp": 1714673246,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00036",
+    "user_id": "user_027",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0204": {
+        "order_number": 1,
+        "timestamp": 1714676400,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0050": {
+        "order_number": 2,
+        "timestamp": 1714676448,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0140": {
+        "order_number": 3,
+        "timestamp": 1714676535,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0053": {
+        "order_number": 4,
+        "timestamp": 1714676596,
+        "rating": 2,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      },
+      "item_0192": {
+        "order_number": 5,
+        "timestamp": 1714676705,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0238": {
+        "order_number": 6,
+        "timestamp": 1714676806,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0060": {
+        "order_number": 7,
+        "timestamp": 1714676876,
+        "rating": 5,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0195": {
+        "order_number": 8,
+        "timestamp": 1714676883,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0047": {
+        "order_number": 9,
+        "timestamp": 1714676902,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0225": {
+        "order_number": 10,
+        "timestamp": 1714676991,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00037",
+    "user_id": "user_045",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0115": {
+        "order_number": 1,
+        "timestamp": 1714680000,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0229": {
+        "order_number": 2,
+        "timestamp": 1714680106,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0040": {
+        "order_number": 3,
+        "timestamp": 1714680144,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00038",
+    "user_id": "user_022",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0195": {
+        "order_number": 1,
+        "timestamp": 1714683600,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0144": {
+        "order_number": 2,
+        "timestamp": 1714683716,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0212": {
+        "order_number": 3,
+        "timestamp": 1714683747,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0075": {
+        "order_number": 4,
+        "timestamp": 1714683752,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0011": {
+        "order_number": 5,
+        "timestamp": 1714683867,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00039",
+    "user_id": "user_018",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0198": {
+        "order_number": 1,
+        "timestamp": 1714687200,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0109": {
+        "order_number": 2,
+        "timestamp": 1714687221,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0092": {
+        "order_number": 3,
+        "timestamp": 1714687263,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0062": {
+        "order_number": 4,
+        "timestamp": 1714687341,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0209": {
+        "order_number": 5,
+        "timestamp": 1714687408,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0208": {
+        "order_number": 6,
+        "timestamp": 1714687455,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0087": {
+        "order_number": 7,
+        "timestamp": 1714687574,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0171": {
+        "order_number": 8,
+        "timestamp": 1714687609,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00040",
+    "user_id": "user_009",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0244": {
+        "order_number": 1,
+        "timestamp": 1714690800,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0119": {
+        "order_number": 2,
+        "timestamp": 1714690919,
+        "rating": 1,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0012": {
+        "order_number": 3,
+        "timestamp": 1714690978,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0152": {
+        "order_number": 4,
+        "timestamp": 1714691061,
+        "rating": 2,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0026": {
+        "order_number": 5,
+        "timestamp": 1714691145,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0069": {
+        "order_number": 6,
+        "timestamp": 1714691156,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0168": {
+        "order_number": 7,
+        "timestamp": 1714691203,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0081": {
+        "order_number": 8,
+        "timestamp": 1714691277,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0247": {
+        "order_number": 9,
+        "timestamp": 1714691379,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0208": {
+        "order_number": 10,
+        "timestamp": 1714691453,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00041",
+    "user_id": "user_014",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0004": {
+        "order_number": 1,
+        "timestamp": 1714694400,
+        "rating": 1,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0009": {
+        "order_number": 2,
+        "timestamp": 1714694446,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0093": {
+        "order_number": 3,
+        "timestamp": 1714694509,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00042",
+    "user_id": "user_041",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0026": {
+        "order_number": 1,
+        "timestamp": 1714698000,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0016": {
+        "order_number": 2,
+        "timestamp": 1714698081,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0013": {
+        "order_number": 3,
+        "timestamp": 1714698166,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0054": {
+        "order_number": 4,
+        "timestamp": 1714698280,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0153": {
+        "order_number": 5,
+        "timestamp": 1714698395,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00043",
     "user_id": "user_019",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
     "list_of_interaction_items": {
-      "item_kopi_001": { "order_number": 1, "timestamp": 1714564800, "rating": 5 },
-      "item_susu_002": { "order_number": 2, "timestamp": 1714564810, "rating": 4 },
-      "item_roti_003": { "order_number": 3, "timestamp": 1714564820, "rating": 5 },
-      "item_selai_004": { "order_number": 4, "timestamp": 1714564830, "rating": null }
+      "item_0134": {
+        "order_number": 1,
+        "timestamp": 1714701600,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0085": {
+        "order_number": 2,
+        "timestamp": 1714701608,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0136": {
+        "order_number": 3,
+        "timestamp": 1714701711,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0023": {
+        "order_number": 4,
+        "timestamp": 1714701808,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0205": {
+        "order_number": 5,
+        "timestamp": 1714701856,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0003": {
+        "order_number": 6,
+        "timestamp": 1714701943,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0147": {
+        "order_number": 7,
+        "timestamp": 1714702023,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0160": {
+        "order_number": 8,
+        "timestamp": 1714702070,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      }
     }
   },
   {
-    "_id": "trx_10020",
-    "user_id": "user_020",
+    "_id": "trx_00044",
+    "user_id": "user_047",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
     "list_of_interaction_items": {
-      "item_beras_011": { "order_number": 1, "timestamp": 1714565800, "rating": 5 },
-      "item_minyak_010": { "order_number": 2, "timestamp": 1714565810, "rating": null },
-      "item_gula_005": { "order_number": 3, "timestamp": 1714565820, "rating": null },
-      "item_kopi_001": { "order_number": 4, "timestamp": 1714565830, "rating": 5 },
-      "item_susu_002": { "order_number": 5, "timestamp": 1714565840, "rating": 4 },
-      "item_roti_003": { "order_number": 6, "timestamp": 1714565850, "rating": 5 },
-      "item_selai_004": { "order_number": 7, "timestamp": 1714565860, "rating": null },
-      "item_teh_006": { "order_number": 8, "timestamp": 1714565870, "rating": 5 },
-      "item_biskuit_007": { "order_number": 9, "timestamp": 1714565880, "rating": 4 },
-      "item_air_015": { "order_number": 10, "timestamp": 1714565890, "rating": null }
+      "item_0141": {
+        "order_number": 1,
+        "timestamp": 1714705200,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0069": {
+        "order_number": 2,
+        "timestamp": 1714705261,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0080": {
+        "order_number": 3,
+        "timestamp": 1714705351,
+        "rating": 2,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0035": {
+        "order_number": 4,
+        "timestamp": 1714705421,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0214": {
+        "order_number": 5,
+        "timestamp": 1714705447,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0061": {
+        "order_number": 6,
+        "timestamp": 1714705489,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0128": {
+        "order_number": 7,
+        "timestamp": 1714705541,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0066": {
+        "order_number": 8,
+        "timestamp": 1714705630,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0164": {
+        "order_number": 9,
+        "timestamp": 1714705728,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0170": {
+        "order_number": 10,
+        "timestamp": 1714705757,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00045",
+    "user_id": "user_038",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0143": {
+        "order_number": 1,
+        "timestamp": 1714708800,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0235": {
+        "order_number": 2,
+        "timestamp": 1714708847,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0176": {
+        "order_number": 3,
+        "timestamp": 1714708877,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00046",
+    "user_id": "user_030",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0132": {
+        "order_number": 1,
+        "timestamp": 1714712400,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0038": {
+        "order_number": 2,
+        "timestamp": 1714712486,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0003": {
+        "order_number": 3,
+        "timestamp": 1714712525,
+        "rating": 2,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0015": {
+        "order_number": 4,
+        "timestamp": 1714712544,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0161": {
+        "order_number": 5,
+        "timestamp": 1714712559,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00047",
+    "user_id": "user_022",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0035": {
+        "order_number": 1,
+        "timestamp": 1714716000,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0143": {
+        "order_number": 2,
+        "timestamp": 1714716117,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0021": {
+        "order_number": 3,
+        "timestamp": 1714716140,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0140": {
+        "order_number": 4,
+        "timestamp": 1714716234,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0213": {
+        "order_number": 5,
+        "timestamp": 1714716249,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0206": {
+        "order_number": 6,
+        "timestamp": 1714716267,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0103": {
+        "order_number": 7,
+        "timestamp": 1714716365,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0049": {
+        "order_number": 8,
+        "timestamp": 1714716410,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00048",
+    "user_id": "user_007",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0107": {
+        "order_number": 1,
+        "timestamp": 1714719600,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0029": {
+        "order_number": 2,
+        "timestamp": 1714719646,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0062": {
+        "order_number": 3,
+        "timestamp": 1714719653,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0001": {
+        "order_number": 4,
+        "timestamp": 1714719770,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0104": {
+        "order_number": 5,
+        "timestamp": 1714719845,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0220": {
+        "order_number": 6,
+        "timestamp": 1714719868,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0196": {
+        "order_number": 7,
+        "timestamp": 1714719957,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0030": {
+        "order_number": 8,
+        "timestamp": 1714719987,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0244": {
+        "order_number": 9,
+        "timestamp": 1714720070,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0066": {
+        "order_number": 10,
+        "timestamp": 1714720091,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00049",
+    "user_id": "user_026",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0062": {
+        "order_number": 1,
+        "timestamp": 1714723200,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0166": {
+        "order_number": 2,
+        "timestamp": 1714723272,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0212": {
+        "order_number": 3,
+        "timestamp": 1714723293,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00050",
+    "user_id": "user_047",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0016": {
+        "order_number": 1,
+        "timestamp": 1714726800,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0088": {
+        "order_number": 2,
+        "timestamp": 1714726882,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0049": {
+        "order_number": 3,
+        "timestamp": 1714726949,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0165": {
+        "order_number": 4,
+        "timestamp": 1714727038,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0169": {
+        "order_number": 5,
+        "timestamp": 1714727134,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00051",
+    "user_id": "user_045",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0145": {
+        "order_number": 1,
+        "timestamp": 1714730400,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0081": {
+        "order_number": 2,
+        "timestamp": 1714730520,
+        "rating": 2,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0076": {
+        "order_number": 3,
+        "timestamp": 1714730626,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0025": {
+        "order_number": 4,
+        "timestamp": 1714730649,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0160": {
+        "order_number": 5,
+        "timestamp": 1714730655,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0078": {
+        "order_number": 6,
+        "timestamp": 1714730746,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0137": {
+        "order_number": 7,
+        "timestamp": 1714730845,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0183": {
+        "order_number": 8,
+        "timestamp": 1714730924,
+        "rating": 2,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00052",
+    "user_id": "user_023",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0192": {
+        "order_number": 1,
+        "timestamp": 1714734000,
+        "rating": 1,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0023": {
+        "order_number": 2,
+        "timestamp": 1714734024,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0075": {
+        "order_number": 3,
+        "timestamp": 1714734058,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0148": {
+        "order_number": 4,
+        "timestamp": 1714734159,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0237": {
+        "order_number": 5,
+        "timestamp": 1714734216,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0050": {
+        "order_number": 6,
+        "timestamp": 1714734240,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      },
+      "item_0107": {
+        "order_number": 7,
+        "timestamp": 1714734349,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0069": {
+        "order_number": 8,
+        "timestamp": 1714734367,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0066": {
+        "order_number": 9,
+        "timestamp": 1714734401,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0181": {
+        "order_number": 10,
+        "timestamp": 1714734446,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00053",
+    "user_id": "user_024",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0227": {
+        "order_number": 1,
+        "timestamp": 1714737600,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0213": {
+        "order_number": 2,
+        "timestamp": 1714737638,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0036": {
+        "order_number": 3,
+        "timestamp": 1714737694,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00054",
+    "user_id": "user_040",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0061": {
+        "order_number": 1,
+        "timestamp": 1714741200,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0054": {
+        "order_number": 2,
+        "timestamp": 1714741290,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0086": {
+        "order_number": 3,
+        "timestamp": 1714741296,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0221": {
+        "order_number": 4,
+        "timestamp": 1714741384,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0180": {
+        "order_number": 5,
+        "timestamp": 1714741496,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00055",
+    "user_id": "user_025",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0113": {
+        "order_number": 1,
+        "timestamp": 1714744800,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0203": {
+        "order_number": 2,
+        "timestamp": 1714744849,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0128": {
+        "order_number": 3,
+        "timestamp": 1714744954,
+        "rating": 1,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0053": {
+        "order_number": 4,
+        "timestamp": 1714745052,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0122": {
+        "order_number": 5,
+        "timestamp": 1714745084,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0205": {
+        "order_number": 6,
+        "timestamp": 1714745140,
+        "rating": 1,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0016": {
+        "order_number": 7,
+        "timestamp": 1714745150,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0095": {
+        "order_number": 8,
+        "timestamp": 1714745223,
+        "rating": 5,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00056",
+    "user_id": "user_039",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0044": {
+        "order_number": 1,
+        "timestamp": 1714748400,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0097": {
+        "order_number": 2,
+        "timestamp": 1714748492,
+        "rating": 2,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0232": {
+        "order_number": 3,
+        "timestamp": 1714748602,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0117": {
+        "order_number": 4,
+        "timestamp": 1714748722,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0225": {
+        "order_number": 5,
+        "timestamp": 1714748730,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0028": {
+        "order_number": 6,
+        "timestamp": 1714748742,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0094": {
+        "order_number": 7,
+        "timestamp": 1714748832,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0111": {
+        "order_number": 8,
+        "timestamp": 1714748892,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0004": {
+        "order_number": 9,
+        "timestamp": 1714748905,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0121": {
+        "order_number": 10,
+        "timestamp": 1714748961,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00057",
+    "user_id": "user_026",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0175": {
+        "order_number": 1,
+        "timestamp": 1714752000,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0213": {
+        "order_number": 2,
+        "timestamp": 1714752005,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0218": {
+        "order_number": 3,
+        "timestamp": 1714752115,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00058",
+    "user_id": "user_025",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0074": {
+        "order_number": 1,
+        "timestamp": 1714755600,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0215": {
+        "order_number": 2,
+        "timestamp": 1714755710,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0028": {
+        "order_number": 3,
+        "timestamp": 1714755751,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0100": {
+        "order_number": 4,
+        "timestamp": 1714755779,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0102": {
+        "order_number": 5,
+        "timestamp": 1714755889,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00059",
+    "user_id": "user_049",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0093": {
+        "order_number": 1,
+        "timestamp": 1714759200,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0088": {
+        "order_number": 2,
+        "timestamp": 1714759316,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0040": {
+        "order_number": 3,
+        "timestamp": 1714759389,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0239": {
+        "order_number": 4,
+        "timestamp": 1714759398,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0106": {
+        "order_number": 5,
+        "timestamp": 1714759446,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0065": {
+        "order_number": 6,
+        "timestamp": 1714759522,
+        "rating": 2,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0120": {
+        "order_number": 7,
+        "timestamp": 1714759559,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0100": {
+        "order_number": 8,
+        "timestamp": 1714759585,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00060",
+    "user_id": "user_028",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0061": {
+        "order_number": 1,
+        "timestamp": 1714762800,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0083": {
+        "order_number": 2,
+        "timestamp": 1714762829,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0148": {
+        "order_number": 3,
+        "timestamp": 1714762866,
+        "rating": 2,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      },
+      "item_0131": {
+        "order_number": 4,
+        "timestamp": 1714762910,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0107": {
+        "order_number": 5,
+        "timestamp": 1714763030,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0093": {
+        "order_number": 6,
+        "timestamp": 1714763125,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0041": {
+        "order_number": 7,
+        "timestamp": 1714763226,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0212": {
+        "order_number": 8,
+        "timestamp": 1714763319,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0037": {
+        "order_number": 9,
+        "timestamp": 1714763343,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0104": {
+        "order_number": 10,
+        "timestamp": 1714763454,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00061",
+    "user_id": "user_007",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0234": {
+        "order_number": 1,
+        "timestamp": 1714766400,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0056": {
+        "order_number": 2,
+        "timestamp": 1714766513,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0086": {
+        "order_number": 3,
+        "timestamp": 1714766604,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00062",
+    "user_id": "user_035",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0156": {
+        "order_number": 1,
+        "timestamp": 1714770000,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0074": {
+        "order_number": 2,
+        "timestamp": 1714770109,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0178": {
+        "order_number": 3,
+        "timestamp": 1714770166,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0091": {
+        "order_number": 4,
+        "timestamp": 1714770275,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0250": {
+        "order_number": 5,
+        "timestamp": 1714770373,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00063",
+    "user_id": "user_010",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0003": {
+        "order_number": 1,
+        "timestamp": 1714773600,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0027": {
+        "order_number": 2,
+        "timestamp": 1714773609,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0227": {
+        "order_number": 3,
+        "timestamp": 1714773701,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0155": {
+        "order_number": 4,
+        "timestamp": 1714773815,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0114": {
+        "order_number": 5,
+        "timestamp": 1714773876,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0084": {
+        "order_number": 6,
+        "timestamp": 1714773901,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0046": {
+        "order_number": 7,
+        "timestamp": 1714773944,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0231": {
+        "order_number": 8,
+        "timestamp": 1714773965,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00064",
+    "user_id": "user_034",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0042": {
+        "order_number": 1,
+        "timestamp": 1714777200,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0197": {
+        "order_number": 2,
+        "timestamp": 1714777228,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0246": {
+        "order_number": 3,
+        "timestamp": 1714777328,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0068": {
+        "order_number": 4,
+        "timestamp": 1714777395,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0168": {
+        "order_number": 5,
+        "timestamp": 1714777479,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0211": {
+        "order_number": 6,
+        "timestamp": 1714777484,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0020": {
+        "order_number": 7,
+        "timestamp": 1714777587,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0006": {
+        "order_number": 8,
+        "timestamp": 1714777627,
+        "rating": 1,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0126": {
+        "order_number": 9,
+        "timestamp": 1714777738,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0190": {
+        "order_number": 10,
+        "timestamp": 1714777756,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00065",
+    "user_id": "user_011",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0145": {
+        "order_number": 1,
+        "timestamp": 1714780800,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0093": {
+        "order_number": 2,
+        "timestamp": 1714780863,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0026": {
+        "order_number": 3,
+        "timestamp": 1714780970,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00066",
+    "user_id": "user_048",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0005": {
+        "order_number": 1,
+        "timestamp": 1714784400,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0218": {
+        "order_number": 2,
+        "timestamp": 1714784468,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0027": {
+        "order_number": 3,
+        "timestamp": 1714784483,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0006": {
+        "order_number": 4,
+        "timestamp": 1714784514,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0060": {
+        "order_number": 5,
+        "timestamp": 1714784606,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00067",
+    "user_id": "user_048",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0094": {
+        "order_number": 1,
+        "timestamp": 1714788000,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0171": {
+        "order_number": 2,
+        "timestamp": 1714788056,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0090": {
+        "order_number": 3,
+        "timestamp": 1714788097,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0082": {
+        "order_number": 4,
+        "timestamp": 1714788108,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0005": {
+        "order_number": 5,
+        "timestamp": 1714788181,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0149": {
+        "order_number": 6,
+        "timestamp": 1714788202,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0211": {
+        "order_number": 7,
+        "timestamp": 1714788263,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0223": {
+        "order_number": 8,
+        "timestamp": 1714788284,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00068",
+    "user_id": "user_032",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0150": {
+        "order_number": 1,
+        "timestamp": 1714791600,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0151": {
+        "order_number": 2,
+        "timestamp": 1714791631,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0236": {
+        "order_number": 3,
+        "timestamp": 1714791741,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0098": {
+        "order_number": 4,
+        "timestamp": 1714791773,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0172": {
+        "order_number": 5,
+        "timestamp": 1714791854,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0096": {
+        "order_number": 6,
+        "timestamp": 1714791956,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0160": {
+        "order_number": 7,
+        "timestamp": 1714792034,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0161": {
+        "order_number": 8,
+        "timestamp": 1714792148,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0062": {
+        "order_number": 9,
+        "timestamp": 1714792166,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0231": {
+        "order_number": 10,
+        "timestamp": 1714792241,
+        "rating": 5,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00069",
+    "user_id": "user_046",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0079": {
+        "order_number": 1,
+        "timestamp": 1714795200,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0002": {
+        "order_number": 2,
+        "timestamp": 1714795274,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      },
+      "item_0022": {
+        "order_number": 3,
+        "timestamp": 1714795348,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00070",
+    "user_id": "user_049",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0179": {
+        "order_number": 1,
+        "timestamp": 1714798800,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0045": {
+        "order_number": 2,
+        "timestamp": 1714798879,
+        "rating": 1,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0051": {
+        "order_number": 3,
+        "timestamp": 1714798898,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0160": {
+        "order_number": 4,
+        "timestamp": 1714798987,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0005": {
+        "order_number": 5,
+        "timestamp": 1714799018,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00071",
+    "user_id": "user_008",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0223": {
+        "order_number": 1,
+        "timestamp": 1714802400,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0201": {
+        "order_number": 2,
+        "timestamp": 1714802518,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0088": {
+        "order_number": 3,
+        "timestamp": 1714802625,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0202": {
+        "order_number": 4,
+        "timestamp": 1714802682,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0047": {
+        "order_number": 5,
+        "timestamp": 1714802737,
+        "rating": 1,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0019": {
+        "order_number": 6,
+        "timestamp": 1714802787,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0174": {
+        "order_number": 7,
+        "timestamp": 1714802863,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0231": {
+        "order_number": 8,
+        "timestamp": 1714802963,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00072",
+    "user_id": "user_039",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0163": {
+        "order_number": 1,
+        "timestamp": 1714806000,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0135": {
+        "order_number": 2,
+        "timestamp": 1714806115,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0217": {
+        "order_number": 3,
+        "timestamp": 1714806201,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0141": {
+        "order_number": 4,
+        "timestamp": 1714806253,
+        "rating": 5,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0027": {
+        "order_number": 5,
+        "timestamp": 1714806325,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0089": {
+        "order_number": 6,
+        "timestamp": 1714806423,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0124": {
+        "order_number": 7,
+        "timestamp": 1714806463,
+        "rating": 2,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0120": {
+        "order_number": 8,
+        "timestamp": 1714806577,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0093": {
+        "order_number": 9,
+        "timestamp": 1714806623,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0117": {
+        "order_number": 10,
+        "timestamp": 1714806704,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00073",
+    "user_id": "user_043",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0131": {
+        "order_number": 1,
+        "timestamp": 1714809600,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0169": {
+        "order_number": 2,
+        "timestamp": 1714809610,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0073": {
+        "order_number": 3,
+        "timestamp": 1714809650,
+        "rating": 5,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00074",
+    "user_id": "user_014",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0088": {
+        "order_number": 1,
+        "timestamp": 1714813200,
+        "rating": 1,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0072": {
+        "order_number": 2,
+        "timestamp": 1714813313,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0225": {
+        "order_number": 3,
+        "timestamp": 1714813425,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0118": {
+        "order_number": 4,
+        "timestamp": 1714813458,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0115": {
+        "order_number": 5,
+        "timestamp": 1714813568,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00075",
+    "user_id": "user_015",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0024": {
+        "order_number": 1,
+        "timestamp": 1714816800,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0211": {
+        "order_number": 2,
+        "timestamp": 1714816863,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0247": {
+        "order_number": 3,
+        "timestamp": 1714816933,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0200": {
+        "order_number": 4,
+        "timestamp": 1714817023,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0008": {
+        "order_number": 5,
+        "timestamp": 1714817136,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0074": {
+        "order_number": 6,
+        "timestamp": 1714817179,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0196": {
+        "order_number": 7,
+        "timestamp": 1714817210,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0053": {
+        "order_number": 8,
+        "timestamp": 1714817294,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00076",
+    "user_id": "user_050",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0122": {
+        "order_number": 1,
+        "timestamp": 1714820400,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0128": {
+        "order_number": 2,
+        "timestamp": 1714820421,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0083": {
+        "order_number": 3,
+        "timestamp": 1714820511,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0100": {
+        "order_number": 4,
+        "timestamp": 1714820582,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0182": {
+        "order_number": 5,
+        "timestamp": 1714820605,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0037": {
+        "order_number": 6,
+        "timestamp": 1714820615,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0148": {
+        "order_number": 7,
+        "timestamp": 1714820635,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0151": {
+        "order_number": 8,
+        "timestamp": 1714820702,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0045": {
+        "order_number": 9,
+        "timestamp": 1714820798,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0020": {
+        "order_number": 10,
+        "timestamp": 1714820838,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00077",
+    "user_id": "user_041",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0229": {
+        "order_number": 1,
+        "timestamp": 1714824000,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0027": {
+        "order_number": 2,
+        "timestamp": 1714824054,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0063": {
+        "order_number": 3,
+        "timestamp": 1714824159,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00078",
+    "user_id": "user_041",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0069": {
+        "order_number": 1,
+        "timestamp": 1714827600,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0201": {
+        "order_number": 2,
+        "timestamp": 1714827718,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0237": {
+        "order_number": 3,
+        "timestamp": 1714827742,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0145": {
+        "order_number": 4,
+        "timestamp": 1714827841,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0108": {
+        "order_number": 5,
+        "timestamp": 1714827887,
+        "rating": 2,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00079",
+    "user_id": "user_014",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0129": {
+        "order_number": 1,
+        "timestamp": 1714831200,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0029": {
+        "order_number": 2,
+        "timestamp": 1714831207,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0100": {
+        "order_number": 3,
+        "timestamp": 1714831281,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0068": {
+        "order_number": 4,
+        "timestamp": 1714831381,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0227": {
+        "order_number": 5,
+        "timestamp": 1714831424,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0044": {
+        "order_number": 6,
+        "timestamp": 1714831450,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0049": {
+        "order_number": 7,
+        "timestamp": 1714831535,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0118": {
+        "order_number": 8,
+        "timestamp": 1714831640,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00080",
+    "user_id": "user_048",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0054": {
+        "order_number": 1,
+        "timestamp": 1714834800,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0036": {
+        "order_number": 2,
+        "timestamp": 1714834851,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0129": {
+        "order_number": 3,
+        "timestamp": 1714834955,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0157": {
+        "order_number": 4,
+        "timestamp": 1714835041,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0050": {
+        "order_number": 5,
+        "timestamp": 1714835118,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0105": {
+        "order_number": 6,
+        "timestamp": 1714835199,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0140": {
+        "order_number": 7,
+        "timestamp": 1714835244,
+        "rating": 2,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0038": {
+        "order_number": 8,
+        "timestamp": 1714835309,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0042": {
+        "order_number": 9,
+        "timestamp": 1714835392,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0197": {
+        "order_number": 10,
+        "timestamp": 1714835429,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00081",
+    "user_id": "user_019",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0075": {
+        "order_number": 1,
+        "timestamp": 1714838400,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0057": {
+        "order_number": 2,
+        "timestamp": 1714838422,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0006": {
+        "order_number": 3,
+        "timestamp": 1714838523,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00082",
+    "user_id": "user_008",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0098": {
+        "order_number": 1,
+        "timestamp": 1714842000,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0135": {
+        "order_number": 2,
+        "timestamp": 1714842052,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0015": {
+        "order_number": 3,
+        "timestamp": 1714842105,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0096": {
+        "order_number": 4,
+        "timestamp": 1714842180,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0102": {
+        "order_number": 5,
+        "timestamp": 1714842220,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00083",
+    "user_id": "user_042",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0187": {
+        "order_number": 1,
+        "timestamp": 1714845600,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0180": {
+        "order_number": 2,
+        "timestamp": 1714845638,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0221": {
+        "order_number": 3,
+        "timestamp": 1714845649,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0076": {
+        "order_number": 4,
+        "timestamp": 1714845712,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0209": {
+        "order_number": 5,
+        "timestamp": 1714845809,
+        "rating": 5,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0126": {
+        "order_number": 6,
+        "timestamp": 1714845837,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0098": {
+        "order_number": 7,
+        "timestamp": 1714845880,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0234": {
+        "order_number": 8,
+        "timestamp": 1714845935,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00084",
+    "user_id": "user_048",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0207": {
+        "order_number": 1,
+        "timestamp": 1714849200,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0185": {
+        "order_number": 2,
+        "timestamp": 1714849223,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0202": {
+        "order_number": 3,
+        "timestamp": 1714849334,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0175": {
+        "order_number": 4,
+        "timestamp": 1714849441,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0018": {
+        "order_number": 5,
+        "timestamp": 1714849554,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0114": {
+        "order_number": 6,
+        "timestamp": 1714849571,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      },
+      "item_0064": {
+        "order_number": 7,
+        "timestamp": 1714849601,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0118": {
+        "order_number": 8,
+        "timestamp": 1714849678,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0075": {
+        "order_number": 9,
+        "timestamp": 1714849795,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0071": {
+        "order_number": 10,
+        "timestamp": 1714849822,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00085",
+    "user_id": "user_050",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0028": {
+        "order_number": 1,
+        "timestamp": 1714852800,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0200": {
+        "order_number": 2,
+        "timestamp": 1714852806,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0089": {
+        "order_number": 3,
+        "timestamp": 1714852831,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00086",
+    "user_id": "user_021",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0022": {
+        "order_number": 1,
+        "timestamp": 1714856400,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0169": {
+        "order_number": 2,
+        "timestamp": 1714856510,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0205": {
+        "order_number": 3,
+        "timestamp": 1714856569,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0214": {
+        "order_number": 4,
+        "timestamp": 1714856590,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0221": {
+        "order_number": 5,
+        "timestamp": 1714856679,
+        "rating": null,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00087",
+    "user_id": "user_025",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0002": {
+        "order_number": 1,
+        "timestamp": 1714860000,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0003": {
+        "order_number": 2,
+        "timestamp": 1714860118,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0014": {
+        "order_number": 3,
+        "timestamp": 1714860236,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0175": {
+        "order_number": 4,
+        "timestamp": 1714860301,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0188": {
+        "order_number": 5,
+        "timestamp": 1714860366,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0016": {
+        "order_number": 6,
+        "timestamp": 1714860391,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0107": {
+        "order_number": 7,
+        "timestamp": 1714860509,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      },
+      "item_0022": {
+        "order_number": 8,
+        "timestamp": 1714860600,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00088",
+    "user_id": "user_043",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0167": {
+        "order_number": 1,
+        "timestamp": 1714863600,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0245": {
+        "order_number": 2,
+        "timestamp": 1714863632,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0037": {
+        "order_number": 3,
+        "timestamp": 1714863688,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0025": {
+        "order_number": 4,
+        "timestamp": 1714863722,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0200": {
+        "order_number": 5,
+        "timestamp": 1714863743,
+        "rating": 5,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0056": {
+        "order_number": 6,
+        "timestamp": 1714863824,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0239": {
+        "order_number": 7,
+        "timestamp": 1714863851,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0230": {
+        "order_number": 8,
+        "timestamp": 1714863894,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0226": {
+        "order_number": 9,
+        "timestamp": 1714863939,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0140": {
+        "order_number": 10,
+        "timestamp": 1714863965,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00089",
+    "user_id": "user_031",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0239": {
+        "order_number": 1,
+        "timestamp": 1714867200,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0028": {
+        "order_number": 2,
+        "timestamp": 1714867242,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0159": {
+        "order_number": 3,
+        "timestamp": 1714867356,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00090",
+    "user_id": "user_039",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0008": {
+        "order_number": 1,
+        "timestamp": 1714870800,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0010": {
+        "order_number": 2,
+        "timestamp": 1714870875,
+        "rating": 2,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0091": {
+        "order_number": 3,
+        "timestamp": 1714870931,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0176": {
+        "order_number": 4,
+        "timestamp": 1714870949,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0248": {
+        "order_number": 5,
+        "timestamp": 1714871016,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00091",
+    "user_id": "user_010",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0185": {
+        "order_number": 1,
+        "timestamp": 1714874400,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0238": {
+        "order_number": 2,
+        "timestamp": 1714874512,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0073": {
+        "order_number": 3,
+        "timestamp": 1714874543,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0187": {
+        "order_number": 4,
+        "timestamp": 1714874563,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0214": {
+        "order_number": 5,
+        "timestamp": 1714874675,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0164": {
+        "order_number": 6,
+        "timestamp": 1714874726,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0223": {
+        "order_number": 7,
+        "timestamp": 1714874801,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0101": {
+        "order_number": 8,
+        "timestamp": 1714874901,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00092",
+    "user_id": "user_005",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0169": {
+        "order_number": 1,
+        "timestamp": 1714878000,
+        "rating": 1,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0233": {
+        "order_number": 2,
+        "timestamp": 1714878092,
+        "rating": 5,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0002": {
+        "order_number": 3,
+        "timestamp": 1714878191,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0103": {
+        "order_number": 4,
+        "timestamp": 1714878208,
+        "rating": 2,
+        "attributes": {
+          "quantity": 2,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0115": {
+        "order_number": 5,
+        "timestamp": 1714878257,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      },
+      "item_0196": {
+        "order_number": 6,
+        "timestamp": 1714878299,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0136": {
+        "order_number": 7,
+        "timestamp": 1714878382,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0076": {
+        "order_number": 8,
+        "timestamp": 1714878449,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0102": {
+        "order_number": 9,
+        "timestamp": 1714878473,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0193": {
+        "order_number": 10,
+        "timestamp": 1714878487,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00093",
+    "user_id": "user_009",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0243": {
+        "order_number": 1,
+        "timestamp": 1714881600,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0187": {
+        "order_number": 2,
+        "timestamp": 1714881612,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0190": {
+        "order_number": 3,
+        "timestamp": 1714881723,
+        "rating": 4,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00094",
+    "user_id": "user_030",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0132": {
+        "order_number": 1,
+        "timestamp": 1714885200,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0146": {
+        "order_number": 2,
+        "timestamp": 1714885233,
+        "rating": 3,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0174": {
+        "order_number": 3,
+        "timestamp": 1714885342,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0068": {
+        "order_number": 4,
+        "timestamp": 1714885455,
+        "rating": 2,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0025": {
+        "order_number": 5,
+        "timestamp": 1714885530,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00095",
+    "user_id": "user_029",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0123": {
+        "order_number": 1,
+        "timestamp": 1714888800,
+        "rating": null,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0227": {
+        "order_number": 2,
+        "timestamp": 1714888834,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0241": {
+        "order_number": 3,
+        "timestamp": 1714888943,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0196": {
+        "order_number": 4,
+        "timestamp": 1714888970,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0120": {
+        "order_number": 5,
+        "timestamp": 1714889056,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0103": {
+        "order_number": 6,
+        "timestamp": 1714889120,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      },
+      "item_0065": {
+        "order_number": 7,
+        "timestamp": 1714889150,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0201": {
+        "order_number": 8,
+        "timestamp": 1714889229,
+        "rating": null,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00096",
+    "user_id": "user_045",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0044": {
+        "order_number": 1,
+        "timestamp": 1714892400,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0236": {
+        "order_number": 2,
+        "timestamp": 1714892436,
+        "rating": 5,
+        "attributes": {
+          "quantity": 5,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0099": {
+        "order_number": 3,
+        "timestamp": 1714892492,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0247": {
+        "order_number": 4,
+        "timestamp": 1714892497,
+        "rating": null,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0183": {
+        "order_number": 5,
+        "timestamp": 1714892518,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0187": {
+        "order_number": 6,
+        "timestamp": 1714892627,
+        "rating": 1,
+        "attributes": {
+          "quantity": 3,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0166": {
+        "order_number": 7,
+        "timestamp": 1714892669,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": null
+        }
+      },
+      "item_0220": {
+        "order_number": 8,
+        "timestamp": 1714892719,
+        "rating": 1,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0045": {
+        "order_number": 9,
+        "timestamp": 1714892806,
+        "rating": 2,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0123": {
+        "order_number": 10,
+        "timestamp": 1714892891,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00097",
+    "user_id": "user_006",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0163": {
+        "order_number": 1,
+        "timestamp": 1714896000,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0226": {
+        "order_number": 2,
+        "timestamp": 1714896056,
+        "rating": 1,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0203": {
+        "order_number": 3,
+        "timestamp": 1714896071,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00098",
+    "user_id": "user_018",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0002": {
+        "order_number": 1,
+        "timestamp": 1714899600,
+        "rating": 2,
+        "attributes": {
+          "quantity": 4,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0174": {
+        "order_number": 2,
+        "timestamp": 1714899691,
+        "rating": 3,
+        "attributes": {
+          "quantity": 2,
+          "promo": null
+        }
+      },
+      "item_0028": {
+        "order_number": 3,
+        "timestamp": 1714899708,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0099": {
+        "order_number": 4,
+        "timestamp": 1714899778,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0156": {
+        "order_number": 5,
+        "timestamp": 1714899801,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "flash_sale"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00099",
+    "user_id": "user_014",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0118": {
+        "order_number": 1,
+        "timestamp": 1714903200,
+        "rating": 5,
+        "attributes": {
+          "quantity": 4,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0173": {
+        "order_number": 2,
+        "timestamp": 1714903223,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0164": {
+        "order_number": 3,
+        "timestamp": 1714903341,
+        "rating": 3,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0042": {
+        "order_number": 4,
+        "timestamp": 1714903390,
+        "rating": 2,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0076": {
+        "order_number": 5,
+        "timestamp": 1714903417,
+        "rating": 1,
+        "attributes": {
+          "quantity": 1,
+          "promo": null
+        }
+      },
+      "item_0107": {
+        "order_number": 6,
+        "timestamp": 1714903496,
+        "rating": 4,
+        "attributes": {
+          "quantity": 2,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0215": {
+        "order_number": 7,
+        "timestamp": 1714903565,
+        "rating": 4,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0159": {
+        "order_number": 8,
+        "timestamp": 1714903640,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": "bundle_discount"
+        }
+      }
+    }
+  },
+  {
+    "_id": "trx_00100",
+    "user_id": "user_007",
+    "status": "available",
+    "assigned_to": null,
+    "assigned_at": null,
+    "annotated_at": null,
+    "list_of_interaction_items": {
+      "item_0094": {
+        "order_number": 1,
+        "timestamp": 1714906800,
+        "rating": null,
+        "attributes": {
+          "quantity": 5,
+          "promo": null
+        }
+      },
+      "item_0098": {
+        "order_number": 2,
+        "timestamp": 1714906907,
+        "rating": 1,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0025": {
+        "order_number": 3,
+        "timestamp": 1714906948,
+        "rating": 5,
+        "attributes": {
+          "quantity": 2,
+          "promo": "flash_sale"
+        }
+      },
+      "item_0011": {
+        "order_number": 4,
+        "timestamp": 1714907040,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0232": {
+        "order_number": 5,
+        "timestamp": 1714907085,
+        "rating": 5,
+        "attributes": {
+          "quantity": 3,
+          "promo": null
+        }
+      },
+      "item_0120": {
+        "order_number": 6,
+        "timestamp": 1714907136,
+        "rating": 3,
+        "attributes": {
+          "quantity": 1,
+          "promo": "free_shipping"
+        }
+      },
+      "item_0106": {
+        "order_number": 7,
+        "timestamp": 1714907176,
+        "rating": 4,
+        "attributes": {
+          "quantity": 4,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0046": {
+        "order_number": 8,
+        "timestamp": 1714907199,
+        "rating": 3,
+        "attributes": {
+          "quantity": 5,
+          "promo": "payday_sale"
+        }
+      },
+      "item_0016": {
+        "order_number": 9,
+        "timestamp": 1714907229,
+        "rating": 4,
+        "attributes": {
+          "quantity": 3,
+          "promo": "bundle_discount"
+        }
+      },
+      "item_0153": {
+        "order_number": 10,
+        "timestamp": 1714907262,
+        "rating": 5,
+        "attributes": {
+          "quantity": 1,
+          "promo": "payday_sale"
+        }
+      }
     }
   }
-
 ]

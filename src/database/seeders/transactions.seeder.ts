@@ -25,11 +25,6 @@ async function bootstrap() {
     getModelToken(Annotator.name),
   );
 
-  const itemCount = await itemsModel.countDocuments();
-
-  if (itemCount === 0) {
-    throw new Error('Items collection is empty. Run seed:items first.');
-  }
 
   console.log('🧹 Cleaning old transactions and annotations...');
 
