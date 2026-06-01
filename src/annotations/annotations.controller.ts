@@ -45,15 +45,18 @@ export class AnnotationsController {
     return this.annotationsService.exportAnnotations(query, res);
   }
 
+  @Get(':annotationId/bundles/:bundleId')
+  @UseGuards(JwtGuard)
+  getBundleDetail(
+    @Param('annotationId') annotationId: string,
+    @Param('bundleId') bundleId: string,
+  ) {
+    return this.annotationsService.getBundleDetail(annotationId, bundleId);
+  }
+
   @Get(':id')
   @UseGuards(JwtGuard)
   getAnnotationDetail(@Param('id') id: string) {
     return this.annotationsService.getAnnotationDetail(id);
-  }
-
-  @Get(':id/bundles')
-  @UseGuards(JwtGuard)
-  getAnnotationBundles(@Param('id') id: string) {
-    return this.annotationsService.getAnnotationBundles(id);
   }
 }

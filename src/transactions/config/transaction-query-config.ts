@@ -1,7 +1,7 @@
 const transactionQueryConfig = {
   searchableFields: ['_id', 'user_id', 'assigned_by'],
 
-  filterableFields: ['status', 'assigned_by', 'user_id'],
+  filterableFields: ['status'],
 
   dynamicItemSearch: true,
 

@@ -321,26 +321,41 @@ export class AnnotationsService {
     return annotationWithMetadata;
   }
 
-  async getAnnotationBundles(id: string) {
+  async getBundleDetail(annotationId: string, bundleId: string) {
     const annotation = await this.annotationsModel
-      .findById(id)
-      .select('bundles transaction_id annotator_id createdAt updatedAt')
+      .findById(annotationId)
       .lean();
 
     if (!annotation) {
       throw new NotFoundException('Annotation not found');
     }
 
+    const bundle = annotation.bundles.find((b) => b.bundle_id === bundleId);
+
+    if (!bundle) {
+      throw new NotFoundException('Bundle not found');
+    }
+
+    const items = await this.itemsModel
+      .find({ _id: { $in: bundle.items } })
+      .lean();
+
+    const itemMap = new Map(items.map((item) => [item._id, item]));
+
     return {
       annotation_id: annotation._id,
       transaction_id: annotation.transaction_id,
       annotator_id: annotation.annotator_id,
-      bundles: annotation.bundles ?? [],
-      total_bundles: annotation.bundles?.length ?? 0,
-      createdAt: annotation.createdAt,
-      updatedAt: annotation.updatedAt,
+      bundle: {
+        ...bundle,
+        items: bundle.items.map((itemId) => ({
+          item_id: itemId,
+          metadata: itemMap.get(itemId) ?? null,
+        })),
+      },
     };
   }
+
   private async attachItemMetadataToAnnotations(annotations: any[]) {
     const itemIds = [
       ...new Set(
