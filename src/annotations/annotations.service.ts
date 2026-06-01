@@ -21,6 +21,7 @@ import {
   TransactionsDocument,
 } from '../transactions/schemas/transaction.schema';
 import { TransactionStatus } from '../transactions/enums/transaction-status.enum';
+import { Items, ItemsDocument } from '../items/schemas/item.schema';
 
 @Injectable()
 export class AnnotationsService {
@@ -33,6 +34,9 @@ export class AnnotationsService {
 
     @InjectModel(Transactions.name)
     private readonly transactionModel: Model<TransactionsDocument>,
+
+    @InjectModel(Items.name)
+    private readonly itemsModel: Model<ItemsDocument>,
 
     @InjectConnection()
     private readonly connection: Connection,
@@ -226,7 +230,7 @@ export class AnnotationsService {
       .sort({ createdAt: -1 })
       .lean();
 
-    return data;
+    return this.attachItemMetadataToAnnotations(data);
   }
 
   private convertToCsv(data: any[]) {
@@ -310,7 +314,11 @@ export class AnnotationsService {
       throw new NotFoundException('Annotation not found');
     }
 
-    return annotation;
+    const [annotationWithMetadata] = await this.attachItemMetadataToAnnotations(
+      [annotation],
+    );
+
+    return annotationWithMetadata;
   }
 
   async getAnnotationBundles(id: string) {
@@ -332,5 +340,29 @@ export class AnnotationsService {
       createdAt: annotation.createdAt,
       updatedAt: annotation.updatedAt,
     };
+  }
+  private async attachItemMetadataToAnnotations(annotations: any[]) {
+    const itemIds = [
+      ...new Set(
+        annotations.flatMap((annotation) =>
+          (annotation.bundles ?? []).flatMap((bundle) => bundle.items ?? []),
+        ),
+      ),
+    ];
+
+    const items = await this.itemsModel.find({ _id: { $in: itemIds } }).lean();
+
+    const itemMap = new Map(items.map((item) => [item._id, item]));
+
+    return annotations.map((annotation) => ({
+      ...annotation,
+      bundles: (annotation.bundles ?? []).map((bundle) => ({
+        ...bundle,
+        items: (bundle.items ?? []).map((itemId) => ({
+          item_id: itemId,
+          metadata: itemMap.get(itemId) ?? null,
+        })),
+      })),
+    }));
   }
 }

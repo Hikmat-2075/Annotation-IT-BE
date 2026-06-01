@@ -13,6 +13,7 @@ import {
   Transactions,
   TransactionsSchema,
 } from '../transactions/schemas/transaction.schema';
+import { Items, ItemsSchema } from '../items/schemas/item.schema';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import {
       { name: Annotations.name, schema: AnnotationsSchema },
       { name: Annotator.name, schema: AnnotatorSchema },
       { name: Transactions.name, schema: TransactionsSchema },
+      { name: Items.name, schema: ItemsSchema },
     ]),
   ],
   controllers: [AnnotationsController],

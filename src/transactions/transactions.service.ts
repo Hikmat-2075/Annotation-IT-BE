@@ -75,22 +75,14 @@ export class TransactionsService {
     };
   }
 
-  async getAllTransactions(query: {
-    status?: string;
-    page?: string;
-    limit?: string;
-  }) {
+  async getAllTransactions(query: TransactionQueryDto) {
     const page = Number(query.page) > 0 ? Number(query.page) : 1;
     const limit = Number(query.limit) > 0 ? Number(query.limit) : 10;
     const skip = (page - 1) * limit;
 
-    const filter: any = {};
+    const filter = this.buildTransactionFilter(query);
 
-    if (query.status) {
-      filter.status = query.status;
-    }
-
-    const [data, total] = await Promise.all([
+    const [transactions, total] = await Promise.all([
       this.transactionModel
         .find(filter)
         .sort({ createdAt: -1 })
@@ -100,6 +92,8 @@ export class TransactionsService {
 
       this.transactionModel.countDocuments(filter),
     ]);
+
+    const data = await this.mapTransactionsResponse(transactions);
 
     return {
       data,
@@ -236,8 +230,9 @@ export class TransactionsService {
       .sort({ assigned_at: -1 })
       .lean();
 
-    return this.mapTransactionsResponse(trxs);
+    return await this.mapTransactionsResponse(trxs);
   }
+
   private async mapTransactionsResponse(transactions: any[]) {
     return Promise.all(
       transactions.map(async (trx) => {
@@ -273,5 +268,32 @@ export class TransactionsService {
         };
       }),
     );
+  }
+
+  private buildTransactionFilter(query: TransactionQueryDto) {
+    const filter: any = {};
+
+    if (query.status) filter.status = query.status;
+    if (query.assigned_by) filter.assigned_by = query.assigned_by;
+    if (query.user_id) filter.user_id = query.user_id;
+
+    if (query.item_id) {
+      filter[`list_of_interaction_items.${query.item_id}`] = { $exists: true };
+    }
+
+    if (query.search) {
+      const regex = new RegExp(query.search, 'i');
+
+      filter.$or = [
+        { _id: regex },
+        { user_id: regex },
+        { assigned_by: regex },
+        {
+          [`list_of_interaction_items.${query.search}`]: { $exists: true },
+        },
+      ];
+    }
+
+    return filter;
   }
 }

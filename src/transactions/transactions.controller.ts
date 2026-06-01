@@ -10,6 +10,7 @@ import {
 import type { Request } from 'express';
 import { TransactionsService } from './transactions.service';
 import { JwtGuard } from '../auth/guards/jwt.guard';
+import { TransactionQueryDto } from './dto/transaction-query.dto';
 
 interface AuthRequest extends Request {
   user: {
@@ -23,16 +24,8 @@ export class TransactionsController {
 
   @Get()
   @UseGuards(JwtGuard)
-  async findAll(
-    @Query('status') status?: string,
-    @Query('page') page?: string,
-    @Query('limit') limit?: string,
-  ) {
-    return this.transactionsService.getAllTransactions({
-      status,
-      page,
-      limit,
-    });
+  findAll(@Query() query: TransactionQueryDto) {
+    return this.transactionsService.getAllTransactions(query);
   }
 
   @Get('my-assigned')
