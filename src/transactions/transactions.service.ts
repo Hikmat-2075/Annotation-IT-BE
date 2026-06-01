@@ -12,6 +12,7 @@ import {
   Annotator,
   AnnotatorDocument,
 } from '../annotators/schema/annotators.schema';
+import { TransactionQueryDto } from './dto/transaction-query.dto';
 
 @Injectable()
 export class TransactionsService {
