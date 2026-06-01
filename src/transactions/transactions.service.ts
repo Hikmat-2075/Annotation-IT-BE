@@ -1,7 +1,12 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Transactions } from './schemas/transaction.schema';
+import { TransactionStatus } from './enums/transaction-status.enum';
 import { Items } from '../items/schemas/item.schema';
 import {
   Annotator,
@@ -20,45 +25,7 @@ export class TransactionsService {
   ) {}
 
   async createAssignment(annotatorId: string) {
-    const annotator = await this.annotatorModel
-      .findById(annotatorId)
-      .select('-password');
-
-    if (!annotator) {
-      throw new NotFoundException('Annotator not found');
-    }
-
-    const currentBatchIds = annotator.current_batch ?? [];
-
-    if (currentBatchIds.length > 0) {
-      return this.transactionModel
-        .find({ _id: { $in: currentBatchIds } })
-        .lean();
-    }
-
-    const completedTasks = annotator.completed_tasks ?? [];
-
-    const transactions = await this.transactionModel.aggregate([
-      {
-        $match: {
-          _id: {
-            $nin: completedTasks,
-          },
-        },
-      },
-      {
-        $sample: {
-          size: 10,
-        },
-      },
-    ]);
-
-    const selectedIds = transactions.map((trx) => trx._id);
-
-    annotator.current_batch = selectedIds;
-    await annotator.save();
-
-    return transactions;
+    return this.assignRandomBatch(annotatorId);
   }
 
   async getTransactionDetail(id: string) {
@@ -96,141 +63,179 @@ export class TransactionsService {
     return {
       _id: trx._id,
       user_id: trx.user_id,
-      items: assembled,
+      status: trx.status,
+      assigned_to: trx.assigned_to,
+      assigned_at: trx.assigned_at,
+      annotated_at: trx.annotated_at,
+      items: assembled.sort(
+        (a, b) =>
+          (a.interaction?.order_number ?? 0) -
+          (b.interaction?.order_number ?? 0),
+      ),
     };
   }
 
-  async getAllTransactions() {
-    const trxs = await this.transactionModel.find().lean();
+  async getAllTransactions(query: {
+    status?: string;
+    page?: string;
+    limit?: string;
+  }) {
+    const page = Number(query.page) > 0 ? Number(query.page) : 1;
+    const limit = Number(query.limit) > 0 ? Number(query.limit) : 10;
+    const skip = (page - 1) * limit;
 
-    // collect all unique item ids across transactions
-    const allItemIds = new Set<string>();
+    const filter: any = {};
 
-    const trxInteractionMaps: Record<string, Record<string, any>> = {};
-
-    for (const trx of trxs) {
-      let interactionObj: Record<string, any> = {};
-
-      if (!trx.list_of_interaction_items) {
-        interactionObj = {};
-      } else if (trx.list_of_interaction_items instanceof Map) {
-        trx.list_of_interaction_items.forEach((v: any, k: string) => {
-          interactionObj[k] = v;
-        });
-      } else {
-        interactionObj = trx.list_of_interaction_items as any;
-      }
-
-      trxInteractionMaps[trx._id] = interactionObj;
-
-      for (const key of Object.keys(interactionObj)) {
-        allItemIds.add(key);
-      }
+    if (query.status) {
+      filter.status = query.status;
     }
 
-    const itemIdsArray = Array.from(allItemIds);
+    const [data, total] = await Promise.all([
+      this.transactionModel
+        .find(filter)
+        .sort({ createdAt: -1 })
+        .skip(skip)
+        .limit(limit)
+        .lean(),
 
-    const items = itemIdsArray.length
-      ? await this.itemsModel.find({ _id: { $in: itemIdsArray } }).lean()
-      : [];
+      this.transactionModel.countDocuments(filter),
+    ]);
 
-    const itemsMap = new Map(items.map((it: any) => [String(it._id), it]));
-
-    const data = trxs.map((trx) => {
-      const interactionObj = trxInteractionMaps[trx._id] ?? {};
-      const itemIds = Object.keys(interactionObj);
-
-      const assembled = itemIds.map((itemId) => ({
-        item_id: itemId,
-        interaction: interactionObj[itemId],
-        metadata: itemsMap.get(itemId) ?? null,
-      }));
-
-      return {
-        _id: trx._id,
-        user_id: trx.user_id,
-        items: assembled,
-      };
-    });
-
-    const meta = {
-      total: trxs.length,
+    return {
+      data,
+      meta: {
+        total,
+        page,
+        limit,
+        total_page: Math.ceil(total / limit),
+      },
     };
-
-    return { data, meta };
   }
 
-  async getAssignedTransactions(annotatorId: string) {
-    const annotator = await this.annotatorModel
-      .findById(annotatorId)
-      .select('-password')
-      .lean();
+  async assignRandomBatch(annotatorId: string) {
+    const annotator = await this.annotatorModel.findById(annotatorId);
 
     if (!annotator) {
       throw new NotFoundException('Annotator not found');
     }
 
-    const currentBatchIds: string[] = annotator.current_batch ?? [];
+    const currentBatch = annotator.current_batch ?? [];
 
-    if (!currentBatchIds.length) {
-      return { data: [], meta: { total: 0 } };
+    if (currentBatch.length > 0) {
+      return this.getAssignedTransactions(annotatorId);
     }
 
+    const selectedIds: string[] = [];
+
+    for (let i = 0; i < 10; i++) {
+      const [sample] = await this.transactionModel.aggregate([
+        {
+          $match: {
+            status: TransactionStatus.AVAILABLE,
+          },
+        },
+        {
+          $sample: {
+            size: 1,
+          },
+        },
+      ]);
+
+      if (!sample) {
+        break;
+      }
+
+      const assigned = await this.transactionModel.findOneAndUpdate(
+        {
+          _id: sample._id,
+          status: TransactionStatus.AVAILABLE,
+        },
+        {
+          $set: {
+            status: TransactionStatus.ASSIGNED,
+            assigned_to: annotatorId,
+            assigned_at: new Date(),
+          },
+        },
+        {
+          new: true,
+        },
+      );
+
+      if (assigned) {
+        selectedIds.push(String(assigned._id));
+      }
+    }
+
+    if (!selectedIds.length) {
+      return [];
+    }
+
+    await this.annotatorModel.updateOne(
+      { _id: annotatorId },
+      {
+        $addToSet: {
+          current_batch: {
+            $each: selectedIds,
+          },
+        },
+      },
+    );
+
+    return this.getAssignedTransactions(annotatorId);
+  }
+
+  async assignSelectedTransaction(annotatorId: string, transactionId: string) {
+    const annotator = await this.annotatorModel.findById(annotatorId);
+
+    if (!annotator) {
+      throw new NotFoundException('Annotator not found');
+    }
+
+    const transaction = await this.transactionModel.findOneAndUpdate(
+      {
+        _id: transactionId,
+        status: TransactionStatus.AVAILABLE,
+      },
+      {
+        $set: {
+          status: TransactionStatus.ASSIGNED,
+          assigned_to: annotatorId,
+          assigned_at: new Date(),
+        },
+      },
+      {
+        new: true,
+      },
+    );
+
+    if (!transaction) {
+      throw new ConflictException(
+        'Transaction is not available or already assigned',
+      );
+    }
+
+    await this.annotatorModel.updateOne(
+      { _id: annotatorId },
+      {
+        $addToSet: {
+          current_batch: transactionId,
+        },
+      },
+    );
+
+    return transaction;
+  }
+
+  async getAssignedTransactions(annotatorId: string) {
     const trxs = await this.transactionModel
-      .find({ _id: { $in: currentBatchIds } })
+      .find({
+        assigned_to: annotatorId,
+        status: TransactionStatus.ASSIGNED,
+      })
+      .sort({ assigned_at: -1 })
       .lean();
 
-    // collect item ids across these transactions
-    const allItemIds = new Set<string>();
-    const trxInteractionMaps: Record<string, Record<string, any>> = {};
-
-    for (const trx of trxs) {
-      let interactionObj: Record<string, any> = {};
-
-      if (!trx.list_of_interaction_items) {
-        interactionObj = {};
-      } else if (trx.list_of_interaction_items instanceof Map) {
-        trx.list_of_interaction_items.forEach((v: any, k: string) => {
-          interactionObj[k] = v;
-        });
-      } else {
-        interactionObj = trx.list_of_interaction_items as any;
-      }
-
-      trxInteractionMaps[trx._id] = interactionObj;
-
-      for (const key of Object.keys(interactionObj)) {
-        allItemIds.add(key);
-      }
-    }
-
-    const itemIdsArray = Array.from(allItemIds);
-
-    const items = itemIdsArray.length
-      ? await this.itemsModel.find({ _id: { $in: itemIdsArray } }).lean()
-      : [];
-
-    const itemsMap = new Map(items.map((it: any) => [String(it._id), it]));
-
-    const data = trxs.map((trx) => {
-      const interactionObj = trxInteractionMaps[trx._id] ?? {};
-      const itemIds = Object.keys(interactionObj);
-
-      const assembled = itemIds.map((itemId) => ({
-        item_id: itemId,
-        interaction: interactionObj[itemId],
-        metadata: itemsMap.get(itemId) ?? null,
-      }));
-
-      return {
-        _id: trx._id,
-        user_id: trx.user_id,
-        items: assembled,
-      };
-    });
-
-    const meta = { total: data.length };
-
-    return { data, meta };
+    return trxs;
   }
 }

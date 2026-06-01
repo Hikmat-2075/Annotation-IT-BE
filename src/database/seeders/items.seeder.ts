@@ -2,11 +2,10 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from '../../app.module';
-
 import { getModelToken } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
+import { AppModule } from '../../app.module';
 import { Items } from '../../items/schemas/item.schema';
 
 async function bootstrap() {
@@ -14,7 +13,7 @@ async function bootstrap() {
 
   const itemsModel = app.get<Model<Items>>(getModelToken(Items.name));
 
-  console.log('🌱 Seeding Items...');
+  console.log('🧹 Cleaning old items...');
 
   await itemsModel.deleteMany({});
 
@@ -26,9 +25,12 @@ async function bootstrap() {
 
   await itemsModel.insertMany(items);
 
-  console.log('✅ Items seeded successfully');
+  console.log(`✅ Items seeded successfully: ${items.length}`);
 
   await app.close();
 }
 
-bootstrap();
+bootstrap().catch((error) => {
+  console.error('❌ Items seeder failed:', error);
+  process.exit(1);
+});

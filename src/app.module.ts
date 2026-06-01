@@ -1,25 +1,34 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+
+import databaseConfig from './config/database.config';
+
 import { ItemsModule } from './items/items.module';
 import { TransactionsModule } from './transactions/transactions.module';
 import { AnnotatorsModule } from './annotators/annotators.module';
 import { AnnotationsModule } from './annotations/annotations.module';
 import { AuthModule } from './auth/auth.module';
-import { MongooseModule } from '@nestjs/mongoose';
-import databaseConfig from './config/database.config';
-import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [databaseConfig],
       envFilePath: '.env',
+      load: [databaseConfig],
     }),
-    MongooseModule.forRoot(
-      process.env.MONGODB_URI || 'mongodb://localhost:27017/annotation_db',
-    ),
+
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        uri: configService.get<string>('database.uri'),
+      }),
+    }),
+
     ItemsModule,
     TransactionsModule,
     AnnotatorsModule,

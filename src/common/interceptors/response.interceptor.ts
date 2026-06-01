@@ -43,8 +43,8 @@ export class ResponseInterceptor<T> implements NestInterceptor<
     return next.handle().pipe(
       map((data) => {
         let message = 'Success';
-
         let responseData = data;
+        let pagination = null;
 
         if (
           data &&
@@ -52,11 +52,30 @@ export class ResponseInterceptor<T> implements NestInterceptor<
           'message' in data &&
           'data' in data
         ) {
-          const responseBody = data as Record<string, unknown>;
+          const responseBody = data as Record<string, any>;
 
           message = String(responseBody.message);
+          responseData = responseBody.data;
 
-          responseData = responseBody.data as T;
+          if ('pagination' in responseBody) {
+            pagination = responseBody.pagination;
+          }
+
+          if ('meta' in responseBody) {
+            pagination = responseBody.meta;
+          }
+        }
+
+        if (
+          data &&
+          typeof data === 'object' &&
+          'data' in data &&
+          'meta' in data
+        ) {
+          const responseBody = data as Record<string, any>;
+
+          responseData = responseBody.data;
+          pagination = responseBody.meta;
         }
 
         const statusLabel =
@@ -66,15 +85,10 @@ export class ResponseInterceptor<T> implements NestInterceptor<
 
         return {
           code: response.statusCode,
-
           status: statusLabel,
-
           message,
-
-          pagination: null,
-
+          pagination,
           data: responseData,
-
           errors: null,
         };
       }),

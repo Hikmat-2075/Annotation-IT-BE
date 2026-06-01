@@ -1,4 +1,12 @@
-import { Controller, Get, Param, Post, Req, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Post,
+  Query,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
 import type { Request } from 'express';
 import { TransactionsService } from './transactions.service';
 import { JwtGuard } from '../auth/guards/jwt.guard';
@@ -13,41 +21,41 @@ interface AuthRequest extends Request {
 export class TransactionsController {
   constructor(private readonly transactionsService: TransactionsService) {}
 
-  @Post('assignments')
+  @Get()
   @UseGuards(JwtGuard)
-  async createAssignment(@Req() req: AuthRequest) {
-    const annotatorId = req.user?.id;
-    const transactions =
-      await this.transactionsService.createAssignment(annotatorId);
-    return {
-      success: true,
-      message: 'Transaction assignment retrieved successfully',
-      data: transactions,
-    };
+  async findAll(
+    @Query('status') status?: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
+  ) {
+    return this.transactionsService.getAllTransactions({
+      status,
+      page,
+      limit,
+    });
+  }
+
+  @Get('my-assigned')
+  @UseGuards(JwtGuard)
+  async getMyAssigned(@Req() req: AuthRequest) {
+    return this.transactionsService.getAssignedTransactions(req.user.id);
+  }
+
+  @Post('assignments/random')
+  @UseGuards(JwtGuard)
+  async assignRandom(@Req() req: AuthRequest) {
+    return this.transactionsService.assignRandomBatch(req.user.id);
+  }
+
+  @Post(':id/assign')
+  @UseGuards(JwtGuard)
+  async assignSelected(@Req() req: AuthRequest, @Param('id') id: string) {
+    return this.transactionsService.assignSelectedTransaction(req.user.id, id);
   }
 
   @Get(':id')
   @UseGuards(JwtGuard)
   async findOne(@Param('id') id: string) {
-    const trx = await this.transactionsService.getTransactionDetail(id);
-    return {
-      success: true,
-      message: 'Transaction retrieved successfully',
-      data: trx,
-    };
-  }
-
-  @Get()
-  @UseGuards(JwtGuard)
-  async findAll(@Req() req: AuthRequest) {
-    const annotatorId = req.user?.id;
-    const result =
-      await this.transactionsService.getAssignedTransactions(annotatorId);
-    return {
-      success: true,
-      message: 'Assigned transactions retrieved successfully',
-      data: result.data,
-      meta: result.meta,
-    };
+    return this.transactionsService.getTransactionDetail(id);
   }
 }

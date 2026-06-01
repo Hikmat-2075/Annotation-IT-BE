@@ -6,8 +6,28 @@
       {
         "bundle_id": "B001",
         "items": [
-          "item_kopi_001",
-          "item_susu_002"
+          {
+            "item_id": "item_kopi_001",
+            "metadata": {
+              "name": "Kopi Arabika 250g",
+              "brand": "Excelso",
+              "category": "Food & Beverage",
+              "price": 50000,
+              "rating": 4.7,
+              "origin": "Toraja"
+            }
+          },
+          {
+            "item_id": "item_susu_002",
+            "metadata": {
+              "name": "Susu UHT Full Cream",
+              "brand": "Ultra Milk",
+              "category": "Beverage",
+              "price": 18000,
+              "rating": 4.6,
+              "flavor": "Full Cream"
+            }
+          }
         ],
         "relation_type": "complementary",
         "context": "Breakfast Combo",
@@ -16,8 +36,26 @@
       {
         "bundle_id": "B002",
         "items": [
-          "item_roti_003",
-          "item_selai_004"
+          {
+            "item_id": "item_roti_003",
+            "metadata": {
+              "name": "Roti Tawar Gandum",
+              "brand": "Sari Roti",
+              "category": "Food",
+              "price": 15000,
+              "rating": 4.5
+            }
+          },
+          {
+            "item_id": "item_selai_004",
+            "metadata": {
+              "name": "Selai Stroberi",
+              "brand": "Morin",
+              "category": "Food",
+              "price": 22000,
+              "rating": 4.4
+            }
+          }
         ],
         "relation_type": "complementary",
         "context": "Morning Meal",
@@ -32,8 +70,27 @@
       {
         "bundle_id": "B003",
         "items": [
-          "item_teh_004",
-          "item_kopi_001"
+          {
+            "item_id": "item_teh_004",
+            "metadata": {
+              "name": "Teh Celup Melati",
+              "brand": "Sosro",
+              "category": "Beverage",
+              "price": 12000,
+              "rating": 4.5
+            }
+          },
+          {
+            "item_id": "item_kopi_001",
+            "metadata": {
+              "name": "Kopi Arabika 250g",
+              "brand": "Excelso",
+              "category": "Food & Beverage",
+              "price": 50000,
+              "rating": 4.7,
+              "origin": "Toraja"
+            }
+          }
         ],
         "relation_type": "similarity",
         "context": "Hot Beverage",
@@ -48,8 +105,26 @@
       {
         "bundle_id": "B004",
         "items": [
-          "item_laptop_005",
-          "item_mouse_006"
+          {
+            "item_id": "item_laptop_005",
+            "metadata": {
+              "name": "Laptop ASUS Vivobook",
+              "brand": "ASUS",
+              "category": "Electronics",
+              "price": 8500000,
+              "rating": 4.8
+            }
+          },
+          {
+            "item_id": "item_mouse_006",
+            "metadata": {
+              "name": "Wireless Mouse Logitech",
+              "brand": "Logitech",
+              "category": "Electronics",
+              "price": 250000,
+              "rating": 4.7
+            }
+          }
         ],
         "relation_type": "contextual",
         "context": "Office Setup",
@@ -58,8 +133,26 @@
       {
         "bundle_id": "B005",
         "items": [
-          "item_kembang_api_007",
-          "item_topi_pesta_008"
+          {
+            "item_id": "item_kembang_api_007",
+            "metadata": {
+              "name": "Kembang Api Tahun Baru",
+              "brand": "HappySpark",
+              "category": "Party Supplies",
+              "price": 75000,
+              "rating": 4.6
+            }
+          },
+          {
+            "item_id": "item_topi_pesta_008",
+            "metadata": {
+              "name": "Topi Pesta Glitter",
+              "brand": "PartyJoy",
+              "category": "Party Supplies",
+              "price": 15000,
+              "rating": 4.3
+            }
+          }
         ],
         "relation_type": "event",
         "context": "New Year Celebration",
