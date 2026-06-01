@@ -236,7 +236,7 @@ export class AnnotationsService {
   private convertToCsv(data: any[]) {
     const rows = data.flatMap((annotation) =>
       annotation.bundles.map((bundle) => ({
-        annotation_id: annotation._id,
+        _id: annotation._id,
         transaction_id: annotation.transaction_id,
         annotator_id: annotation.annotator_id,
         bundle_id: bundle.bundle_id,
@@ -343,7 +343,7 @@ export class AnnotationsService {
     const itemMap = new Map(items.map((item) => [item._id, item]));
 
     return {
-      annotation_id: annotation._id,
+      _id: annotation._id,
       transaction_id: annotation.transaction_id,
       annotator_id: annotation.annotator_id,
       bundle: {
