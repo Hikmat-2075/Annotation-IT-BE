@@ -235,47 +235,47 @@ export class TransactionsService {
   }
 
   private async mapTransactionsResponse(transactions: any[]) {
-  return Promise.all(
-    transactions.map(async (trx) => {
-      const interactionObj =
-        trx.list_of_interaction_items instanceof Map
-          ? Object.fromEntries(trx.list_of_interaction_items)
-          : trx.list_of_interaction_items ?? {};
+    return Promise.all(
+      transactions.map(async (trx) => {
+        const interactionObj =
+          trx.list_of_interaction_items instanceof Map
+            ? Object.fromEntries(trx.list_of_interaction_items)
+            : (trx.list_of_interaction_items ?? {});
 
-      const itemIds = Object.keys(interactionObj);
+        const itemIds = Object.keys(interactionObj);
 
-      const items = await this.itemsModel
-        .find({ _id: { $in: itemIds } })
-        .lean();
+        const items = await this.itemsModel
+          .find({ _id: { $in: itemIds } })
+          .lean();
 
-      const itemsMap = new Map(items.map((item: any) => [item._id, item]));
+        const itemsMap = new Map(items.map((item: any) => [item._id, item]));
 
-      const assembledItems = itemIds
-        .map((itemId) => ({
-          item_id: itemId,
-          interaction: interactionObj[itemId],
-          metadata: itemsMap.get(itemId) ?? null,
-        }))
-        .sort(
-          (a, b) =>
-            (a.interaction?.order_number ?? 0) -
-            (b.interaction?.order_number ?? 0),
-        );
+        const assembledItems = itemIds
+          .map((itemId) => ({
+            item_id: itemId,
+            interaction: interactionObj[itemId],
+            metadata: itemsMap.get(itemId) ?? null,
+          }))
+          .sort(
+            (a, b) =>
+              (a.interaction?.order_number ?? 0) -
+              (b.interaction?.order_number ?? 0),
+          );
 
-      return {
-        _id: trx._id,
-        user_id: trx.user_id,
-        status: trx.status,
-        assigned_by: trx.assigned_by ?? null,
-        assigned_at: trx.assigned_at ?? null,
-        annotated_at: trx.annotated_at ?? null,
-        createdAt: trx.createdAt,
-        updatedAt: trx.updatedAt,
-        items: assembledItems,
-      };
-    }),
-  );
-}
+        return {
+          _id: trx._id,
+          user_id: trx.user_id,
+          status: trx.status,
+          assigned_by: trx.assigned_by ?? null,
+          assigned_at: trx.assigned_at ?? null,
+          annotated_at: trx.annotated_at ?? null,
+          createdAt: trx.createdAt,
+          updatedAt: trx.updatedAt,
+          items: assembledItems,
+        };
+      }),
+    );
+  }
 
   private buildTransactionFilter(query: TransactionQueryDto) {
     const filter: any = {};

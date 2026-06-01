@@ -353,6 +353,8 @@ export class AnnotationsService {
           metadata: itemMap.get(itemId) ?? null,
         })),
       },
+      createdAt: annotation.createdAt,
+      updatedAt: annotation.updatedAt,
     };
   }
 
