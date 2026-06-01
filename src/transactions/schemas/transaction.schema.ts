@@ -43,7 +43,7 @@ export class Transactions {
   status: TransactionStatus;
 
   @Prop({ type: String, default: null, index: true })
-  assigned_to: string | null;
+  assigned_by: string | null;
 
   @Prop({ type: Date, default: null })
   assigned_at: Date | null;

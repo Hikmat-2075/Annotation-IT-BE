@@ -64,7 +64,7 @@ export class TransactionsService {
       _id: trx._id,
       user_id: trx.user_id,
       status: trx.status,
-      assigned_to: trx.assigned_to,
+      assigned_by: trx.assigned_by,
       assigned_at: trx.assigned_at,
       annotated_at: trx.annotated_at,
       items: assembled.sort(
@@ -153,7 +153,7 @@ export class TransactionsService {
         {
           $set: {
             status: TransactionStatus.ASSIGNED,
-            assigned_to: annotatorId,
+            assigned_by: annotatorId,
             assigned_at: new Date(),
           },
         },
@@ -200,7 +200,7 @@ export class TransactionsService {
       {
         $set: {
           status: TransactionStatus.ASSIGNED,
-          assigned_to: annotatorId,
+          assigned_by: annotatorId,
           assigned_at: new Date(),
         },
       },
@@ -230,12 +230,48 @@ export class TransactionsService {
   async getAssignedTransactions(annotatorId: string) {
     const trxs = await this.transactionModel
       .find({
-        assigned_to: annotatorId,
+        assigned_by: annotatorId,
         status: TransactionStatus.ASSIGNED,
       })
       .sort({ assigned_at: -1 })
       .lean();
 
-    return trxs;
+    return this.mapTransactionsResponse(trxs);
+  }
+  private async mapTransactionsResponse(transactions: any[]) {
+    return Promise.all(
+      transactions.map(async (trx) => {
+        const interactionObj =
+          trx.list_of_interaction_items instanceof Map
+            ? Object.fromEntries(trx.list_of_interaction_items)
+            : (trx.list_of_interaction_items ?? {});
+
+        const itemIds = Object.keys(interactionObj);
+
+        const items = await this.itemsModel
+          .find({ _id: { $in: itemIds } })
+          .lean();
+
+        const itemsMap = new Map(items.map((item: any) => [item._id, item]));
+
+        const assembledItems = itemIds
+          .map((itemId) => ({
+            item_id: itemId,
+            interaction: interactionObj[itemId],
+            metadata: itemsMap.get(itemId) ?? null,
+          }))
+          .sort(
+            (a, b) =>
+              (a.interaction?.order_number ?? 0) -
+              (b.interaction?.order_number ?? 0),
+          );
+
+        return {
+          _id: trx._id,
+          user_id: trx.user_id,
+          items: assembledItems,
+        };
+      }),
+    );
   }
 }

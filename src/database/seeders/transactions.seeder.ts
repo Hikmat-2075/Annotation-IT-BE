@@ -25,7 +25,6 @@ async function bootstrap() {
     getModelToken(Annotator.name),
   );
 
-
   console.log('🧹 Cleaning old transactions and annotations...');
 
   await annotationModel.deleteMany({});

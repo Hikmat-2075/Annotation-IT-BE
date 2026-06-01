@@ -83,7 +83,7 @@ export class AnnotationsService {
     }
     if (
       transaction.status !== TransactionStatus.ASSIGNED ||
-      transaction.assigned_to !== annotatorId
+      transaction.assigned_by !== annotatorId
     ) {
       throw new BadRequestException(
         'Transaction is not assigned to this annotator',
