@@ -145,7 +145,7 @@ export class AuthService {
     };
 
     const access_token = await this.jwtService.signAsync(accessPayload, {
-      expiresIn: '15m',
+      expiresIn: '4h',
     });
 
     const refresh_token = await this.jwtService.signAsync(refreshPayload, {

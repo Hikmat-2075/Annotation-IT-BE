@@ -29,7 +29,7 @@ class Bundle {
   @Prop({
     type: String,
     enum: Object.values(RelationType),
-    required: true,
+    required: false,
   })
   relation_type: RelationType;
 

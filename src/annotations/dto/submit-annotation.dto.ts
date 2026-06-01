@@ -12,11 +12,7 @@ import { Type } from 'class-transformer';
 import { RelationType } from '../enums/relation-type.enum';
 import { CorrelationStatus } from '../enums/correlation-status.enum';
 
-class SubmitBundleDto {
-  @IsString()
-  @IsNotEmpty()
-  bundle_id: string;
-
+export class SubmitBundleDto {
   @IsArray()
   @ArrayMinSize(2)
   @IsString({ each: true })
@@ -25,15 +21,15 @@ class SubmitBundleDto {
   @IsEnum(CorrelationStatus)
   correlation_status: CorrelationStatus;
 
+  @IsOptional()
   @IsEnum(RelationType)
-  relation_type: RelationType;
+  relation_type: RelationType | null;
 
   @IsOptional()
   @IsString()
-  context?: string;
+  context?: string | null;
 
   @IsString()
-  @IsNotEmpty()
   @MinLength(5)
   reasoning: string;
 }

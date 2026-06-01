@@ -94,12 +94,12 @@ export class AnnotationsService {
       transaction.list_of_interaction_items ?? {},
     );
 
-    for (const bundle of dto.bundles) {
+    for (const [index, bundle] of dto.bundles.entries()) {
       const uniqueItems = new Set(bundle.items);
 
       if (uniqueItems.size !== bundle.items.length) {
         throw new BadRequestException(
-          `Bundle ${bundle.bundle_id} contains duplicate items`,
+          `Bundle ${`B${String(index + 1).padStart(3, '0')}`} contains duplicate items`,
         );
       }
 
@@ -113,7 +113,7 @@ export class AnnotationsService {
 
       if (!bundle.reasoning || bundle.reasoning.trim().length < 5) {
         throw new BadRequestException(
-          `Reasoning is required for bundle ${bundle.bundle_id}`,
+          `Reasoning is required for bundle ${`B${String(index + 1).padStart(3, '0')}`}`,
         );
       }
     }
@@ -123,8 +123,8 @@ export class AnnotationsService {
     try {
       session.startTransaction();
 
-      const formattedBundles = dto.bundles.map((bundle) => ({
-        bundle_id: bundle.bundle_id,
+      const formattedBundles = dto.bundles.map((bundle, index) => ({
+        bundle_id: `B${String(index + 1).padStart(3, '0')}`,
         items: bundle.items,
         correlation_status: bundle.correlation_status,
         relation_type: bundle.relation_type,
@@ -132,18 +132,13 @@ export class AnnotationsService {
         reasoning: bundle.reasoning.trim(),
       }));
 
-      const createdAnnotations = await this.annotationsModel.create(
-        [
-          {
-            transaction_id: dto.transaction_id,
-            annotator_id: annotatorId,
-            bundles: formattedBundles,
-          },
-        ],
-        { session },
-      );
+      const annotation = new this.annotationsModel({
+        transaction_id: dto.transaction_id,
+        annotator_id: annotatorId,
+        bundles: formattedBundles,
+      });
 
-      const annotation = createdAnnotations[0];
+      await annotation.save({ session });
 
       await this.annotatorModel.updateOne(
         { _id: annotatorId },
