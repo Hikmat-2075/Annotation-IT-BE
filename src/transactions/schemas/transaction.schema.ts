@@ -57,6 +57,9 @@ export class Transactions {
     required: true,
   })
   list_of_interaction_items: Map<string, InteractionItem>;
+
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export const TransactionsSchema = SchemaFactory.createForClass(Transactions);

@@ -68,6 +68,8 @@ export class TransactionsService {
       assigned_by: trx.assigned_by,
       assigned_at: trx.assigned_at,
       annotated_at: trx.annotated_at,
+      createdAt: trx.createdAt,
+      updatedAt: trx.updatedAt,
       items: assembled.sort(
         (a, b) =>
           (a.interaction?.order_number ?? 0) -
