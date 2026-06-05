@@ -395,13 +395,15 @@ export class AnnotationsService {
       _id: annotation._id,
       transaction_id: annotation.transaction_id,
       annotator_id: annotation.annotator_id,
-      bundle: {
-        ...bundle,
-        items: bundle.items.map((itemId) => ({
-          item_id: itemId,
-          metadata: itemMap.get(itemId) ?? null,
-        })),
-      },
+      bundle_id: bundle.bundle_id,
+      items: bundle.items.map((itemId) => ({
+        item_id: itemId,
+        metadata: itemMap.get(itemId) ?? null,
+      })),
+      correlation_status: bundle.correlation_status,
+      relation_type: bundle.relation_type,
+      context: bundle.context ?? null,
+      reasoning: bundle.reasoning,
       createdAt: annotation.createdAt,
       updatedAt: annotation.updatedAt,
     };
