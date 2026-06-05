@@ -207,6 +207,20 @@ export class AnnotationsService {
       filter['bundles.relation_type'] = query.relation_type;
     }
 
+    if (query.correlation_status) {
+      filter['bundles.correlation_status'] = query.correlation_status;
+    }
+
+    if (query.search) {
+      const regex = new RegExp(query.search, 'i');
+
+      filter.$or = [
+        { transaction_id: regex },
+        { 'bundles.reasoning': regex },
+        { 'bundles.context': regex },
+      ];
+    }
+
     if (query.from || query.to) {
       filter.createdAt = {};
 
@@ -225,12 +239,30 @@ export class AnnotationsService {
   async getHistory(query: AnnotationHistoryQueryDto) {
     const filter = this.buildAnnotationFilter(query);
 
-    const data = await this.annotationsModel
+    const page = Number(query.page) > 0 ? Number(query.page) : 1;
+    const limit = Number(query.limit) > 0 ? Number(query.limit) : 10;
+    const skip = (page - 1) * limit;
+
+    const annotations = await this.annotationsModel
       .find(filter)
       .sort({ createdAt: -1 })
       .lean();
 
-    return this.attachItemMetadataToAnnotations(data);
+    const filteredAnnotations = this.filterBundlesByQuery(annotations, query);
+
+    const paginatedData = filteredAnnotations.slice(skip, skip + limit);
+
+    const data = await this.attachItemMetadataToAnnotations(paginatedData);
+
+    return {
+      data,
+      pagination: {
+        total: filteredAnnotations.length,
+        page,
+        limit,
+        total_page: Math.ceil(filteredAnnotations.length / limit),
+      },
+    };
   }
 
   private convertToCsv(data: any[]) {
@@ -381,5 +413,50 @@ export class AnnotationsService {
         })),
       })),
     }));
+  }
+  private filterBundlesByQuery(
+    annotations: any[],
+    query: AnnotationHistoryQueryDto,
+  ) {
+    const searchRegex = query.search ? new RegExp(query.search, 'i') : null;
+
+    return annotations
+      .map((annotation) => {
+        const bundles = (annotation.bundles ?? []).filter((bundle) => {
+          if (
+            query.relation_type &&
+            bundle.relation_type !== query.relation_type
+          ) {
+            return false;
+          }
+
+          if (
+            query.correlation_status &&
+            bundle.correlation_status !== query.correlation_status
+          ) {
+            return false;
+          }
+
+          if (searchRegex) {
+            const matchTransactionId = searchRegex.test(
+              annotation.transaction_id,
+            );
+            const matchReasoning = searchRegex.test(bundle.reasoning ?? '');
+            const matchContext = searchRegex.test(bundle.context ?? '');
+
+            if (!matchTransactionId && !matchReasoning && !matchContext) {
+              return false;
+            }
+          }
+
+          return true;
+        });
+
+        return {
+          ...annotation,
+          bundles,
+        };
+      })
+      .filter((annotation) => annotation.bundles.length > 0);
   }
 }

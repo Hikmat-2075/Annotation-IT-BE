@@ -1,7 +1,12 @@
 import { IsEnum, IsOptional, IsString } from 'class-validator';
 import { RelationType } from '../enums/relation-type.enum';
+import { CorrelationStatus } from '../enums/correlation-status.enum';
 
 export class AnnotationHistoryQueryDto {
+  @IsOptional()
+  @IsString()
+  search?: string;
+
   @IsOptional()
   @IsString()
   transaction_id?: string;
@@ -13,6 +18,10 @@ export class AnnotationHistoryQueryDto {
   @IsOptional()
   @IsEnum(RelationType)
   relation_type?: RelationType;
+
+  @IsOptional()
+  @IsEnum(CorrelationStatus)
+  correlation_status?: CorrelationStatus;
 
   @IsOptional()
   @IsString()

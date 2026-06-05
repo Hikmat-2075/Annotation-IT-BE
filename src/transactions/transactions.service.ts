@@ -219,7 +219,10 @@ export class TransactionsService {
       },
     );
 
-    return transaction;
+    return {
+      message: 'Transaction assigned successfully',
+      data: null,
+    };
   }
 
   async getAssignedTransactions(annotatorId: string) {
