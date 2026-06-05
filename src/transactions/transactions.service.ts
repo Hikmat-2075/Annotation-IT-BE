@@ -239,6 +239,55 @@ export class TransactionsService {
     return await this.mapTransactionsResponse(trxs);
   }
 
+  private calculatePercentage(value: number, total: number) {
+    if (total === 0) return 0;
+    return Number(((value / total) * 100).toFixed(2));
+  }
+
+  async getStatusDistribution() {
+    const result = await this.transactionModel.aggregate([
+      {
+        $group: {
+          _id: '$status',
+          total: { $sum: 1 },
+        },
+      },
+    ]);
+
+    const totalTransactions = result.reduce((sum, item) => sum + item.total, 0);
+
+    const available =
+      result.find((item) => item._id === TransactionStatus.AVAILABLE)?.total ??
+      0;
+
+    const assigned =
+      result.find((item) => item._id === TransactionStatus.ASSIGNED)?.total ??
+      0;
+
+    const annotated =
+      result.find((item) => item._id === TransactionStatus.ANNOTATED)?.total ??
+      0;
+
+    return {
+      message: 'Success',
+      data: {
+        total: totalTransactions,
+        available: {
+          total: available,
+          percentage: this.calculatePercentage(available, totalTransactions),
+        },
+        assigned: {
+          total: assigned,
+          percentage: this.calculatePercentage(assigned, totalTransactions),
+        },
+        annotated: {
+          total: annotated,
+          percentage: this.calculatePercentage(annotated, totalTransactions),
+        },
+      },
+    };
+  }
+
   private async mapTransactionsResponse(transactions: any[]) {
     return Promise.all(
       transactions.map(async (trx) => {

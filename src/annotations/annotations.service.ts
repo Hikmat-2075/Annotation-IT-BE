@@ -22,6 +22,7 @@ import {
 } from '../transactions/schemas/transaction.schema';
 import { TransactionStatus } from '../transactions/enums/transaction-status.enum';
 import { Items, ItemsDocument } from '../items/schemas/item.schema';
+import { CorrelationStatus } from './enums/correlation-status.enum';
 
 @Injectable()
 export class AnnotationsService {
@@ -406,6 +407,86 @@ export class AnnotationsService {
       reasoning: bundle.reasoning,
       createdAt: annotation.createdAt,
       updatedAt: annotation.updatedAt,
+    };
+  }
+
+  private calculatePercentage(value: number, total: number) {
+    if (total === 0) return 0;
+    return Number(((value / total) * 100).toFixed(2));
+  }
+
+  async getCorrelationDistribution() {
+    const result = await this.annotationsModel.aggregate([
+      { $unwind: '$bundles' },
+      {
+        $group: {
+          _id: '$bundles.correlation_status',
+          total: { $sum: 1 },
+        },
+      },
+    ]);
+
+    const totalBundles = result.reduce((sum, item) => sum + item.total, 0);
+
+    const correlated =
+      result.find((item) => item._id === CorrelationStatus.CORRELATED)?.total ??
+      0;
+
+    const notCorrelated =
+      result.find((item) => item._id === CorrelationStatus.NOT_CORRELATED)
+        ?.total ?? 0;
+
+    return {
+      message: 'Success',
+      data: {
+        total: totalBundles,
+        correlated: {
+          total: correlated,
+          percentage: this.calculatePercentage(correlated, totalBundles),
+        },
+        not_correlated: {
+          total: notCorrelated,
+          percentage: this.calculatePercentage(notCorrelated, totalBundles),
+        },
+      },
+    };
+  }
+
+  async getSummaryStatistics() {
+    const annotations = await this.annotationsModel.find().lean();
+
+    const annotatedItems = new Set<string>();
+
+    annotations.forEach((annotation) => {
+      annotation.bundles.forEach((bundle) => {
+        bundle.items.forEach((itemId) => {
+          annotatedItems.add(itemId);
+        });
+      });
+    });
+
+    const itemIds = [...annotatedItems];
+
+    const items = await this.itemsModel
+      .find({
+        _id: { $in: itemIds },
+      })
+      .lean();
+
+    const categories = new Set(
+      items.map((item) => item.attributes?.category).filter(Boolean),
+    );
+
+    return {
+      message: 'Success',
+      data: {
+        total_annotations: annotations.reduce(
+          (sum, annotation) => sum + annotation.bundles.length,
+          0,
+        ),
+        total_items: itemIds.length,
+        total_categories: categories.size,
+      },
     };
   }
 

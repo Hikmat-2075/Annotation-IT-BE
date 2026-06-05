@@ -46,6 +46,12 @@ export class TransactionsController {
     return this.transactionsService.assignSelectedTransaction(req.user.id, id);
   }
 
+  @Get('statistics/status-distribution')
+  @UseGuards(JwtGuard)
+  getStatusDistribution() {
+    return this.transactionsService.getStatusDistribution();
+  }
+
   @Get(':id')
   @UseGuards(JwtGuard)
   async findOne(@Param('id') id: string) {

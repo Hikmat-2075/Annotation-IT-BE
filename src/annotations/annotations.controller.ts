@@ -54,6 +54,18 @@ export class AnnotationsController {
     return this.annotationsService.getBundleDetail(annotationId, bundleId);
   }
 
+  @Get('statistics/correlation-distribution')
+  @UseGuards(JwtGuard)
+  getCorrelationDistribution() {
+    return this.annotationsService.getCorrelationDistribution();
+  }
+
+  @Get('statistics/summary')
+  @UseGuards(JwtGuard)
+  getSummaryStatistics() {
+    return this.annotationsService.getSummaryStatistics();
+  }
+
   @Get(':id')
   @UseGuards(JwtGuard)
   getAnnotationDetail(@Param('id') id: string) {
