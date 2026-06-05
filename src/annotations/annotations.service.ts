@@ -250,18 +250,34 @@ export class AnnotationsService {
 
     const filteredAnnotations = this.filterBundlesByQuery(annotations, query);
 
-    const paginatedData = filteredAnnotations.slice(skip, skip + limit);
+    const flattenedData = filteredAnnotations.flatMap((annotation) =>
+      (annotation.bundles ?? []).map((bundle) => ({
+        _id: annotation._id,
+        transaction_id: annotation.transaction_id,
+        annotator_id: annotation.annotator_id,
+        bundle_id: bundle.bundle_id,
+        items: bundle.items,
+        correlation_status: bundle.correlation_status,
+        relation_type: bundle.relation_type,
+        context: bundle.context ?? null,
+        reasoning: bundle.reasoning,
+        createdAt: annotation.createdAt,
+        updatedAt: annotation.updatedAt,
+      })),
+    );
 
-    const data = await this.attachItemMetadataToAnnotations(paginatedData);
+    const paginatedData = flattenedData.slice(skip, skip + limit);
+
+    const data = await this.attachItemMetadataToHistoryRows(paginatedData);
 
     return {
       message: 'Success',
       data,
       pagination: {
-        total: filteredAnnotations.length,
+        total: flattenedData.length,
         page,
         limit,
-        total_page: Math.ceil(filteredAnnotations.length / limit),
+        total_page: Math.ceil(flattenedData.length / limit),
       },
     };
   }
@@ -415,6 +431,23 @@ export class AnnotationsService {
       })),
     }));
   }
+
+  private async attachItemMetadataToHistoryRows(rows: any[]) {
+    const itemIds = [...new Set(rows.flatMap((row) => row.items ?? []))];
+
+    const items = await this.itemsModel.find({ _id: { $in: itemIds } }).lean();
+
+    const itemMap = new Map(items.map((item) => [item._id, item]));
+
+    return rows.map((row) => ({
+      ...row,
+      items: (row.items ?? []).map((itemId) => ({
+        item_id: itemId,
+        metadata: itemMap.get(itemId) ?? null,
+      })),
+    }));
+  }
+
   private filterBundlesByQuery(
     annotations: any[],
     query: AnnotationHistoryQueryDto,
