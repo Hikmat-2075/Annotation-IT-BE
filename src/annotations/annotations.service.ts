@@ -255,6 +255,7 @@ export class AnnotationsService {
     const data = await this.attachItemMetadataToAnnotations(paginatedData);
 
     return {
+      message: 'Success',
       data,
       pagination: {
         total: filteredAnnotations.length,
