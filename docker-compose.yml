@@ -1,14 +1,17 @@
 services:
   app:
     image: aryfrmnsyh/annotation-it-be:v1
-    container_name: anotation_backend
+    container_name: annotation_backend
+    restart: always
     ports:
       - '3002:3002'
     env_file:
       - .env
-    restart: always
     depends_on:
-      - mongodb
+      mongodb:
+        condition: service_healthy
+    networks:
+      - annotation_network
 
   mongodb:
     image: mongo:latest
@@ -21,6 +24,30 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
     volumes:
       - mongo_data:/data/db
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'mongosh',
+          '--quiet',
+          '-u',
+          '${MONGO_INITDB_ROOT_USERNAME}',
+          '-p',
+          '${MONGO_INITDB_ROOT_PASSWORD}',
+          '--authenticationDatabase',
+          'admin',
+          '--eval',
+          "db.adminCommand('ping')",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - annotation_network
 
 volumes:
   mongo_data:
+
+networks:
+  annotation_network:
+    driver: bridge
