@@ -1,27 +1,12 @@
-
 services:
   app:
     build: .
     container_name: anotation_backend
     ports:
-      - "3002:3000"
+      - "3002:3002"
     env_file:
       - .env
-    depends_on:
-      - mongodb
     volumes:
       - .:/app
       - /app/node_modules
     restart: always
-
-  mongodb:
-    image: mongo:7
-    container_name: anotaion_mongodb
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
-    restart: always
-
-volumes:
-  mongo_data:
