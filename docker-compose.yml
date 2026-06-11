@@ -1,9 +1,9 @@
 services:
   app:
-    image: hikmatarif20/annotation-it-be:v2
+    image: aryfrmnsyh/annotation-it-be:v1
     container_name: anotation_backend
     ports:
-      - "3002:3002"
+      - '3002:3002'
     env_file:
       - .env
     restart: always
@@ -11,11 +11,11 @@ services:
       - mongodb
 
   mongodb:
-    image: mongo:7
+    image: mongo:latest
     container_name: annotation_mongodb
     restart: always
     ports:
-      - "27017:27017"
+      - '27017:27017'
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
