@@ -21,7 +21,13 @@
     "seed:items": "ts-node src/database/seeders/items.seeder.ts",
     "seed:transactions": "ts-node src/database/seeders/transactions.seeder.ts",
     "seed:annotators": "ts-node src/database/seeders/annotators.seeder.ts",
-    "seed:annotations": "ts-node src/database/seeders/annotations.seeder.ts"
+    "seed:annotations": "ts-node src/database/seeders/annotations.seeder.ts",
+    "seed:all": "npm run seed:items && npm run seed:annotators && npm run seed:transactions && npm run seed:annotations",
+    "seed:items:prod": "node dist/database/seeders/items.seeder.js",
+    "seed:transactions:prod": "node dist/database/seeders/transactions.seeder.js",
+    "seed:annotators:prod": "node dist/database/seeders/annotators.seeder.js",
+    "seed:annotations:prod": "node dist/database/seeders/annotations.seeder.js",
+    "seed:all:prod": "npm run seed:items:prod && npm run seed:annotators:prod && npm run seed:transactions:prod && npm run seed:annotations:prod"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",

@@ -13,6 +13,21 @@ services:
     networks:
       - annotation_network
 
+  seed:
+    image: aryfrmnsyh/annotation-it-be:v1
+    container_name: annotation_seed
+    restart: 'no'
+    profiles:
+      - seed
+    env_file:
+      - .env
+    command: npm run seed:all:prod
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - annotation_network
+
   mongodb:
     image: mongo:latest
     container_name: annotation_mongodb
