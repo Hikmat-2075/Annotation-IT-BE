@@ -1,12 +1,9 @@
 services:
   app:
-    build: .
+    image: hikmatarif20/annotation-it-be:v2
     container_name: anotation_backend
     ports:
       - "3002:3002"
     env_file:
       - .env
-    volumes:
-      - .:/app
-      - /app/node_modules
     restart: always
