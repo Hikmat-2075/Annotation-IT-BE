@@ -60,6 +60,19 @@ services:
     networks:
       - annotation_network
 
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: annotation-it-be-tunnel
+    restart: unless-stopped
+
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
+
+    depends_on:
+      - app
+
+    networks:
+      - annotation_network
+
 volumes:
   mongo_data:
 
