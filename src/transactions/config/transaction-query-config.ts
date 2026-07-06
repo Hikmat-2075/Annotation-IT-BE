@@ -1,7 +1,7 @@
-const transactionQueryConfig = {
+export const transactionQueryConfig = {
   searchableFields: ['_id', 'user_id', 'assigned_by'],
 
-  filterableFields: ['status'],
+  filterableFields: ['status', 'assigned_by', 'user_id'],
 
   dynamicItemSearch: true,
 
@@ -20,6 +20,4 @@ const transactionQueryConfig = {
     field: 'createdAt',
     direction: 'desc',
   },
-};
-
-export default transactionQueryConfig;
+} as const;

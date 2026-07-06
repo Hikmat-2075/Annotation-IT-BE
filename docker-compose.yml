@@ -1,28 +1,81 @@
-version: "3.9"
-
 services:
   app:
-    build: .
-    container_name: anotation_backend
+    image: aryfrmnsyh/annotation-it-be:v1
+    container_name: annotation_backend
+    restart: always
     ports:
-      - "3000:3000"
+      - '3002:3002'
     env_file:
       - .env
     depends_on:
-      - mongodb
-    volumes:
-      - .:/app
-      - /app/node_modules
-    restart: always
+      mongodb:
+        condition: service_healthy
+    networks:
+      - annotation_network
+
+  seed:
+    image: aryfrmnsyh/annotation-it-be:v1
+    container_name: annotation_seed
+    restart: 'no'
+    profiles:
+      - seed
+    env_file:
+      - .env
+    command: npm run seed:all:prod
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - annotation_network
 
   mongodb:
-    image: mongo:7
-    container_name: anotaion_mongodb
+    image: mongo:7.0
+    container_name: annotation_mongodb
+    restart: always
     ports:
-      - "27017:27017"
+      - '27018:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
     volumes:
       - mongo_data:/data/db
-    restart: always
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'mongosh',
+          '--quiet',
+          '-u',
+          '${MONGO_INITDB_ROOT_USERNAME}',
+          '-p',
+          '${MONGO_INITDB_ROOT_PASSWORD}',
+          '--authenticationDatabase',
+          'admin',
+          '--eval',
+          "db.adminCommand('ping')",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - annotation_network
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: annotation-it-be-tunnel
+    restart: unless-stopped
+
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
+
+    depends_on:
+      - app
+
+    networks:
+      - annotation_network
 
 volumes:
   mongo_data:
+
+networks:
+  annotation_network:
+    driver: bridge

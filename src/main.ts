@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe, BadRequestException } from '@nestjs/common';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { AllExceptionsFilter } from './common/filters';
 import { ResponseInterceptor } from './common/interceptors';
@@ -42,8 +43,18 @@ async function bootstrap() {
 
   app.enableCors();
 
-  await app.listen(process.env.PORT ?? 3000);
-  console.log(`🚀 Application running on port ${process.env.PORT ?? 3000}`);
+  const swaggerConfig = new DocumentBuilder()
+    .setTitle('Annotation System API')
+    .setDescription('API documentation for the annotation backend service')
+    .setVersion('1.0.0')
+    .addBearerAuth()
+    .build();
+
+  const swaggerDocument = SwaggerModule.createDocument(app, swaggerConfig);
+  SwaggerModule.setup('api/docs', app, swaggerDocument);
+
+  await app.listen(process.env.PORT ?? 3002);
+  console.log(`🚀 Application running on port ${process.env.PORT ?? 3002}`);
 }
 
 bootstrap();

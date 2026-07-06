@@ -13,7 +13,7 @@ import {
   Annotator,
   AnnotatorDocument,
 } from '../annotators/schema/annotators.schema';
-import { CloudinaryService } from '../cloudinary/cloudinary.service';
+import { StorageService } from '../storage';
 
 @Injectable()
 export class AuthService {
@@ -21,7 +21,7 @@ export class AuthService {
     @InjectModel(Annotator.name)
     private annotatorModel: Model<AnnotatorDocument>,
     private jwtService: JwtService,
-    private readonly cloudinaryService: CloudinaryService,
+    private readonly storageService: StorageService,
   ) {}
 
   async register(registerDto: RegisterDto) {
@@ -176,7 +176,7 @@ export class AuthService {
   async uploadProfileImage(id: string, fileBuffer: Buffer) {
     const fileName = `${id}-${Date.now()}`;
 
-    const profileUri = await this.cloudinaryService.uploadImage(
+    const profileUri = await this.storageService.uploadImage(
       fileBuffer,
       fileName,
       'auth/profiles',

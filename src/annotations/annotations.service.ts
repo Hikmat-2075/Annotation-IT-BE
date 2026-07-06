@@ -7,7 +7,11 @@ import {
 import { InjectConnection, InjectModel } from '@nestjs/mongoose';
 import { Connection, Model } from 'mongoose';
 import type { Response } from 'express';
-import { AnnotationHistoryQueryDto } from './dto/annotation-history-query-dto';
+import {
+  AnnotationExportAllUsersQueryDto,
+  AnnotationExportQueryDto,
+  AnnotationHistoryQueryDto,
+} from './dto/annotation-history-query-dto';
 
 import { RelationType } from './enums/relation-type.enum';
 import { SubmitAnnotationDto } from './dto/submit-annotation.dto';
@@ -23,6 +27,14 @@ import {
 import { TransactionStatus } from '../transactions/enums/transaction-status.enum';
 import { Items, ItemsDocument } from '../items/schemas/item.schema';
 import { CorrelationStatus } from './enums/correlation-status.enum';
+import { calculatePercentage, getPagination } from '../common/utils';
+import { buildAnnotationFilter } from './config';
+import {
+  convertAnnotationsToCsv,
+  filterBundlesByQuery,
+  formatSubmittedBundles,
+  validateSubmittedBundles,
+} from './helpers';
 
 @Injectable()
 export class AnnotationsService {
@@ -99,43 +111,14 @@ export class AnnotationsService {
       transaction.list_of_interaction_items ?? {},
     );
 
-    for (const [index, bundle] of dto.bundles.entries()) {
-      const uniqueItems = new Set(bundle.items);
-
-      if (uniqueItems.size !== bundle.items.length) {
-        throw new BadRequestException(
-          `Bundle ${`B${String(index + 1).padStart(3, '0')}`} contains duplicate items`,
-        );
-      }
-
-      for (const itemId of bundle.items) {
-        if (!transactionItemIds.includes(itemId)) {
-          throw new BadRequestException(
-            `Item ${itemId} does not exist in transaction ${dto.transaction_id}`,
-          );
-        }
-      }
-
-      if (!bundle.reasoning || bundle.reasoning.trim().length < 5) {
-        throw new BadRequestException(
-          `Reasoning is required for bundle ${`B${String(index + 1).padStart(3, '0')}`}`,
-        );
-      }
-    }
+    validateSubmittedBundles(dto, transactionItemIds);
 
     const session = await this.connection.startSession();
 
     try {
       session.startTransaction();
 
-      const formattedBundles = dto.bundles.map((bundle, index) => ({
-        bundle_id: `B${String(index + 1).padStart(3, '0')}`,
-        items: bundle.items,
-        correlation_status: bundle.correlation_status,
-        relation_type: bundle.relation_type,
-        context: bundle.context ?? null,
-        reasoning: bundle.reasoning.trim(),
-      }));
+      const formattedBundles = formatSubmittedBundles(dto.bundles);
 
       const annotation = new this.annotationsModel({
         transaction_id: dto.transaction_id,
@@ -193,63 +176,16 @@ export class AnnotationsService {
     }
   }
 
-  private buildAnnotationFilter(query: AnnotationHistoryQueryDto) {
-    const filter: any = {};
-
-    if (query.transaction_id) {
-      filter.transaction_id = query.transaction_id;
-    }
-
-    if (query.annotator_id) {
-      filter.annotator_id = query.annotator_id;
-    }
-
-    if (query.relation_type) {
-      filter['bundles.relation_type'] = query.relation_type;
-    }
-
-    if (query.correlation_status) {
-      filter['bundles.correlation_status'] = query.correlation_status;
-    }
-
-    if (query.search) {
-      const regex = new RegExp(query.search, 'i');
-
-      filter.$or = [
-        { transaction_id: regex },
-        { 'bundles.reasoning': regex },
-        { 'bundles.context': regex },
-      ];
-    }
-
-    if (query.from || query.to) {
-      filter.createdAt = {};
-
-      if (query.from) {
-        filter.createdAt.$gte = new Date(query.from);
-      }
-
-      if (query.to) {
-        filter.createdAt.$lte = new Date(query.to);
-      }
-    }
-
-    return filter;
-  }
-
   async getHistory(query: AnnotationHistoryQueryDto) {
-    const filter = this.buildAnnotationFilter(query);
-
-    const page = Number(query.page) > 0 ? Number(query.page) : 1;
-    const limit = Number(query.limit) > 0 ? Number(query.limit) : 10;
-    const skip = (page - 1) * limit;
+    const filter = buildAnnotationFilter(query);
+    const { page, limit, skip } = getPagination(query);
 
     const annotations = await this.annotationsModel
       .find(filter)
       .sort({ createdAt: -1 })
       .lean();
 
-    const filteredAnnotations = this.filterBundlesByQuery(annotations, query);
+    const filteredAnnotations = filterBundlesByQuery(annotations, query);
 
     const flattenedData = filteredAnnotations.flatMap((annotation) =>
       (annotation.bundles ?? []).map((bundle) => ({
@@ -283,62 +219,42 @@ export class AnnotationsService {
     };
   }
 
-  private convertToCsv(data: any[]) {
-    const rows = data.flatMap((annotation) =>
-      annotation.bundles.map((bundle) => ({
-        _id: annotation._id,
-        transaction_id: annotation.transaction_id,
-        annotator_id: annotation.annotator_id,
-        bundle_id: bundle.bundle_id,
-        items: bundle.items.join('|'),
-        correlation_status: bundle.correlation_status,
-        relation_type: bundle.relation_type,
-        context: bundle.context ?? '',
-        reasoning: bundle.reasoning,
-        createdAt: annotation.createdAt
-          ? new Date(annotation.createdAt).toISOString()
-          : '',
-        updatedAt: annotation.updatedAt
-          ? new Date(annotation.updatedAt).toISOString()
-          : '',
-      })),
-    );
-
-    if (!rows.length) {
-      return '';
-    }
-
-    const headers = Object.keys(rows[0]);
-
-    const escapeCsv = (value: any) => {
-      const stringValue = String(value ?? '');
-      return `"${stringValue.replace(/"/g, '""')}"`;
-    };
-
-    return [
-      headers.join(','),
-      ...rows.map((row) =>
-        headers.map((header) => escapeCsv(row[header])).join(','),
-      ),
-    ].join('\n');
+  async exportAnnotations(query: AnnotationExportQueryDto, res: Response) {
+    return this.sendAnnotationsExport(query, res, 'annotations-export');
   }
 
-  async exportAnnotations(
-    query: AnnotationHistoryQueryDto & { format?: 'json' | 'csv' },
+  async exportAllUsersAnnotations(
+    query: AnnotationExportAllUsersQueryDto,
     res: Response,
   ) {
-    const format = query.format ?? 'json';
-    const filter = this.buildAnnotationFilter(query);
+    const { annotator_id: _annotatorId, ...exportQuery } =
+      query as AnnotationExportQueryDto;
 
-    const data = await this.annotationsModel
+    return this.sendAnnotationsExport(
+      exportQuery,
+      res,
+      'annotations-all-users-export',
+    );
+  }
+
+  private async sendAnnotationsExport(
+    query: AnnotationExportQueryDto,
+    res: Response,
+    filenamePrefix: string,
+  ) {
+    const format = query.format ?? 'json';
+    const filter = buildAnnotationFilter(query);
+
+    const annotations = await this.annotationsModel
       .find(filter)
       .sort({ createdAt: -1 })
       .lean();
 
-    const filename = `annotations-export-${Date.now()}`;
+    const data = filterBundlesByQuery(annotations, query);
+    const filename = `${filenamePrefix}-${Date.now()}`;
 
     if (format === 'csv') {
-      const csv = this.convertToCsv(data);
+      const csv = convertAnnotationsToCsv(data);
 
       res.setHeader('Content-Type', 'text/csv');
       res.setHeader(
@@ -357,6 +273,7 @@ export class AnnotationsService {
 
     return res.send(JSON.stringify(data, null, 2));
   }
+
   async getAnnotationDetail(id: string) {
     const annotation = await this.annotationsModel.findById(id).lean();
 
@@ -410,11 +327,6 @@ export class AnnotationsService {
     };
   }
 
-  private calculatePercentage(value: number, total: number) {
-    if (total === 0) return 0;
-    return Number(((value / total) * 100).toFixed(2));
-  }
-
   async getCorrelationDistribution() {
     const result = await this.annotationsModel.aggregate([
       { $unwind: '$bundles' },
@@ -442,11 +354,11 @@ export class AnnotationsService {
         total: totalBundles,
         correlated: {
           total: correlated,
-          percentage: this.calculatePercentage(correlated, totalBundles),
+          percentage: calculatePercentage(correlated, totalBundles),
         },
         not_correlated: {
           total: notCorrelated,
-          percentage: this.calculatePercentage(notCorrelated, totalBundles),
+          percentage: calculatePercentage(notCorrelated, totalBundles),
         },
       },
     };
@@ -529,51 +441,5 @@ export class AnnotationsService {
         metadata: itemMap.get(itemId) ?? null,
       })),
     }));
-  }
-
-  private filterBundlesByQuery(
-    annotations: any[],
-    query: AnnotationHistoryQueryDto,
-  ) {
-    const searchRegex = query.search ? new RegExp(query.search, 'i') : null;
-
-    return annotations
-      .map((annotation) => {
-        const bundles = (annotation.bundles ?? []).filter((bundle) => {
-          if (
-            query.relation_type &&
-            bundle.relation_type !== query.relation_type
-          ) {
-            return false;
-          }
-
-          if (
-            query.correlation_status &&
-            bundle.correlation_status !== query.correlation_status
-          ) {
-            return false;
-          }
-
-          if (searchRegex) {
-            const matchTransactionId = searchRegex.test(
-              annotation.transaction_id,
-            );
-            const matchReasoning = searchRegex.test(bundle.reasoning ?? '');
-            const matchContext = searchRegex.test(bundle.context ?? '');
-
-            if (!matchTransactionId && !matchReasoning && !matchContext) {
-              return false;
-            }
-          }
-
-          return true;
-        });
-
-        return {
-          ...annotation,
-          bundles,
-        };
-      })
-      .filter((annotation) => annotation.bundles.length > 0);
   }
 }

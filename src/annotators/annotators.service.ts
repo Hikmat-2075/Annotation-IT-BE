@@ -9,14 +9,14 @@ import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 import { Annotator, AnnotatorDocument } from './schema/annotators.schema';
 import { CreateAnnotatorDto, UpdateAnnotatorDto } from './dto';
-import { CloudinaryService } from '../cloudinary/cloudinary.service';
+import { StorageService } from '../storage';
 
 @Injectable()
 export class AnnotatorsService {
   constructor(
     @InjectModel(Annotator.name)
     private readonly annotatorModel: Model<AnnotatorDocument>,
-    private readonly cloudinaryService: CloudinaryService,
+    private readonly storageService: StorageService,
   ) {}
 
   async create(createAnnotatorDto: CreateAnnotatorDto, fileBuffer?: Buffer) {
@@ -35,7 +35,7 @@ export class AnnotatorsService {
 
     if (fileBuffer) {
       const fileName = `${email}-${Date.now()}`;
-      uploadedProfileUri = await this.cloudinaryService.uploadImage(
+      uploadedProfileUri = await this.storageService.uploadImage(
         fileBuffer,
         fileName,
         'annotators/profiles',
@@ -120,7 +120,7 @@ export class AnnotatorsService {
     if (fileBuffer) {
       const fileName = `${id}-${Date.now()}`;
 
-      updateData.profile_uri = await this.cloudinaryService.uploadImage(
+      updateData.profile_uri = await this.storageService.uploadImage(
         fileBuffer,
         fileName,
         'annotators/profiles',
@@ -245,7 +245,7 @@ export class AnnotatorsService {
 
     const fileName = `${annotatorId}-${Date.now()}`;
 
-    const secureUrl = await this.cloudinaryService.uploadImage(
+    const secureUrl = await this.storageService.uploadImage(
       fileBuffer,
       fileName,
       'annotators/update',
