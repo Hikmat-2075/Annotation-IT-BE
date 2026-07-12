@@ -27,12 +27,15 @@ export class AuthService {
   async register(registerDto: RegisterDto) {
     const { name, email, gender, age, password, confirm_password } =
       registerDto;
+    const normalizedEmail = email.trim().toLowerCase();
 
     if (password !== confirm_password) {
       throw new BadRequestException('Passwords do not match');
     }
 
-    const existingAnnotator = await this.annotatorModel.findOne({ email });
+    const existingAnnotator = await this.annotatorModel.findOne({
+      email: normalizedEmail,
+    });
 
     if (existingAnnotator) {
       throw new BadRequestException('Email already registered');
@@ -43,13 +46,10 @@ export class AuthService {
     const newAnnotator = new this.annotatorModel({
       _id: uuidv4(),
       name,
-      email,
+      email: normalizedEmail,
       gender,
       age,
       password: hashedPassword,
-      completed_tasks: [],
-      total_annotated: 0,
-      last_login: null,
     });
 
     const annotator = await newAnnotator.save();
@@ -63,6 +63,7 @@ export class AuthService {
         gender: annotator.gender,
         age: annotator.age,
         completed_tasks: annotator.completed_tasks,
+        current_batch: annotator.current_batch,
         total_annotated: annotator.total_annotated,
         last_login: annotator.last_login,
         profile_uri: annotator.profile_uri,
