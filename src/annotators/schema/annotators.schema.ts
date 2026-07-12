@@ -63,8 +63,7 @@ export class Annotator {
   total_annotated: number;
 
   @Prop({
-    default:
-      'https://res.cloudinary.com/your-cloud-name/image/upload/default-profile.png',
+    default: 'https://example.com/default-profile.png',
   })
   profile_uri: string;
 

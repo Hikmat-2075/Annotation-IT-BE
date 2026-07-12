@@ -13,6 +13,14 @@ import {
   AnnotatorDocument,
 } from '../annotators/schema/annotators.schema';
 import { TransactionQueryDto } from './dto/transaction-query.dto';
+import { calculatePercentage, getPagination } from '../common/utils';
+import { buildTransactionFilter } from './config';
+import {
+  buildItemMap,
+  normalizeInteractionItems,
+  sortByInteractionOrder,
+} from './helpers';
+import { CreateTransactionDto } from './dto/create-transaction.dto';
 
 @Injectable()
 export class TransactionsService {
@@ -29,6 +37,17 @@ export class TransactionsService {
     return this.assignRandomBatch(annotatorId);
   }
 
+  async createMany(dtos: CreateTransactionDto[]) {
+    const transactions = await this.transactionModel.insertMany(dtos);
+
+    return {
+      message: 'Transactions imported successfully',
+      data: {
+        inserted_count: transactions.length,
+      },
+    };
+  }
+
   async getTransactionDetail(id: string) {
     const trx = await this.transactionModel.findOne({ _id: id }).lean();
 
@@ -36,24 +55,12 @@ export class TransactionsService {
       throw new NotFoundException('Transaction not found');
     }
 
-    // list_of_interaction_items may be a Map or plain object depending on how mongoose returns it
-    let interactionObj: Record<string, any> = {};
-
-    if (!trx.list_of_interaction_items) {
-      interactionObj = {};
-    } else if (trx.list_of_interaction_items instanceof Map) {
-      trx.list_of_interaction_items.forEach((v: any, k: string) => {
-        interactionObj[k] = v;
-      });
-    } else {
-      interactionObj = trx.list_of_interaction_items as any;
-    }
-
+    const interactionObj = normalizeInteractionItems(
+      trx.list_of_interaction_items,
+    );
     const itemIds = Object.keys(interactionObj);
-
     const items = await this.itemsModel.find({ _id: { $in: itemIds } }).lean();
-
-    const itemsMap = new Map(items.map((it: any) => [it._id, it]));
+    const itemsMap = buildItemMap(items);
 
     const assembled = itemIds.map((itemId) => ({
       item_id: itemId,
@@ -70,20 +77,13 @@ export class TransactionsService {
       annotated_at: trx.annotated_at,
       createdAt: trx.createdAt,
       updatedAt: trx.updatedAt,
-      items: assembled.sort(
-        (a, b) =>
-          (a.interaction?.order_number ?? 0) -
-          (b.interaction?.order_number ?? 0),
-      ),
+      items: sortByInteractionOrder(assembled),
     };
   }
 
   async getAllTransactions(query: TransactionQueryDto) {
-    const page = Number(query.page) > 0 ? Number(query.page) : 1;
-    const limit = Number(query.limit) > 0 ? Number(query.limit) : 10;
-    const skip = (page - 1) * limit;
-
-    const filter = this.buildTransactionFilter(query);
+    const { page, limit, skip } = getPagination(query);
+    const filter = buildTransactionFilter(query);
 
     const [transactions, total] = await Promise.all([
       this.transactionModel
@@ -239,11 +239,6 @@ export class TransactionsService {
     return await this.mapTransactionsResponse(trxs);
   }
 
-  private calculatePercentage(value: number, total: number) {
-    if (total === 0) return 0;
-    return Number(((value / total) * 100).toFixed(2));
-  }
-
   async getStatusDistribution() {
     const result = await this.transactionModel.aggregate([
       {
@@ -274,15 +269,15 @@ export class TransactionsService {
         total: totalTransactions,
         available: {
           total: available,
-          percentage: this.calculatePercentage(available, totalTransactions),
+          percentage: calculatePercentage(available, totalTransactions),
         },
         assigned: {
           total: assigned,
-          percentage: this.calculatePercentage(assigned, totalTransactions),
+          percentage: calculatePercentage(assigned, totalTransactions),
         },
         annotated: {
           total: annotated,
-          percentage: this.calculatePercentage(annotated, totalTransactions),
+          percentage: calculatePercentage(annotated, totalTransactions),
         },
       },
     };
@@ -291,30 +286,22 @@ export class TransactionsService {
   private async mapTransactionsResponse(transactions: any[]) {
     return Promise.all(
       transactions.map(async (trx) => {
-        const interactionObj =
-          trx.list_of_interaction_items instanceof Map
-            ? Object.fromEntries(trx.list_of_interaction_items)
-            : (trx.list_of_interaction_items ?? {});
-
+        const interactionObj = normalizeInteractionItems(
+          trx.list_of_interaction_items,
+        );
         const itemIds = Object.keys(interactionObj);
-
         const items = await this.itemsModel
           .find({ _id: { $in: itemIds } })
           .lean();
+        const itemsMap = buildItemMap(items);
 
-        const itemsMap = new Map(items.map((item: any) => [item._id, item]));
-
-        const assembledItems = itemIds
-          .map((itemId) => ({
+        const assembledItems = sortByInteractionOrder(
+          itemIds.map((itemId) => ({
             item_id: itemId,
             interaction: interactionObj[itemId],
             metadata: itemsMap.get(itemId) ?? null,
-          }))
-          .sort(
-            (a, b) =>
-              (a.interaction?.order_number ?? 0) -
-              (b.interaction?.order_number ?? 0),
-          );
+          })),
+        );
 
         return {
           _id: trx._id,
@@ -329,32 +316,5 @@ export class TransactionsService {
         };
       }),
     );
-  }
-
-  private buildTransactionFilter(query: TransactionQueryDto) {
-    const filter: any = {};
-
-    if (query.status) filter.status = query.status;
-    if (query.assigned_by) filter.assigned_by = query.assigned_by;
-    if (query.user_id) filter.user_id = query.user_id;
-
-    if (query.item_id) {
-      filter[`list_of_interaction_items.${query.item_id}`] = { $exists: true };
-    }
-
-    if (query.search) {
-      const regex = new RegExp(query.search, 'i');
-
-      filter.$or = [
-        { _id: regex },
-        { user_id: regex },
-        { assigned_by: regex },
-        {
-          [`list_of_interaction_items.${query.search}`]: { $exists: true },
-        },
-      ];
-    }
-
-    return filter;
   }
 }

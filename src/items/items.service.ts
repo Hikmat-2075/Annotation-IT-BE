@@ -15,6 +15,17 @@ export class ItemsService {
     return this.itemsModel.create(dto);
   }
 
+  async createMany(dtos: CreateItemDto[]) {
+    const items = await this.itemsModel.insertMany(dtos);
+
+    return {
+      message: 'Items imported successfully',
+      data: {
+        inserted_count: items.length,
+      },
+    };
+  }
+
   async findAll(): Promise<Items[]> {
     return this.itemsModel.find().exec();
   }

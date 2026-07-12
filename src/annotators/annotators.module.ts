@@ -7,7 +7,7 @@ import {
   Transactions,
   TransactionsSchema,
 } from '../transactions/schemas/transaction.schema';
-import { CloudinaryModule } from '../cloudinary/cloudinary.module';
+import { StorageModule } from '../storage';
 
 @Module({
   imports: [
@@ -15,7 +15,7 @@ import { CloudinaryModule } from '../cloudinary/cloudinary.module';
       { name: Annotator.name, schema: AnnotatorSchema },
       { name: Transactions.name, schema: TransactionsSchema },
     ]),
-    CloudinaryModule,
+    StorageModule,
   ],
   providers: [AnnotatorsService],
   controllers: [AnnotatorsController],

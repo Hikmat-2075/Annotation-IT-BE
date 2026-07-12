@@ -30,6 +30,7 @@
     "seed:all:prod": "npm run seed:items:prod && npm run seed:annotators:prod && npm run seed:transactions:prod && npm run seed:annotations:prod"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1067.0",
     "@nestjs/common": "^11.0.1",
     "@nestjs/config": "^4.0.4",
     "@nestjs/core": "^11.0.1",
@@ -41,11 +42,9 @@
     "bcrypt": "^6.0.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.15.1",
-    "cloudinary": "^1.41.3",
     "joi": "^18.2.1",
     "mongoose": "^9.6.2",
     "multer": "^2.1.1",
-    "multer-storage-cloudinary": "^4.0.0",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "reflect-metadata": "^0.2.2",

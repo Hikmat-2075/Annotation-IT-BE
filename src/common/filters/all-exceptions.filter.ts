@@ -5,9 +5,9 @@ import {
   HttpException,
   HttpStatus,
 } from '@nestjs/common';
-
 import { Response } from 'express';
-import { statusCodes } from '../common/status-codes';
+import { statusCodes } from '../constants';
+import { buildApiResponse } from '../utils';
 
 interface ExceptionResponse {
   message?: string | string[];
@@ -51,13 +51,8 @@ export class AllExceptionsFilter implements ExceptionFilter {
       Object.values(statusCodes).find((item) => item.code === status)
         ?.message || error;
 
-    response.status(status).json({
-      code: status,
-      status: statusLabel,
-      message,
-      pagination: null,
-      data: null,
-      errors,
-    });
+    response
+      .status(status)
+      .json(buildApiResponse(status, statusLabel, message, null, errors));
   }
 }
