@@ -5,7 +5,8 @@ interface PaginationQuery {
 
 export const getPagination = (query: PaginationQuery) => {
   const page = Number(query.page) > 0 ? Number(query.page) : 1;
-  const limit = Number(query.limit) > 0 ? Number(query.limit) : 10;
+  const requestedLimit = Number(query.limit) > 0 ? Number(query.limit) : 10;
+  const limit = Math.min(requestedLimit, 100);
 
   return {
     page,

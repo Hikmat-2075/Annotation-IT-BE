@@ -1,5 +1,6 @@
 import { AnnotationHistoryQueryDto } from '../dto/annotation-history-query-dto';
 import { annotationQueryConfig } from './annotation-query.config';
+import { escapeRegExp } from '../../common/utils';
 
 export const buildAnnotationFilter = (query: AnnotationHistoryQueryDto) => {
   const filter: any = {};
@@ -21,7 +22,7 @@ export const buildAnnotationFilter = (query: AnnotationHistoryQueryDto) => {
   }
 
   if (query.search) {
-    const regex = new RegExp(query.search, 'i');
+    const regex = new RegExp(escapeRegExp(query.search), 'i');
 
     filter.$or = annotationQueryConfig.searchableFields.map((field) => ({
       [field]: regex,

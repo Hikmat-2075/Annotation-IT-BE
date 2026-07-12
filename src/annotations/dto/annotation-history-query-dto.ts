@@ -1,4 +1,10 @@
-import { IsEnum, IsIn, IsOptional, IsString } from 'class-validator';
+import {
+  IsDateString,
+  IsEnum,
+  IsIn,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 import { ApiPropertyOptional, OmitType } from '@nestjs/swagger';
 import { RelationType } from '../enums/relation-type.enum';
 import { CorrelationStatus } from '../enums/correlation-status.enum';
@@ -31,12 +37,12 @@ export class AnnotationHistoryQueryDto {
 
   @ApiPropertyOptional({ example: '2026-01-01' })
   @IsOptional()
-  @IsString()
+  @IsDateString()
   from?: string;
 
   @ApiPropertyOptional({ example: '2026-12-31' })
   @IsOptional()
-  @IsString()
+  @IsDateString()
   to?: string;
 
   @ApiPropertyOptional({ example: '1' })

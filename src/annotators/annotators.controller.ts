@@ -61,12 +61,10 @@ export class AnnotatorsController {
     @Body() createAnnotatorDto: CreateAnnotatorDto,
     @UploadedFile() file: Multer.File | undefined,
   ) {
-    const annotator = await this.annotatorsService.create(
+    return this.annotatorsService.create(
       createAnnotatorDto,
       file?.buffer,
     );
-
-    return buildSuccessResponse('Annotator created successfully', annotator);
   }
 
   @Get()
@@ -129,13 +127,11 @@ export class AnnotatorsController {
     @Body() updateAnnotatorDto: UpdateAnnotatorDto,
     @UploadedFile() file: Multer.File | undefined,
   ) {
-    const annotator = await this.annotatorsService.update(
+    return this.annotatorsService.update(
       id,
       updateAnnotatorDto,
       file?.buffer,
     );
-
-    return buildSuccessResponse('Annotator updated successfully', annotator);
   }
 
   @Delete(':id')

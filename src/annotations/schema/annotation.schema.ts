@@ -21,6 +21,7 @@ class Bundle {
   items: string[];
 
   @Prop({
+    type: String,
     required: true,
     enum: Object.values(CorrelationStatus),
   })

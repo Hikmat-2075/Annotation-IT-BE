@@ -28,6 +28,10 @@ export class ResponseInterceptor<T> implements NestInterceptor<
 
     return next.handle().pipe(
       map((data) => {
+        if (response.headersSent) {
+          return data as ApiResponseBody;
+        }
+
         const {
           message,
           data: responseData,

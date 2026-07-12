@@ -35,6 +35,7 @@ export class Transactions {
   user_id: string;
 
   @Prop({
+    type: String,
     required: true,
     enum: Object.values(TransactionStatus),
     default: TransactionStatus.AVAILABLE,

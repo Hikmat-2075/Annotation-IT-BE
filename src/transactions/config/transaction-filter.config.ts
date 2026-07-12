@@ -1,5 +1,6 @@
 import { TransactionQueryDto } from '../dto/transaction-query.dto';
 import { transactionQueryConfig } from './transaction-query-config';
+import { escapeRegExp, isSafeMongoPathSegment } from '../../common/utils';
 
 export const buildTransactionFilter = (query: TransactionQueryDto) => {
   const filter: any = {};
@@ -17,16 +18,19 @@ export const buildTransactionFilter = (query: TransactionQueryDto) => {
   }
 
   if (query.search) {
-    const regex = new RegExp(query.search, 'i');
+    const regex = new RegExp(escapeRegExp(query.search), 'i');
 
     filter.$or = [
       ...transactionQueryConfig.searchableFields.map((field) => ({
         [field]: regex,
       })),
-      {
-        [`list_of_interaction_items.${query.search}`]: { $exists: true },
-      },
     ];
+
+    if (isSafeMongoPathSegment(query.search)) {
+      filter.$or.push({
+        [`list_of_interaction_items.${query.search}`]: { $exists: true },
+      });
+    }
   }
 
   return filter;

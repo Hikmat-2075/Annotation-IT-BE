@@ -8,6 +8,7 @@ import {
   Min,
   IsUrl,
   IsPositive,
+  ValidateNested,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
@@ -112,13 +113,14 @@ class AttributesDto {
 }
 
 export class CreateItemDto {
-  @ApiPropertyOptional({ example: 'item_0001' })
-  @IsOptional()
+  @ApiProperty({ example: 'item_0001' })
   @IsString({ message: '_id harus berupa string' })
-  _id?: string;
+  @IsNotEmpty({ message: '_id tidak boleh kosong' })
+  _id: string;
 
   @ApiProperty({ type: AttributesDto })
   @IsObject({ message: 'Attributes wajib berupa object' })
+  @ValidateNested()
   @Type(() => AttributesDto)
   attributes: AttributesDto;
 }

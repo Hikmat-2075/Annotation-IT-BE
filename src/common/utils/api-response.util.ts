@@ -39,11 +39,27 @@ export const normalizeSuccessPayload = <T>(
     };
   }
 
+  if (Array.isArray(payload)) {
+    return {
+      message: 'Success',
+      data: payload,
+      pagination: null,
+    };
+  }
+
   const responseBody = payload as SuccessPayload;
   const hasMessage = 'message' in responseBody;
   const hasData = 'data' in responseBody;
   const hasPagination = 'pagination' in responseBody;
   const hasMeta = 'meta' in responseBody;
+
+  if (!hasMessage && !hasData && !hasPagination && !hasMeta) {
+    return {
+      message: 'Success',
+      data: payload,
+      pagination: null,
+    };
+  }
 
   return {
     message: hasMessage ? String(responseBody.message) : 'Success',

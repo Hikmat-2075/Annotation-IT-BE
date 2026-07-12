@@ -8,7 +8,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 import { RegisterDto, LoginDto } from './dto';
-import { v4 as uuidv4 } from 'uuid';
+import { randomUUID } from 'crypto';
 import {
   Annotator,
   AnnotatorDocument,
@@ -44,7 +44,7 @@ export class AuthService {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newAnnotator = new this.annotatorModel({
-      _id: uuidv4(),
+      _id: randomUUID(),
       name,
       email: normalizedEmail,
       gender,

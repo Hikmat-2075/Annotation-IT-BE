@@ -4,6 +4,7 @@ import {
   ArgumentsHost,
   HttpException,
   HttpStatus,
+  Logger,
 } from '@nestjs/common';
 import { Response } from 'express';
 import { statusCodes } from '../constants';
@@ -17,6 +18,8 @@ interface ExceptionResponse {
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
+  private readonly logger = new Logger(AllExceptionsFilter.name);
+
   catch(exception: unknown, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
@@ -43,8 +46,10 @@ export class AllExceptionsFilter implements ExceptionFilter {
           error = responseObj.error.toUpperCase().replace(/ /g, '_');
         }
       }
-    } else if (exception instanceof Error) {
-      message = exception.message;
+    } else {
+      const details =
+        exception instanceof Error ? exception.stack : String(exception);
+      this.logger.error('Unhandled exception', details);
     }
 
     const statusLabel =

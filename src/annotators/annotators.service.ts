@@ -7,6 +7,7 @@ import {
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
+import { randomUUID } from 'crypto';
 import { Annotator, AnnotatorDocument } from './schema/annotators.schema';
 import { CreateAnnotatorDto, UpdateAnnotatorDto } from './dto';
 import { StorageService } from '../storage';
@@ -22,8 +23,11 @@ export class AnnotatorsService {
   async create(createAnnotatorDto: CreateAnnotatorDto, fileBuffer?: Buffer) {
     const { name, email, password, gender, age, profile_uri } =
       createAnnotatorDto;
+    const normalizedEmail = email.trim().toLowerCase();
 
-    const existingAnnotator = await this.annotatorModel.findOne({ email });
+    const existingAnnotator = await this.annotatorModel.findOne({
+      email: normalizedEmail,
+    });
 
     if (existingAnnotator) {
       throw new ConflictException('Email already registered');
@@ -43,8 +47,9 @@ export class AnnotatorsService {
     }
 
     const createData: Partial<Annotator> = {
+      _id: randomUUID(),
       name,
-      email,
+      email: normalizedEmail,
       gender,
       age,
       password: hashedPassword,
@@ -89,7 +94,7 @@ export class AnnotatorsService {
 
   async findByEmail(email: string) {
     return this.annotatorModel.findOne({
-      email,
+      email: email.trim().toLowerCase(),
     });
   }
 
@@ -98,23 +103,30 @@ export class AnnotatorsService {
     updateAnnotatorDto: UpdateAnnotatorDto,
     fileBuffer?: Buffer,
   ) {
-    const { email } = updateAnnotatorDto;
+    const { email, password, ...fields } = updateAnnotatorDto;
+    const normalizedEmail = email?.trim().toLowerCase();
 
     const updateData: Partial<UpdateAnnotatorDto> & {
       profile_uri?: string;
     } = {
-      ...updateAnnotatorDto,
+      ...fields,
     };
 
-    if (email) {
+    if (normalizedEmail) {
       const existingAnnotator = await this.annotatorModel.findOne({
-        email,
+        email: normalizedEmail,
         _id: { $ne: id },
       });
 
       if (existingAnnotator) {
         throw new ConflictException('Email already in use');
       }
+
+      updateData.email = normalizedEmail;
+    }
+
+    if (password) {
+      updateData.password = await bcrypt.hash(password, 10);
     }
 
     if (fileBuffer) {

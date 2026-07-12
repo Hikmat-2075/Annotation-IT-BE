@@ -28,6 +28,7 @@ export class Annotator {
   email: string;
 
   @Prop({
+    type: String,
     required: true,
     enum: Gender,
   })
