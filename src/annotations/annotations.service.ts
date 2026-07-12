@@ -4,8 +4,8 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { InjectConnection, InjectModel } from '@nestjs/mongoose';
-import { ClientSession, Connection, Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import type { Response } from 'express';
 import {
   AnnotationExportAllUsersQueryDto,
@@ -50,9 +50,6 @@ export class AnnotationsService {
 
     @InjectModel(Items.name)
     private readonly itemsModel: Model<ItemsDocument>,
-
-    @InjectConnection()
-    private readonly connection: Connection,
   ) {}
 
   getRelationTypes() {
@@ -113,27 +110,7 @@ export class AnnotationsService {
 
     validateSubmittedBundles(dto, transactionItemIds);
 
-    let annotation: AnnotationsDocument;
-
-    if (!(await this.supportsTransactions())) {
-      annotation = await this.persistAnnotation(annotatorId, dto);
-    } else {
-      const session = await this.connection.startSession();
-
-      try {
-        session.startTransaction();
-        annotation = await this.persistAnnotation(annotatorId, dto, session);
-        await session.commitTransaction();
-      } catch (error) {
-        if (session.inTransaction()) {
-          await session.abortTransaction();
-        }
-
-        throw error;
-      } finally {
-        await session.endSession();
-      }
-    }
+    const annotation = await this.persistAnnotation(annotatorId, dto);
 
     return {
       message: 'Annotation submitted successfully',
@@ -151,49 +128,70 @@ export class AnnotationsService {
   private async persistAnnotation(
     annotatorId: string,
     dto: SubmitAnnotationDto,
-    session?: ClientSession,
   ) {
-    const options = session ? { session } : {};
     const annotation = new this.annotationsModel({
       transaction_id: dto.transaction_id,
       annotator_id: annotatorId,
       bundles: formatSubmittedBundles(dto.bundles),
     });
 
-    await annotation.save(options);
+    await annotation.save();
 
-    await this.annotatorModel.updateOne(
-      { _id: annotatorId },
-      {
-        $addToSet: { completed_tasks: dto.transaction_id },
-        $pull: { current_batch: dto.transaction_id },
-        $inc: { total_annotated: 1 },
-      },
-      options,
-    );
+    let annotatorUpdated = false;
 
-    await this.transactionModel.updateOne(
-      { _id: dto.transaction_id },
-      {
-        $set: {
-          status: TransactionStatus.ANNOTATED,
-          annotated_at: new Date(),
+    try {
+      const annotatorResult = await this.annotatorModel.updateOne(
+        {
+          _id: annotatorId,
+          completed_tasks: { $ne: dto.transaction_id },
         },
-      },
-      options,
-    );
+        {
+          $addToSet: { completed_tasks: dto.transaction_id },
+          $pull: { current_batch: dto.transaction_id },
+          $inc: { total_annotated: 1 },
+        },
+      );
 
-    return annotation;
-  }
+      if (!annotatorResult.matchedCount) {
+        throw new ConflictException('Transaction already annotated');
+      }
 
-  private async supportsTransactions() {
-    if (!this.connection.db) {
-      return false;
+      annotatorUpdated = true;
+
+      const transactionResult = await this.transactionModel.updateOne(
+        {
+          _id: dto.transaction_id,
+          status: TransactionStatus.ASSIGNED,
+          assigned_by: annotatorId,
+        },
+        {
+          $set: {
+            status: TransactionStatus.ANNOTATED,
+            annotated_at: new Date(),
+          },
+        },
+      );
+
+      if (!transactionResult.matchedCount) {
+        throw new ConflictException('Transaction is no longer assigned');
+      }
+    } catch (error) {
+      if (annotatorUpdated) {
+        await this.annotatorModel.updateOne(
+          { _id: annotatorId },
+          {
+            $pull: { completed_tasks: dto.transaction_id },
+            $addToSet: { current_batch: dto.transaction_id },
+            $inc: { total_annotated: -1 },
+          },
+        );
+      }
+
+      await this.annotationsModel.deleteOne({ _id: annotation._id });
+      throw error;
     }
 
-    const hello = await this.connection.db.admin().command({ hello: 1 });
-
-    return Boolean(hello.setName || hello.msg === 'isdbgrid');
+    return annotation;
   }
 
   async getHistory(query: AnnotationHistoryQueryDto) {
