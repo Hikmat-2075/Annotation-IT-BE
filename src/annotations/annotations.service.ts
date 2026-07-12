@@ -5,7 +5,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { InjectConnection, InjectModel } from '@nestjs/mongoose';
-import { Connection, Model } from 'mongoose';
+import { ClientSession, Connection, Model } from 'mongoose';
 import type { Response } from 'express';
 import {
   AnnotationExportAllUsersQueryDto,
@@ -114,66 +114,85 @@ export class AnnotationsService {
     validateSubmittedBundles(dto, transactionItemIds);
 
     const session = await this.connection.startSession();
+    let annotation: AnnotationsDocument;
 
     try {
       session.startTransaction();
-
-      const formattedBundles = formatSubmittedBundles(dto.bundles);
-
-      const annotation = new this.annotationsModel({
-        transaction_id: dto.transaction_id,
-        annotator_id: annotatorId,
-        bundles: formattedBundles,
-      });
-
-      await annotation.save({ session });
-
-      await this.annotatorModel.updateOne(
-        { _id: annotatorId },
-        {
-          $addToSet: {
-            completed_tasks: dto.transaction_id,
-          },
-          $pull: {
-            current_batch: dto.transaction_id,
-          },
-          $inc: {
-            total_annotated: 1,
-          },
-        },
-        { session },
-      );
-
-      await this.transactionModel.updateOne(
-        { _id: dto.transaction_id },
-        {
-          $set: {
-            status: TransactionStatus.ANNOTATED,
-            annotated_at: new Date(),
-          },
-        },
-        { session },
-      );
-
+      annotation = await this.persistAnnotation(annotatorId, dto, session);
       await session.commitTransaction();
-
-      return {
-        message: 'Annotation submitted successfully',
-        data: {
-          _id: annotation._id,
-          transaction_id: annotation.transaction_id,
-          annotator_id: annotation.annotator_id,
-          bundles: annotation.bundles,
-          createdAt: annotation.createdAt,
-          updatedAt: annotation.updatedAt,
-        },
-      };
     } catch (error) {
-      await session.abortTransaction();
-      throw error;
+      if (session.inTransaction()) {
+        await session.abortTransaction();
+      }
+
+      if (!this.isTransactionUnsupported(error)) {
+        throw error;
+      }
+
+      annotation = await this.persistAnnotation(annotatorId, dto);
     } finally {
       await session.endSession();
     }
+
+    return {
+      message: 'Annotation submitted successfully',
+      data: {
+        _id: annotation._id,
+        transaction_id: annotation.transaction_id,
+        annotator_id: annotation.annotator_id,
+        bundles: annotation.bundles,
+        createdAt: annotation.createdAt,
+        updatedAt: annotation.updatedAt,
+      },
+    };
+  }
+
+  private async persistAnnotation(
+    annotatorId: string,
+    dto: SubmitAnnotationDto,
+    session?: ClientSession,
+  ) {
+    const options = session ? { session } : {};
+    const annotation = new this.annotationsModel({
+      transaction_id: dto.transaction_id,
+      annotator_id: annotatorId,
+      bundles: formatSubmittedBundles(dto.bundles),
+    });
+
+    await annotation.save(options);
+
+    await this.annotatorModel.updateOne(
+      { _id: annotatorId },
+      {
+        $addToSet: { completed_tasks: dto.transaction_id },
+        $pull: { current_batch: dto.transaction_id },
+        $inc: { total_annotated: 1 },
+      },
+      options,
+    );
+
+    await this.transactionModel.updateOne(
+      { _id: dto.transaction_id },
+      {
+        $set: {
+          status: TransactionStatus.ANNOTATED,
+          annotated_at: new Date(),
+        },
+      },
+      options,
+    );
+
+    return annotation;
+  }
+
+  private isTransactionUnsupported(error: unknown) {
+    if (!error || typeof error !== 'object' || !('code' in error)) {
+      return false;
+    }
+
+    const code = (error as { code?: unknown }).code;
+
+    return code === 20 || code === 303;
   }
 
   async getHistory(query: AnnotationHistoryQueryDto) {
