@@ -113,25 +113,26 @@ export class AnnotationsService {
 
     validateSubmittedBundles(dto, transactionItemIds);
 
-    const session = await this.connection.startSession();
     let annotation: AnnotationsDocument;
 
-    try {
-      session.startTransaction();
-      annotation = await this.persistAnnotation(annotatorId, dto, session);
-      await session.commitTransaction();
-    } catch (error) {
-      if (session.inTransaction()) {
-        await session.abortTransaction();
-      }
-
-      if (!this.isTransactionUnsupported(error)) {
-        throw error;
-      }
-
+    if (!(await this.supportsTransactions())) {
       annotation = await this.persistAnnotation(annotatorId, dto);
-    } finally {
-      await session.endSession();
+    } else {
+      const session = await this.connection.startSession();
+
+      try {
+        session.startTransaction();
+        annotation = await this.persistAnnotation(annotatorId, dto, session);
+        await session.commitTransaction();
+      } catch (error) {
+        if (session.inTransaction()) {
+          await session.abortTransaction();
+        }
+
+        throw error;
+      } finally {
+        await session.endSession();
+      }
     }
 
     return {
@@ -185,14 +186,14 @@ export class AnnotationsService {
     return annotation;
   }
 
-  private isTransactionUnsupported(error: unknown) {
-    if (!error || typeof error !== 'object' || !('code' in error)) {
+  private async supportsTransactions() {
+    if (!this.connection.db) {
       return false;
     }
 
-    const code = (error as { code?: unknown }).code;
+    const hello = await this.connection.db.admin().command({ hello: 1 });
 
-    return code === 20 || code === 303;
+    return Boolean(hello.setName || hello.msg === 'isdbgrid');
   }
 
   async getHistory(query: AnnotationHistoryQueryDto) {
