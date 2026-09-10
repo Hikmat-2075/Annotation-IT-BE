@@ -1,98 +1,100 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Annotation-IT-BE
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Backend API untuk sistem anotasi data transaksi e-grocery, digunakan untuk membangun dataset pelabelan **bundle produk** (kelompok item yang sering dibeli bersamaan) beserta jenis relasinya. Anotator menganalisis riwayat transaksi pengguna, mengelompokkan item ke dalam bundle, dan memberi label tipe korelasi (komplementer, kemiripan, kontekstual, atau berbasis event) lengkap dengan alasannya. Hasil anotasi dapat diekspor (JSON/CSV) untuk keperluan pelatihan model rekomendasi produk.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+> Proyek ini dikembangkan sebagai bagian dari program **Kerja Praktik**.
 
-## Description
+## Tech Stack
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **Framework:** NestJS 11 (TypeScript)
+- **Database:** MongoDB (Mongoose 9)
+- **Autentikasi:** JWT (access & refresh token) dengan Passport
+- **Validasi:** class-validator, class-transformer, Joi (validasi environment variable)
+- **Penyimpanan file:** AWS S3 (S3-compatible object storage) via `@aws-sdk/client-s3` + Multer untuk upload foto profil
+- **Dokumentasi API:** Swagger (`@nestjs/swagger`)
+- **Keamanan:** bcrypt untuk hashing password
+- **Deployment:** Docker & Docker Compose
+- **Testing:** Jest
 
-## Project setup
+## Fitur Utama
 
-```bash
-$ npm install
-```
+**Autentikasi & Profil**
+- Registrasi & login annotator dengan JWT (access + refresh token)
+- Lihat dan perbarui profil, termasuk unggah foto profil ke S3
 
-## Compile and run the project
+**Manajemen Annotator**
+- CRUD data annotator lengkap dengan foto profil
+- Statistik performa per annotator
 
-```bash
-# development
-$ npm run start
+**Manajemen Item & Transaksi**
+- Import data item produk (bulk)
+- Import data transaksi pengguna (bulk)
+- Penugasan transaksi ke annotator secara acak (batch) maupun manual
+- Melihat transaksi yang sedang ditugaskan ke annotator yang login
+- Statistik distribusi status transaksi
 
-# watch mode
-$ npm run start:dev
+**Proses Anotasi**
+- Pengajuan (submit) hasil anotasi bundle untuk suatu transaksi, termasuk penentuan status korelasi dan tipe relasi antar item
+- Riwayat anotasi per annotator maupun seluruh pengguna
+- Ekspor hasil anotasi ke format JSON dan CSV
+- Statistik distribusi korelasi dan ringkasan hasil anotasi
 
-# production mode
-$ npm run start:prod
-```
+**Data Seeding**
+- Script seeder untuk mengisi data awal (items, annotators, transactions, annotations) baik untuk lingkungan development maupun production
 
-## Run tests
+## Instalasi & Menjalankan Proyek
 
-```bash
-# unit tests
-$ npm run test
+### Prasyarat
+- Node.js
+- MongoDB (lokal atau via Docker)
+- Akun/endpoint S3-compatible storage (untuk fitur upload gambar)
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Langkah instalasi
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+# 1. Clone repository
+git clone <repository-url>
+cd backend-anotation
+
+# 2. Install dependencies
+npm install
+
+# 3. Salin file environment dan sesuaikan nilainya
+cp .env.example .env
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Variabel environment yang perlu diisi di `.env`: `PORT`, `DATABASE_URI`, `MONGO_INITDB_ROOT_USERNAME`, `MONGO_INITDB_ROOT_PASSWORD`, `JWT_SECRET`, `JWT_EXPIRATION`, `NODE_ENV`, `S3_REGION`, `S3_ENDPOINT`, `S3_ACCESS_KEY_ID`, `S3_SECRET_ACCESS_KEY`, `S3_BUCKET`, `S3_PUBLIC_URL`, `APP_NAME`, `APP_VERSION`.
 
-## Resources
+```bash
+# 4. Jalankan dalam mode development
+npm run start:dev
 
-Check out a few resources that may come in handy when working with NestJS:
+# 5. (Opsional) Isi data awal
+npm run seed:all
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### Menjalankan dengan Docker
 
-## Support
+```bash
+docker compose up -d
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Build untuk production
 
-## Stay in touch
+```bash
+npm run build
+npm run start:prod
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Struktur Folder Singkat
 
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+```
+src/
+├── auth/             # Registrasi, login, refresh token, profil
+├── annotators/        # Manajemen data annotator
+├── items/             # Manajemen data item produk
+├── transactions/       # Manajemen & penugasan transaksi
+├── annotations/        # Proses & hasil anotasi bundle
+└── database/
+    └── seeders/         # Script pengisian data awal
+```
